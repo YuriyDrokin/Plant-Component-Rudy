@@ -1,0 +1,961 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+
+  <div class="row " style="padding-top: 100px;">
+    <div class="col-md-4">
+      <div style="width: 500px; height: 505px; ">
+        <canvas id="barChart"></canvas>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div style="width: 500px; height: 505px;">
+        <canvas id="barChart2"></canvas>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div style="width: 500px; height: 505px;">
+        <canvas id="barChart3"></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="col-lg-4">1</div>
+    <div class="col-lg-4">2</div>
+
+    <div class="col-lg-4">3</div>
+  </div>
+
+  <div class="container-fluid">
+
+    <form>
+      <div class="form-row align-items-center">
+        <div class="col-lg-2 my-1">
+          <label>Set days (starting from today):</label>
+
+        </div>
+        <div class="col-lg-4 my-1">
+          <input type="number" class="form-control" id="" placeholder="days">
+
+        </div>
+
+        <div class="col-auto my-1">
+          <button type="submit" class="btn btn-primary">Define days</button>
+        </div>
+      </div>
+    </form>
+
+    <div class="">
+      <h2>Plant Production</h2>
+      <p>Showing dates 1-15, from February 28, 2025 to March 14, 2025</p>
+    </div>
+
+
+    <div class="d-flex justify-content-between mb-3">
+      <button class="btn btn-primary">&laquo; 15 previous days</button>
+      <button class="btn btn-primary">15 following days &raquo;</button>
+    </div>
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th style="width: 12%;">Name</th>
+
+          <th>Feb 28</th>
+          <th>Total Feb</th>
+          <th>Mar 1</th>
+          <th>Mar 2</th>
+          <th>Mar 3</th>
+          <th>Mar 4</th>
+          <th>Mar 5</th>
+          <th>Mar 6</th>
+          <th>Mar 7</th>
+          <th>Mar 8</th>
+          <th>Mar 9</th>
+          <th>Mar 10</th>
+          <th>Mar 11</th>
+          <th>Mar 12</th>
+          <th>Mar 13</th>
+          <th>Mar 14</th>
+          <th>Mar 15</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th colspan="18" class="text-center">Flow Meter</th>
+        </tr>
+        <tr>
+          <td>Morning</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>18</td>
+        </tr>
+        <tr>
+          <td>Evening</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>18</td>
+        </tr>
+        <tr>
+          <td>Night</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>18</td>
+        </tr>
+        <tr>
+          <td>Total lbs</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>18</td>
+        </tr>
+        <tr>
+          <th colspan="18" class="text-center">Shift Production</th>
+        </tr>
+        <tr>
+          <td>Morning</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>18</td>
+        </tr>
+        <tr>
+          <td>Evening</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>18</td>
+        </tr>
+        <tr>
+          <td>Night</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>18</td>
+        </tr>
+        <tr>
+          <td>Total lbs</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>18</td>
+        </tr>
+
+        <tr>
+          <th colspan="18" class="text-center">Shift Hours</th>
+        </tr>
+        <tr>
+          <td>Morning</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>18</td>
+        </tr>
+        <tr>
+          <td>Evening</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>18</td>
+        </tr>
+        <tr>
+          <td>Night</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>18</td>
+        </tr>
+        <tr>
+          <td>Total hours</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>18</td>
+        </tr>
+        <tr>
+          <th colspan="18" class="text-center">Downtime Hours</th>
+        </tr>
+        <tr>
+          <td>Morning</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>18</td>
+        </tr>
+        <tr>
+          <td>Evening</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>18</td>
+        </tr>
+        <tr>
+          <td>Night</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>18</td>
+        </tr>
+        <tr>
+          <td>Total hours</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>18</td>
+        </tr>
+        <tr>
+          <th colspan="18" class="text-center">Running time Hours</th>
+        </tr>
+        <tr>
+          <td>Morning</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>18</td>
+        </tr>
+        <tr>
+          <td>Evening</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>18</td>
+        </tr>
+        <tr>
+          <td>Night</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>18</td>
+        </tr>
+        <tr>
+          <td>Total hours</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>18</td>
+        </tr>
+        <tr>
+          <th colspan="18" class="text-center">Flow Meter lbs / Running time Hours</th>
+        </tr>
+        <tr>
+          <td>Morning </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>18</td>
+        </tr>
+        <tr>
+          <td>Evening</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>18</td>
+        </tr>
+        <tr>
+          <td>Night</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>18</td>
+        </tr>
+        <tr>
+          <td>Total lbs</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>18</td>
+        </tr>
+        <tr>
+          <th colspan="18" class="text-center">Production lbs / Shift Hours</th>
+        </tr>
+        <tr>
+          <td>Morning </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>18</td>
+        </tr>
+        <tr>
+          <td>Evening</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>18</td>
+        </tr>
+        <tr>
+          <td>Night</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>18</td>
+        </tr>
+        <tr>
+          <td>Total lbs</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>18</td>
+        </tr>
+        <tr>
+          <th colspan="18" class="text-center">Production lbs / Running time Hours</th>
+        </tr>
+        <tr>
+          <td>Morning </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>18</td>
+        </tr>
+        <tr>
+          <td>Evening</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>18</td>
+        </tr>
+        <tr>
+          <td>Night</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>18</td>
+        </tr>
+        <tr>
+          <td>Total lbs</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>18</td>
+        </tr>
+
+        <tr>
+          <th colspan="18" class="text-center">Total February Productivity</th>
+        </tr>
+        <tr>
+          <td>Total Shift Hours</td>
+          <td></td>
+          <td>255</td>
+          <td colspan="15"></td>
+        </tr>
+        <tr>
+          <td>Total Downtime</td>
+          <td></td>
+          <td>73.5</td>
+          <td colspan="15"></td>
+
+        </tr>
+        <tr>
+          <td>Total Running time Hours</td>
+          <td></td>
+          <td>181.5</td>
+          <td colspan="15"></td>
+
+        </tr>
+        <tr>
+          <td>Total Lbs / Running time Hours</td>
+          <td></td>
+          <td>13,503.45</td>
+          <td colspan="15"></td>
+
+        </tr>
+        <tr>
+          <td>Total Lbs / Shift Hours</td>
+          <td></td>
+          <td>18,972.45</td>
+          <td colspan="15"></td>
+
+        </tr>
+        <tr>
+          <td>Total Lbs Flow Meter</td>
+          <td></td>
+          <td>3,446.500</td>
+          <td colspan="15"></td>
+
+        </tr>
+        <tr>
+          <td>Total Lbs Production</td>
+          <td></td>
+          <td>3,443.500</td>
+          <td colspan="15"></td>
+
+        </tr>
+        <!-- Repeat for other chickens -->
+      </tbody>
+    </table>
+  </div>
+
+
+  <div class="container">
+
+    <div class="panel-body"><!-- Production Stats-->
+      <div class="container p-1">
+        <form name="daysFilter" class="form-horizontal">
+          <div class="form-group">
+            <label for="days" class="col-md-3 col-sm-12">Set days (starting from today):</label>
+            <div class="col-md-3 col-sm-12">
+              <input type="number" class="form-control" id="days" name="days" value="90">
+            </div>
+            <div class="col-md-3 col-sm-12">
+              <button type="button" class="btn btn-primary" onclick="generateDateArr()">Define
+                days</button>
+            </div>
+          </div>
+        </form>
+
+
+
+        <h1>Production Statistic</h1>
+
+        <div class="row">
+          <div class="col-md-6 col-sm-12">
+            <p>Page <strong id="page">1</strong> of <strong id="numberPages">1</strong></p>
+            <p>Showing dates <strong id="leftLimit">1</strong>-<strong id="pageRightRange">15</strong>,
+              from <strong id="startDate">January 1, 2023</strong> to <strong id="endDate">January 15,
+                2023</strong></p>
+          </div>
+
+          <div class="col-md-6 col-sm-12 text-right">
+            <div class="flex-btn-group mb-1">
+              <button class="btn green-btn">
+                <i class="fas fa-angle-double-left fa-fw"></i> previous days
+              </button>
+              <button class="btn green-btn">
+                following days <i class="fas fa-angle-double-right fa-fw"></i>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+
+  <script>
+    const ctx = document.getElementById('barChart');
+
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ["2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035"],
+        datasets: [{
+          label: 'Flow Meter lbs',
+          data: [102500000, 1042000000, 112450000, 986600000, 556780000, 320090000, 237560000, 443210000, 108030000, 6900000, 624320000, 826540000],
+          borderWidth: 1
+
+        },
+        {
+          label: 'Prodution lbs',
+          data: [100800000, 1146000000, 123450000, 987600000, 456780000, 321090000, 234560000, 543210000, 102030000, 6900000, 654320000, 876540000],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+    const ctx2 = document.getElementById('barChart2');
+
+    new Chart(ctx2, {
+      type: 'line',
+      data: {
+        labels: ["2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035"],
+        datasets: [{
+          label: 'Total Downtime',
+          data: [876, 900, 720, 850, 866, 878, 920, 877, 813, 837, 888, 790],
+          borderWidth: 1
+        },
+        {
+          label: 'Total Running time',
+          data: [2060, 2040, 2100, 2050, 2040, 1980, 2060, 2080, 2120, 2060, 2210, 2250],
+          borderWidth: 1
+        }
+          , {
+          label: 'Total Hours',
+          data: [3060, 3040, 3100, 3050, 3040, 2980, 3060, 3080, 3120, 3060, 3210, 3250],
+          borderWidth: 1
+        }
+        ]
+      },
+      options: {
+        responsive: true,
+
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+
+    });
+
+    const ctx3 = document.getElementById('barChart3');
+
+    new Chart(ctx3, {
+      type: 'line',
+      data: {
+        labels: ["2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035"],
+        datasets: [{
+          label: 'Total lbs / Shift hours',
+          data: [161500, 160200, 161700, 161960, 159200, 158200, 161200, 161890, 160490, 162890, 161139, 163456],
+          borderWidth: 1
+        },
+        {
+          label: 'Total lbs / Running time',
+          data: [227500, 230700, 229500, 226300, 227450, 228300, 228700, 230200, 226600, 231000, 239000, 225400],
+          borderWidth: 1
+        }
+          ,
+        ]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      },
+
+    });
+  </script>
+</body>
+
+</html>

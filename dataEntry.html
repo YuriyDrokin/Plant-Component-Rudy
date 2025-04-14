@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grain Specification Entry</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container my-5">
+    <h1 class="text-center mb-4">Grain Specification Entry</h1>
+    <form>
+      <!-- Upload Picture -->
+      <div class="mb-3">
+
+        <div class="mb-4 d-flex justify-content-center">
+          <img id="selectedImage" src="https://mdbootstrap.com/img/Photos/Others/placeholder.jpg"
+            alt="example placeholder" style="width: 300px;" />
+        </div>
+        <div class="d-flex justify-content-center">
+          <div data-mdb-ripple-init class="btn btn-primary btn-rounded">
+            <label class="form-label text-white m-1" for="customFile1">Choose file</label>
+            <input type="file" class="form-control d-none" id="customFile1"
+              onchange="displaySelectedImage(event, 'selectedImage')" />
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Commodity Name -->
+      <div class="mb-3">
+        <label for="commodityName" class="form-label">Commodity Name</label>
+        <input type="text" class="form-control" id="commodityName" placeholder="Enter commodity name">
+      </div>
+
+      <!-- Grade -->
+      <div class="mb-3">
+        <label for="grade" class="form-label">Grade</label>
+        <input type="text" class="form-control" id="grade" placeholder="Enter grade">
+      </div>
+
+      <!-- Splits -->
+      <div class="mb-3">
+        <label for="splits" class="form-label">Splits</label>
+        <input type="number" class="form-control" id="splits" placeholder="Enter splits (%)">
+      </div>
+
+      <!-- Damage -->
+      <div class="mb-3">
+        <label for="damage" class="form-label">Damage</label>
+        <input type="number" class="form-control" id="damage" placeholder="Enter damage (%)">
+      </div>
+
+      <!-- Other Colors -->
+      <div class="mb-3">
+        <label for="otherColors" class="form-label">Other Colors</label>
+        <input type="number" class="form-control" id="otherColors" placeholder="Enter other colors (%)">
+      </div>
+
+      <!-- Bleach -->
+      <div class="mb-3">
+        <label for="bleach" class="form-label">Bleach</label>
+        <input type="number" class="form-control" id="bleach" placeholder="Enter bleach (%)">
+      </div>
+
+      <!-- Size K/100gr -->
+      <div class="mb-3">
+        <label for="sizeK" class="form-label">Size (K/100gr)</label>
+        <input type="text" class="form-control" id="sizeK" placeholder="Enter size (K/100gr)">
+      </div>
+
+      <!-- CSC -->
+      <div class="mb-3">
+        <label for="csc" class="form-label">CSC</label>
+        <input type="text" class="form-control" id="csc" placeholder="Enter CSC">
+      </div>
+
+      <!-- Moisture % -->
+      <div class="mb-3">
+        <label for="moisture" class="form-label">Moisture (%)</label>
+        <input type="number" step="0.01" class="form-control" id="moisture" placeholder="Enter moisture (%)">
+      </div>
+
+      <!-- Mudball -->
+      <div class="mb-3">
+        <label for="mudball" class="form-label">Mudball</label>
+        <input type="number" step="0.01" class="form-control" id="mudball" placeholder="Enter mudball (%)">
+      </div>
+
+      <!-- Stones -->
+      <div class="mb-3">
+        <label for="stones" class="form-label">Stones</label>
+        <input type="number" step="0.01" class="form-control" id="stones" placeholder="Enter stones (%)">
+      </div>
+
+      <!-- Submit Button -->
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
