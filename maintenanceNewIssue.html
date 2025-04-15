@@ -10337,10 +10337,10 @@
           </style>
         </header>
 
-        <div class="panel_body" id="incomingTicket">
+        <div class="panel_body" id="newMaintenanceLog">
           <h3 class="heading_cls">
             New Issue Form
-            <button class="sboo" ng-click="" style="margin-bottom: 2px">
+            <button class="sboo" style="margin-bottom: 2px">
               Maintenance Log
             </button>
           </h3>
@@ -10348,27 +10348,22 @@
 
 
           <div class="panel_body_inner inner_box">
-            <form name="scaleForm" class="ng-pristine ng-invalid ng-invalid-required">
+            <form class="ng-pristine ng-invalid ng-invalid-required">
               <div class="pro_header ">
 
-                <div class="row ng-scope" ng-if="ticketNumber == 'add'">
+                <div class="row">
                   <div class="col-md-4">
-                    <div class="com_pac">
+                    <div class="frval">
                       <label>Equipment</label>
-                      <input ng-model="" name="" type="text" placeholder="Equipment Name" ng-change="" numbers-only=""
-                        position="" class="ng-pristine ng-valid ng-empty ng-touched" aria-invalid="false" style="">
+                      <input class="ng-pristine ng-valid ng-empty ng-touched">
 
 
                     </div>
                   </div>
                   <div class="col-md-4">
-                    <div class="com_pac">
+                    <div class="frval">
                       <label>Department</label>
-                      <select ng-show="!commodityTypeInput" name="commodityType"
-                        ng-options="commodityType._id as commodityType.commodityTypeName for commodityType in commodityList"
-                        track="" by="" commoditytype="" ng-model="myForm.commodityTypeId"
-                        class="ng-pristine ng-valid ng-empty ng-touched" aria-hidden="false" aria-invalid="false"
-                        style="">
+                      <select name="commodityType" class="ng-pristine ng-valid ng-empty ng-touched">
                         <option value="" class="" selected="selected">Select Department</option>
                         <option label="Operators" value="">Operators</option>
                         <option label="Shippers" value="">Shippers</option>
@@ -10386,8 +10381,7 @@
                       <datepicker class="date_pic" date-format="yyyy-MM-dd" selector="form-control">
                         <div class="input-group">
                           <input name="dateFrom" class="form-control ng-pristine ng-untouched ng-valid ng-empty"
-                            ng-model="myForm.fromDate" placeholder="Choose a date" autocomplete="off" ng-change=""
-                            aria-invalid="false">
+                            placeholder="Choose a date" autocomplete="off" ng-change="" aria-invalid="false">
 
                           <span class="input-group-addon" style="cursor: pointer">
                             <svg class="svg-inline--fa fa-calendar fa-w-14 fa-lg" aria-hidden="true" focusable="false"
@@ -10415,43 +10409,29 @@
 
                     <h3 style="color: #007e4e; margin: 0 0 15px 0;">Log Issue Details</h3>
                     <div class="row"> <!-- Row Delta Screens-->
-                      <div class="col-md-4 col-sm-4 col-xs-12">
-                        <div class="frval" style="position: relative" ng-hide="" aria-hidden="false">
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="frval" style="position: relative">
                           <label>Issue / Problem</label>
-                          <input ng-model="" name="" type="text" placeholder="Describe your issue in a few words"
-                            ng-change="" numbers-only="" position="" class="ng-pristine ng-valid ng-empty ng-touched"
-                            aria-invalid="false" style="">
+                          <input type="text" placeholder="Equipment name or number"
+                            class="ng-pristine ng-valid ng-empty ng-touched">
                         </div>
 
 
                         <div class="commtr_box">
                           <h2>Comment</h2>
-                          <textarea ng-model="" class="ng-pristine ng-untouched ng-valid ng-empty" aria-invalid="false"
-                            rows="5"></textarea>
+                          <textarea ng-model="" class="ng-pristine ng-untouched ng-valid ng-empty" rows="5"></textarea>
                         </div>
 
 
                       </div> <!-- 1st Column Div Table End-->
 
-                      <div class="col-md-4 col-sm-4 col-xs-12">
 
-                        <div class="mb-4" ng-hide="" aria-hidden="false">
-                          <img id="selectedImage" class="mx-auto d-block"
-                            src="https://mdbootstrap.com/img/Photos/Others/placeholder.jpg" alt="example placeholder" />
-                        </div>
-                        <div class="com_pac mb-4">
-                          <label>Upload Picture</label>
-                          <input style="margin: 0;" type="file" id="files" class="form-control" onchange=""
-                            accept="image/png,image/gif,image/jpeg">
-                        </div>
-                      </div>
-                      <div class="col-md-4 col-sm-4 col-xs-12">
+                      <div class="col-md-6 col-sm-6 col-xs-12">
 
                         <div class="frval" style="position: relative" ng-hide="" aria-hidden="false">
                           <label>Requested</label>
-                          <input ng-model="" name="" type="text" placeholder="Write your Name" ng-change=""
-                            numbers-only="" position="" class="ng-pristine ng-valid ng-empty ng-touched"
-                            aria-invalid="false" style="">
+                          <input type="text" placeholder="Write your Name"
+                            class="ng-pristine ng-valid ng-empty ng-touched">
                         </div>
 
                       </div>
@@ -10472,11 +10452,10 @@
                     <div class="row">
 
                       <div class="col-md-4 col-sm-4 col-xs-12">
-                        <div class="frval" ng-hide="" aria-hidden="false">
+                        <div class="frval">
                           <label>Description of Work</label>
-                          <input ng-model="" name="" type="text" placeholder="Write few words here" ng-change=""
-                            numbers-only="" position="" class="ng-pristine ng-valid ng-empty ng-touched"
-                            aria-invalid="false" style="">
+                          <input type="text" placeholder="Equipment / Asset"
+                            class="ng-pristine ng-valid ng-empty ng-touched">
                         </div>
                         <div>
                           <div class="commtr_box">
@@ -10492,12 +10471,12 @@
                         <div class="frval">
                           <label>Action Taken</label>
                           <select name="" class="ng-pristine ng-empty ng-invalid ng-invalid-required ng-touched"
-                            required="required" aria-invalid="true" style="">
-                            <option value="" class="" selected="selected">Select Action</option>
+                            required="required">
+                            <option value="" selected="selected">Select Action</option>
                             <option value="time">Temporary Fix Applied</option>
-                            <option value="time">Awaiting Approval/Resources</option>
-                            <option value="time">Scheduled Maintenance</option>
                             <option value="time">Repair Completed</option>
+                            <option value="time">Parts Ordered</option>
+                            <option value="time">Scheduled Maintencance</option>
 
                           </select>
                         </div>
@@ -10505,14 +10484,14 @@
                           <label>Status</label>
 
                           <select name="" class="ng-pristine ng-empty ng-invalid ng-invalid-required ng-touched"
-                            required="required" aria-invalid="true" style="">
-                            <option value="" class="" selected="selected">Select Status</option>
-                            <option value="time">Initial Review/Diagnosis Stage</option>
-                            <option value="time">In Progress/Repair Work Ongoing</option>
-                            <option value="time">Work Completed</option>
-                            <option value="time">Pending/Delayed</option>
-                            <option value="time">Unable to Resolve/Additionsl Information Required</option>
-                            <option value="time">Scheduled for Future Repair</option>
+                            required="required">
+                            <option value="" selected="selected">Select Status</option>
+
+                            <option value="time">In Progress</option>
+                            <option value="time">Pending</option>
+                            <option value="time">Completed</option>
+                            <option value="time">Awaiting Resources</option>
+                            <option value="time">Scheduled for Future</option>
                           </select>
                         </div>
                       </div>
@@ -10523,9 +10502,8 @@
                           <label>Maintenance Date</label>
                           <datepicker class="date_pic" date-format="yyyy-MM-dd" selector="form-control">
                             <div class="input-group">
-                              <input name="dateFrom" class="form-control ng-pristine ng-untouched ng-valid ng-empty"
-                                ng-model="myForm.fromDate" placeholder="Choose a date" autocomplete="off" ng-change=""
-                                aria-invalid="false">
+                              <input class="form-control ng-pristine ng-untouched ng-valid ng-empty"
+                                placeholder="Choose a date" autocomplete="off">
 
                               <span class="input-group-addon" style="cursor: pointer">
                                 <svg class="svg-inline--fa fa-calendar fa-w-14 fa-lg" aria-hidden="true"
@@ -10563,14 +10541,10 @@
                         </div>
                         <div class="frval" style="position: relative" ng-hide="" aria-hidden="false">
                           <label>Technician Name</label>
-                          <input ng-model="" name="" type="text" placeholder="Technician Name" ng-change=""
-                            numbers-only="" position="" class="ng-pristine ng-valid ng-empty ng-touched"
-                            aria-invalid="false" style="">
+                          <input type="text" placeholder="Technician Name"
+                            class="ng-pristine ng-valid ng-empty ng-touched">
                         </div>
                       </div>
-
-
-
                     </div>
 
                   </div>
@@ -10582,8 +10556,7 @@
 
               <div class="row">
                 <div class="col-md-12" style="margin-top: 10px">
-                  <button class="sboo ng-binding" ng-hide="previous_dockageCompleted_value"
-                    ng-click="submit('',scaleForm.$valid)" ng-disabled="addRequest" aria-hidden="false">
+                  <button class="sboo ng-binding">
                     Submit
                   </button>
                 </div>
@@ -10605,7 +10578,7 @@
                   <li>Choose Department</li>
                   <li>Enter Report Date</li>
                   <li>Describe Issue/Problem</li>
-                  <li>Upload Picture if needed</li>
+
                   <li>Write Your Name</li>
                   <li>Describe Description of Work in a few words</li>
                   <li>Choose Action Witch need to be taken</li>

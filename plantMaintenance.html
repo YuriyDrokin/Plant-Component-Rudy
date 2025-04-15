@@ -10337,11 +10337,10 @@
           </style>
         </header>
 
-        <div class="panel_body" ng-init="DoCtrlPagingAct()">
+        <div class="panel_body">
           <h3 class="heading_cls" style="padding: 0 0 0 170px;">Maintenance Log
 
-            <a class="btn_top" ng-href="" ng-show="loginUserAccess.truckScale.incoming.add"
-              href="./maintenanceNewIssue.html" aria-hidden="false">NEW ISSUE
+            <a class="btn_top" href="./maintenanceNewIssue.html" aria-hidden="false">NEW ISSUE
               <svg class="svg-inline--fa fa-plus-circle fa-w-16" aria-hidden="true" focusable="false" data-prefix="fas"
                 data-icon="plus-circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
                 data-fa-i2svg="">
@@ -10352,8 +10351,8 @@
             <!-- </div> -->
           </h3>
           <hr class="heading_hr">
-          <div class="panel_body_inner inner_box" style="padding: 0;">
-            <div class="col-md-12">
+          <div class="panel_body">
+            <div class="col-lg-12 col-md-12 col-12">
 
               <div class="row">
                 <div class="col-md-12">
@@ -10917,104 +10916,91 @@
                 <table class="table table-striped commodity_table" style="font-size: 14px;">
                   <thead>
                     <tr>
-
-                      <th>Log Id</th>
-                      <th>Date of Report</th>
-                      <th>Equipment/Asset</th>
-                      <th>Issue/Problem</th>
+                      <th>Date Reported</th>
+                      <th>Equipment / Asset</th>
+                      <th>Reported Issue</th>
                       <th>Department</th>
-                      <th>Requested</th>
-                      <th>Description of work</th>
+                      <th>Requested By</th>
+                      <th>Work Description</th>
                       <th>Technician</th>
-                      <th>Action Taken</th>
+                      <th>Resolution</th>
                       <th>Status</th>
-                      <th>Maintenance Date</th>
+                      <th>Date of Maintenance</th>
                       <th>Next Maintenance</th>
                       <th>Notes</th>
-                      <th style="width: 10%;"
-                        ng-show="loginUserAccess.truckScale.incoming.view || loginUserAccess.truckScale.incoming.edit"
-                        aria-hidden="false">
+                      <th style="width: 10%;">
                         Action</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <!-- ngRepeat: result in incomingList -->
-                    <tr data-ng-style="" ng-repeat="" ng-class="" class="" style="">
-                      <td>1</td>
-                      <td>Sep 9, 2024</td>
+
+                    <tr>
+
+                      <td>April 15, 2025</td>
                       <td>LMC 2</td>
                       <td>lower Bearing</td>
                       <td>Operator's</td>
                       <td>Alex Smk</td>
-                      <td> Bearing Wear and Tear</td>
+                      <td>Bearing Wear and Tear</td>
                       <td>Volodymir Msltn</td>
-                      <td>Bearing replaced, tested Ok</td>
+                      <td>Repair Completed</td>
                       <td>Completed</td>
-                      <td><input type="date" ng-model="" required="" ng-hide="" style="max-width: 150px;" name=""
-                          autocomplete="off" ng-enter="" class="" aria-hidden="false" aria-invalid="true">
-                        <span ng-show="" class="ng-binding ng-hide" aria-hidden="true">
+                      <td>April 15, 2025</td>
+                      <td>September 15, 2025</td>
+                      <td></td>
+                      <td class="text-right">
 
-                          <a style="cursor: pointer;" ng-click="editField(result, 'xeroEntryDate')"
-                            class="edit_details">
-                            <svg class="svg-inline--fa fa-pen-square fa-w-14" aria-hidden="true" focusable="false"
-                              data-prefix="fas" data-icon="pen-square" role="img" xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 448 512" data-fa-i2svg="">
-                              <path fill="currentColor"
-                                d="M400 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zM238.1 177.9L102.4 313.6l-6.3 57.1c-.8 7.6 5.6 14.1 13.3 13.3l57.1-6.3L302.2 242c2.3-2.3 2.3-6.1 0-8.5L246.7 178c-2.5-2.4-6.3-2.4-8.6-.1zM345 165.1L314.9 135c-9.4-9.4-24.6-9.4-33.9 0l-23.1 23.1c-2.3 2.3-2.3 6.1 0 8.5l55.5 55.5c2.3 2.3 6.1 2.3 8.5 0L345 199c9.3-9.3 9.3-24.5 0-33.9z">
-                              </path>
-                            </svg><!-- <i class="fas fa-pen-square" aria-hidden="true"></i> -->
-                          </a>
-                        </span>
-                      </td>
-                      <td>
-                        <input type="date" ng-model="" required="" ng-hide="" style="max-width: 150px;"
-                          name="xeroEntryDate" autocomplete="off" ng-enter=""
-                          class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" aria-hidden="false"
-                          aria-invalid="true">
-                        <span ng-show="" class="ng-binding ng-hide" aria-hidden="true">
-
-                          <a style="cursor: pointer;" ng-click="editField(result, 'xeroEntryDate')"
-                            class="edit_details">
-                            <svg class="svg-inline--fa fa-pen-square fa-w-14" aria-hidden="true" focusable="false"
-                              data-prefix="fas" data-icon="pen-square" role="img" xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 448 512" data-fa-i2svg="">
-                              <path fill="currentColor"
-                                d="M400 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zM238.1 177.9L102.4 313.6l-6.3 57.1c-.8 7.6 5.6 14.1 13.3 13.3l57.1-6.3L302.2 242c2.3-2.3 2.3-6.1 0-8.5L246.7 178c-2.5-2.4-6.3-2.4-8.6-.1zM345 165.1L314.9 135c-9.4-9.4-24.6-9.4-33.9 0l-23.1 23.1c-2.3 2.3-2.3 6.1 0 8.5l55.5 55.5c2.3 2.3 6.1 2.3 8.5 0L345 199c9.3-9.3 9.3-24.5 0-33.9z">
-                              </path>
-                            </svg><!-- <i class="fas fa-pen-square" aria-hidden="true"></i> -->
-                          </a>
-                        </span>
-                      </td>
-                      <td>Monitoring for the next issue</td>
-                      <td class="text-right"
-                        ng-show="loginUserAccess.truckScale.incoming.view || loginUserAccess.truckScale.incoming.edit"
-                        aria-hidden="false">
-
-                        <a ng-show="result.dockageCompleted &amp;&amp; loginUserAccess.truckScale.incoming.edit"
-                          style="cursor: pointer;" ng-click="unlockScaleTicket(result,'dockageCompleted')"
-                          class="edit_details ng-hide" aria-hidden="true">
+                        <a style="cursor: pointer;" class="edit_details ng-hide">
                           <svg class="svg-inline--fa fa-unlock fa-w-14" aria-hidden="true" focusable="false"
                             data-prefix="fa" data-icon="unlock" role="img" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 448 512" data-fa-i2svg="">
                             <path fill="currentColor"
                               d="M400 256H152V152.9c0-39.6 31.7-72.5 71.3-72.9 40-.4 72.7 32.1 72.7 72v16c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24v-16C376 68 307.5-.3 223.5 0 139.5.3 72 69.5 72 153.5V256H48c-26.5 0-48 21.5-48 48v160c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48z">
                             </path>
-                          </svg><!-- <i class="fa fa-unlock" aria-hidden="true"></i> -->
+                          </svg>
                         </a>
 
-                        <a class="veiw_detail" style="cursor: pointer;" ng-click="openPdf(result.pdfUrl)">
-                          <svg class="svg-inline--fa fa-eye fa-w-18" aria-hidden="true" focusable="false"
-                            data-prefix="fa" data-icon="eye" role="img" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 576 512" data-fa-i2svg="">
+                        <a class="edit_details" href="/maintenanceNewIssue.html" aria-hidden="false">
+                          <svg class="svg-inline--fa fa-pen-square fa-w-14" aria-hidden="true" focusable="false"
+                            data-prefix="fas" data-icon="pen-square" role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 448 512" data-fa-i2svg="">
                             <path fill="currentColor"
-                              d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z">
+                              d="M400 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zM238.1 177.9L102.4 313.6l-6.3 57.1c-.8 7.6 5.6 14.1 13.3 13.3l57.1-6.3L302.2 242c2.3-2.3 2.3-6.1 0-8.5L246.7 178c-2.5-2.4-6.3-2.4-8.6-.1zM345 165.1L314.9 135c-9.4-9.4-24.6-9.4-33.9 0l-23.1 23.1c-2.3 2.3-2.3 6.1 0 8.5l55.5 55.5c2.3 2.3 6.1 2.3 8.5 0L345 199c9.3-9.3 9.3-24.5 0-33.9z">
                             </path>
-                          </svg><!-- <i class="fa fa-eye" aria-hidden="true"></i> -->
+                          </svg>
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+
+                      <td>April 14, 2025</td>
+                      <td>M 107 incline new Receiving</td>
+                      <td>Belts burned</td>
+                      <td>Operator's</td>
+                      <td>Yuriy Drkn</td>
+                      <td>Replace belts, adjustments and new belt needed</td>
+                      <td>Volodymir Msltn</td>
+                      <td>Temporary Fix Applied</td>
+                      <td>Awaiting Resources</td>
+                      <td>April 14, 2025
+
+
+                      </td>
+                      <td>May 10, 2025</td>
+                      <td>Watch for the water in receiving</td>
+                      <td class="text-right">
+
+                        <a style="cursor: pointer;" class="edit_details ng-hide">
+                          <svg class="svg-inline--fa fa-unlock fa-w-14" aria-hidden="true" focusable="false"
+                            data-prefix="fa" data-icon="unlock" role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 448 512" data-fa-i2svg="">
+                            <path fill="currentColor"
+                              d="M400 256H152V152.9c0-39.6 31.7-72.5 71.3-72.9 40-.4 72.7 32.1 72.7 72v16c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24v-16C376 68 307.5-.3 223.5 0 139.5.3 72 69.5 72 153.5V256H48c-26.5 0-48 21.5-48 48v160c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48z">
+                            </path>
+                          </svg>
                         </a>
 
-                        <a ng-show="loginUserAccess.truckScale.incoming.edit"
-                          ng-href="incomingScale/66df8555ec249b92fcfe11f0" class="edit_details"
-                          href="incomingScale/66df8555ec249b92fcfe11f0" aria-hidden="false">
+                        <a class="edit_details" href="/maintenanceNewIssue.html" aria-hidden="false">
                           <svg class="svg-inline--fa fa-pen-square fa-w-14" aria-hidden="true" focusable="false"
                             data-prefix="fas" data-icon="pen-square" role="img" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 448 512" data-fa-i2svg="">
@@ -11024,8 +11010,167 @@
                           </svg><!-- <i class="fas fa-pen-square"></i> -->
                         </a>
                       </td>
-                    </tr><!-- end ngRepeat: result in incomingList -->
+                    </tr>
+                    <tr>
 
+                      <td>April 11, 2025</td>
+                      <td>M 108 Incline old receiving</td>
+                      <td>Leg lower bearing </td>
+                      <td>Transferring</td>
+                      <td>Igor Okrmnk</td>
+                      <td>Replace belts, adjustments and new belt needed</td>
+                      <td>Yuriy Krtzv</td>
+                      <td>Scheduled Maintenance</td>
+                      <td>In Progress</td>
+                      <td>April 10, 2025
+
+
+                      </td>
+                      <td>April 16, 2025</td>
+                      <td></td>
+                      <td class="text-right">
+
+                        <a style="cursor: pointer;" class="edit_details ng-hide">
+                          <svg class="svg-inline--fa fa-unlock fa-w-14" aria-hidden="true" focusable="false"
+                            data-prefix="fa" data-icon="unlock" role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 448 512" data-fa-i2svg="">
+                            <path fill="currentColor"
+                              d="M400 256H152V152.9c0-39.6 31.7-72.5 71.3-72.9 40-.4 72.7 32.1 72.7 72v16c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24v-16C376 68 307.5-.3 223.5 0 139.5.3 72 69.5 72 153.5V256H48c-26.5 0-48 21.5-48 48v160c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48z">
+                            </path>
+                          </svg>
+                        </a>
+
+                        <a class="edit_details" href="/maintenanceNewIssue.html" aria-hidden="false">
+                          <svg class="svg-inline--fa fa-pen-square fa-w-14" aria-hidden="true" focusable="false"
+                            data-prefix="fas" data-icon="pen-square" role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 448 512" data-fa-i2svg="">
+                            <path fill="currentColor"
+                              d="M400 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zM238.1 177.9L102.4 313.6l-6.3 57.1c-.8 7.6 5.6 14.1 13.3 13.3l57.1-6.3L302.2 242c2.3-2.3 2.3-6.1 0-8.5L246.7 178c-2.5-2.4-6.3-2.4-8.6-.1zM345 165.1L314.9 135c-9.4-9.4-24.6-9.4-33.9 0l-23.1 23.1c-2.3 2.3-2.3 6.1 0 8.5l55.5 55.5c2.3 2.3 6.1 2.3 8.5 0L345 199c9.3-9.3 9.3-24.5 0-33.9z">
+                            </path>
+                          </svg><!-- <i class="fas fa-pen-square"></i> -->
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+
+                      <td>April 10, 2025</td>
+                      <td>Atv</td>
+                      <td>doesn't start</td>
+                      <td>Transferring</td>
+                      <td>Igor Okrmnk</td>
+                      <td>Need new fuel pump</td>
+                      <td>Yuriy Krtzv</td>
+                      <td>Parts Ordered</td>
+                      <td>Awaiting Resources</td>
+                      <td>April 10, 2025
+
+
+                      </td>
+                      <td>April 28, 2025</td>
+                      <td></td>
+                      <td class="text-right">
+
+                        <a style="cursor: pointer;" class="edit_details ng-hide">
+                          <svg class="svg-inline--fa fa-unlock fa-w-14" aria-hidden="true" focusable="false"
+                            data-prefix="fa" data-icon="unlock" role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 448 512" data-fa-i2svg="">
+                            <path fill="currentColor"
+                              d="M400 256H152V152.9c0-39.6 31.7-72.5 71.3-72.9 40-.4 72.7 32.1 72.7 72v16c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24v-16C376 68 307.5-.3 223.5 0 139.5.3 72 69.5 72 153.5V256H48c-26.5 0-48 21.5-48 48v160c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48z">
+                            </path>
+                          </svg>
+                        </a>
+
+                        <a class="edit_details" href="/maintenanceNewIssue.html" aria-hidden="false">
+                          <svg class="svg-inline--fa fa-pen-square fa-w-14" aria-hidden="true" focusable="false"
+                            data-prefix="fas" data-icon="pen-square" role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 448 512" data-fa-i2svg="">
+                            <path fill="currentColor"
+                              d="M400 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zM238.1 177.9L102.4 313.6l-6.3 57.1c-.8 7.6 5.6 14.1 13.3 13.3l57.1-6.3L302.2 242c2.3-2.3 2.3-6.1 0-8.5L246.7 178c-2.5-2.4-6.3-2.4-8.6-.1zM345 165.1L314.9 135c-9.4-9.4-24.6-9.4-33.9 0l-23.1 23.1c-2.3 2.3-2.3 6.1 0 8.5l55.5 55.5c2.3 2.3 6.1 2.3 8.5 0L345 199c9.3-9.3 9.3-24.5 0-33.9z">
+                            </path>
+                          </svg><!-- <i class="fas fa-pen-square"></i> -->
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+
+                      <td>April 9, 2025</td>
+                      <td>New Delta </td>
+                      <td>Rebuilding Reclean Leg</td>
+                      <td>Main Office</td>
+                      <td>Less Abn</td>
+                      <td>Waiting for instructions</td>
+                      <td>Yuriy Krtzv , Vladimir Msltn</td>
+                      <td>Parts Ordered</td>
+                      <td>Awaiting Resources</td>
+                      <td>April 9, 2025
+
+
+                      </td>
+                      <td>May 21, 2025</td>
+                      <td></td>
+                      <td class="text-right">
+
+                        <a style="cursor: pointer;" class="edit_details ng-hide">
+                          <svg class="svg-inline--fa fa-unlock fa-w-14" aria-hidden="true" focusable="false"
+                            data-prefix="fa" data-icon="unlock" role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 448 512" data-fa-i2svg="">
+                            <path fill="currentColor"
+                              d="M400 256H152V152.9c0-39.6 31.7-72.5 71.3-72.9 40-.4 72.7 32.1 72.7 72v16c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24v-16C376 68 307.5-.3 223.5 0 139.5.3 72 69.5 72 153.5V256H48c-26.5 0-48 21.5-48 48v160c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48z">
+                            </path>
+                          </svg>
+                        </a>
+
+                        <a class="edit_details" href="/maintenanceNewIssue.html" aria-hidden="false">
+                          <svg class="svg-inline--fa fa-pen-square fa-w-14" aria-hidden="true" focusable="false"
+                            data-prefix="fas" data-icon="pen-square" role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 448 512" data-fa-i2svg="">
+                            <path fill="currentColor"
+                              d="M400 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zM238.1 177.9L102.4 313.6l-6.3 57.1c-.8 7.6 5.6 14.1 13.3 13.3l57.1-6.3L302.2 242c2.3-2.3 2.3-6.1 0-8.5L246.7 178c-2.5-2.4-6.3-2.4-8.6-.1zM345 165.1L314.9 135c-9.4-9.4-24.6-9.4-33.9 0l-23.1 23.1c-2.3 2.3-2.3 6.1 0 8.5l55.5 55.5c2.3 2.3 6.1 2.3 8.5 0L345 199c9.3-9.3 9.3-24.5 0-33.9z">
+                            </path>
+                          </svg><!-- <i class="fas fa-pen-square"></i> -->
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+
+                      <td>April 8, 2025</td>
+                      <td>Screening tube M 208</td>
+                      <td>belts are loose</td>
+                      <td>Operator's</td>
+                      <td>Valeriy Klmnk</td>
+                      <td>Waiting for instructions</td>
+                      <td>Vladimir Msltn</td>
+                      <td>Repair Completed</td>
+                      <td>Completed</td>
+                      <td>April 8, 2025
+
+
+                      </td>
+                      <td>October 8, 2025</td>
+                      <td>Need grease up every week</td>
+                      <td class="text-right">
+
+                        <a style="cursor: pointer;" class="edit_details ng-hide">
+                          <svg class="svg-inline--fa fa-unlock fa-w-14" aria-hidden="true" focusable="false"
+                            data-prefix="fa" data-icon="unlock" role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 448 512" data-fa-i2svg="">
+                            <path fill="currentColor"
+                              d="M400 256H152V152.9c0-39.6 31.7-72.5 71.3-72.9 40-.4 72.7 32.1 72.7 72v16c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24v-16C376 68 307.5-.3 223.5 0 139.5.3 72 69.5 72 153.5V256H48c-26.5 0-48 21.5-48 48v160c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48z">
+                            </path>
+                          </svg>
+                        </a>
+
+                        <a class="edit_details" href="/maintenanceNewIssue.html" aria-hidden="false">
+                          <svg class="svg-inline--fa fa-pen-square fa-w-14" aria-hidden="true" focusable="false"
+                            data-prefix="fas" data-icon="pen-square" role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 448 512" data-fa-i2svg="">
+                            <path fill="currentColor"
+                              d="M400 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zM238.1 177.9L102.4 313.6l-6.3 57.1c-.8 7.6 5.6 14.1 13.3 13.3l57.1-6.3L302.2 242c2.3-2.3 2.3-6.1 0-8.5L246.7 178c-2.5-2.4-6.3-2.4-8.6-.1zM345 165.1L314.9 135c-9.4-9.4-24.6-9.4-33.9 0l-23.1 23.1c-2.3 2.3-2.3 6.1 0 8.5l55.5 55.5c2.3 2.3 6.1 2.3 8.5 0L345 199c9.3-9.3 9.3-24.5 0-33.9z">
+                            </path>
+                          </svg><!-- <i class="fas fa-pen-square"></i> -->
+                        </a>
+                      </td>
+                    </tr>
                   </tbody>
                 </table>
                 <div paging="" page="page" page-size="myForm.limit" total="totalPages"
