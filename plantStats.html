@@ -10148,11 +10148,11 @@
                 <img class="logo" src="/images/logo.png">
               </div>
               <ul class="top_header_rudy">
-                <li ng-class="active.page=='dashboard'?'active':''">
+                <li>
                   <a ui-sref="dashboard" href="/dashboard">Dashboard</a>
                 </li>
                 <!-- ngIf: access.purchase.viewMenu -->
-                <li class="purchase ng-scope" ng-if="access.purchase.viewMenu">
+                <li class="purchase ng-scope">
                   <a class="active">Purchase<svg class="svg-inline--fa fa-angle-down fa-w-10" aria-hidden="true"
                       focusable="false" data-prefix="fas" data-icon="angle-down" role="img"
                       xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg="">
@@ -10161,58 +10161,11 @@
                       </path>
                     </svg><!-- <i class="fas fa-angle-down"></i> --></a>
                   <div class="sub_men purchase_sub">
-                    <ul>
-                      <!-- ngIf: access.purchase.growers.viewMenu -->
-                      <li ng-click="clearSearchHistory('growers')" ng-class="active.page=='growers'?'active':''"
-                        ng-if="access.purchase.growers.viewMenu" class="ng-scope" role="button" tabindex="0">
-                        <a ui-sref="growers" href="/growers">Growers</a>
-                      </li><!-- end ngIf: access.purchase.growers.viewMenu -->
 
-                      <!-- ngIf: access.purchase.productionRecords.viewMenu -->
-                      <li ng-class="active.page=='sample'?'active':''"
-                        ng-if="access.purchase.productionRecords.viewMenu" class="ng-scope">
-                        <a ui-sref="sample" href="/sample">Production Records</a>
-                      </li><!-- end ngIf: access.purchase.productionRecords.viewMenu -->
-
-                      <!-- ngIf: access.purchase.productionContracts.viewMenu -->
-                      <li ng-click="clearSearchHistory('productionContracts')"
-                        ng-class="active.page=='productionContract'?'active':''"
-                        ng-if="access.purchase.productionContracts.viewMenu" class="ng-scope" role="button"
-                        tabindex="0">
-                        <a ui-sref="productionContract" href="/productionContract">Production Contracts</a>
-                      </li><!-- end ngIf: access.purchase.productionContracts.viewMenu -->
-
-                      <!-- ngIf: access.purchase.purchaseConfirmation.viewMenu -->
-                      <li ng-click="clearSearchHistory('purchaseConfirmations')"
-                        ng-class="active.page=='purchase'?'active':''"
-                        ng-if="access.purchase.purchaseConfirmation.viewMenu" class="ng-scope" role="button"
-                        tabindex="0">
-                        <a ui-sref="purchase" href="/purchase">Purchase Confirmation</a>
-                      </li><!-- end ngIf: access.purchase.purchaseConfirmation.viewMenu -->
-
-                      <!-- ngIf: access.sales.tradePurchaseContract.viewMenu -->
-                      <li ng-click="clearSearchHistory('tradePurchases')"
-                        ng-class="active.page=='tradePurchaseContract'?'active':''"
-                        ng-if="access.sales.tradePurchaseContract.viewMenu" class="ng-scope" role="button" tabindex="0">
-                        <a ui-sref="tradePurchase" href="/tradePurchase">Trade Purchase Contract</a>
-                      </li><!-- end ngIf: access.sales.tradePurchaseContract.viewMenu -->
-
-                      <!-- ngIf: access.purchase.bidSheet.viewMenu -->
-                      <li ng-class="active.page=='bidsheet'?'active':''" ng-if="access.purchase.bidSheet.viewMenu"
-                        class="ng-scope">
-                        <a ui-sref="bidsheet" href="/bidsheet">Bid Sheet</a>
-                      </li><!-- end ngIf: access.purchase.bidSheet.viewMenu -->
-
-                      <!-- ngIf: access.purchase.sampleDumpList.viewMenu -->
-                      <li ng-class="active.page=='dumpList'?'active':''" ng-if="access.purchase.sampleDumpList.viewMenu"
-                        class="ng-scope">
-                        <a ui-sref="dumpList" href="/sample/dumpList">Sample Dump List</a>
-                      </li><!-- end ngIf: access.purchase.sampleDumpList.viewMenu -->
-                    </ul>
                   </div>
                 </li><!-- end ngIf: access.purchase.viewMenu -->
                 <!-- ngIf: access.sales.viewMenu -->
-                <li class="sales ng-scope" ng-if="access.sales.viewMenu">
+                <li class="sales ng-scope">
                   <a class="active">Sales<svg class="svg-inline--fa fa-angle-down fa-w-10" aria-hidden="true"
                       focusable="false" data-prefix="fas" data-icon="angle-down" role="img"
                       xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg="">
@@ -10221,34 +10174,11 @@
                       </path>
                     </svg><!-- <i class="fas fa-angle-down"></i> --></a>
                   <div class="sub_men sale_sub">
-                    <ul>
-                      <!-- ngIf: access.sales.brokers.viewMenu -->
-                      <li ng-click="clearSearchHistory('brokers')" ng-class="active.page=='brokers'?'active':''"
-                        ng-if="access.sales.brokers.viewMenu" class="ng-scope" role="button" tabindex="0">
-                        <a ui-sref="brokers" href="/brokers">Brokers</a>
-                      </li><!-- end ngIf: access.sales.brokers.viewMenu -->
-                      <!-- ngIf: access.sales.buyers.viewMenu -->
-                      <li ng-click="clearSearchHistory('buyers')" ng-class="active.page=='buyers'?'active':''"
-                        ng-if="access.sales.buyers.viewMenu" class="ng-scope" role="button" tabindex="0">
-                        <a ui-sref="buyers" href="/buyers">Buyers</a>
-                      </li><!-- end ngIf: access.sales.buyers.viewMenu -->
-                      <!-- ngIf: access.sales.salesContract.viewMenu -->
-                      <li ng-click="clearSearchHistory('salesContracts')"
-                        ng-class="active.page=='salesContract'?'active':''" ng-if="access.sales.salesContract.viewMenu"
-                        class="ng-scope" role="button" tabindex="0">
-                        <a ui-sref="salesContract" href="/salesContract">Sales Contract</a>
-                      </li><!-- end ngIf: access.sales.salesContract.viewMenu -->
 
-                      <!-- ngIf: access.sales.commodityPricing.viewMenu -->
-                      <li ng-class="active.page=='commodityPricing'?'active':''"
-                        ng-if="access.sales.commodityPricing.viewMenu" class="ng-scope">
-                        <a ui-sref="commodityPricing" href="/commodityPricing">Sales Price List</a>
-                      </li><!-- end ngIf: access.sales.commodityPricing.viewMenu -->
-                    </ul>
                   </div>
                 </li><!-- end ngIf: access.sales.viewMenu -->
                 <!-- ngIf: access.truckScale.viewMenu -->
-                <li class="truck ng-scope" ng-if="access.truckScale.viewMenu">
+                <li class="truck ng-scope">
                   <a class="active">Truck Scale<svg class="svg-inline--fa fa-angle-down fa-w-10" aria-hidden="true"
                       focusable="false" data-prefix="fas" data-icon="angle-down" role="img"
                       xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg="">
@@ -10256,46 +10186,6 @@
                         d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z">
                       </path>
                     </svg><!-- <i class="fas fa-angle-down"></i> --></a>
-                  <div class="sub_men truck_sub">
-                    <ul>
-                      <!-- ngIf: access.truckScale.incoming.viewMenu -->
-                      <li ng-click="clearSearchHistory('incomingScales')"
-                        ng-class="active.page=='scaleTicketIncoming'?'active':''"
-                        ng-if="access.truckScale.incoming.viewMenu" class="ng-scope active" role="button" tabindex="0">
-                        <a ng-href="incoming" href="incoming">Incoming</a>
-                      </li><!-- end ngIf: access.truckScale.incoming.viewMenu -->
-
-                      <!-- ngIf: access.truckScale.outgoing.viewMenu -->
-                      <li ng-click="clearSearchHistory('outgoingScales')"
-                        ng-class="active.page=='scaleTicketOutgoing'?'active':''"
-                        ng-if="access.truckScale.outgoing.viewMenu" class="ng-scope" role="button" tabindex="0">
-                        <a ng-href="/outgoing" href="/outgoing">Outgoing</a>
-                      </li><!-- end ngIf: access.truckScale.outgoing.viewMenu -->
-
-                      <!-- ngIf: access.truckScale.tradePurchase.viewMenu -->
-                      <li ng-click="clearSearchHistory('tradePurchaseScale')"
-                        ng-class="active.page=='tradePurchaseScale'?'active':''"
-                        ng-if="access.truckScale.tradePurchase.viewMenu" class="ng-scope" role="button" tabindex="0">
-                        <a ng-href="/tradePurchaseScale" href="/tradePurchaseScale">Load Sheets </a>
-                      </li><!-- end ngIf: access.truckScale.tradePurchase.viewMenu -->
-
-                      <!-- ngIf: access.truckScale.incomingInventory.viewMenu -->
-                      <li ng-click="clearSearchHistory('incomingScaleInventories')"
-                        ng-class="active.page=='scaleTicketIncomingInventory'?'active':''"
-                        ng-if="access.truckScale.incomingInventory.viewMenu" class="ng-scope" role="button"
-                        tabindex="0">
-                        <a ng-href="/scale/incomingInventory" href="/scale/incomingInventory">Incoming Load Analysis</a>
-                      </li><!-- end ngIf: access.truckScale.incomingInventory.viewMenu -->
-
-                      <!-- ngIf: access.truckScale.outgoingInventory.viewMenu -->
-                      <li ng-click="clearSearchHistory('outgoingScaleInventories')"
-                        ng-class="active.page=='scaleTicketOutgoingInventory'?'active':''"
-                        ng-if="access.truckScale.outgoingInventory.viewMenu" class="ng-scope" role="button"
-                        tabindex="0">
-                        <a ng-href="/scale/outgoingInventory" href="/scale/outgoingInventory">Outgoing Load Analysis</a>
-                      </li><!-- end ngIf: access.truckScale.outgoingInventory.viewMenu -->
-                    </ul>
-                  </div>
                 </li><!-- end ngIf: access.truckScale.viewMenu -->
 
                 <!-- ngIf: access.Plant.viewMenu -->
@@ -10310,22 +10200,21 @@
                   <div class="sub_men truck_sub">
                     <ul>
                       <!-- ngIf: access.truckScale.incoming.viewMenu -->
-                      <li ng-click="" ng-class="" ng-if="" class="ng-scope active" role="button" tabindex="0">
-                        <a ng-href="operatorTeamLead" href="/operatorTeamLead.html">Operator Lead</a>
+                      <li class="ng-scope active">
+                        <a href="/index.html">Operator Lead</a>
                       </li>
-                      <li ng-click="" ng-class="" ng-if="" class="ng-scope" role="button" tabindex="0">
-                        <a ng-href="/outgoing" href="/PlantOperators.html">Operators</a>
+                      <li class="ng-scope">
+                        <a href="/PlantOperators.html">Operators</a>
                       </li>
-                      <li ng-click="" ng-class="" ng-if="" class="ng-scope" role="button" tabindex="">
-                        <a ng-href="/tradePurchaseScale" href="/plantMaintenance.html">Maintenance</a>
+                      <li class="ng-scope">
+                        <a href="/plantMaintenance.html">Maintenance</a>
                       </li><!-- end ngIf: access.truckScale.tradePurchase.viewMenu -->
 
-                      <li ng-show="access.setting.bin.viewMenu" aria-hidden="false">
+                      <li>
                         <a class="show-caret">Plant Statistics</a>
                         <ul class="dropdown-menu">
                           <!-- ngIf: access.setting.bin.viewMenu -->
-                          <li ng-class="active.page=='bin'?'active':''" ng-if="access.setting.bin.viewMenu"
-                            class="ng-scope">
+                          <li class="ng-scope">
                             <a ui-sref="bin" href="/annualReport.html">Annual Report</a>
                             <a ui-sref="" href="/plantStats.html">Operational Details</a>
                           </li><!-- end ngIf: access.setting.bin.viewMenu -->
@@ -10336,7 +10225,7 @@
                 </li><!-- end ngIf: access.truckScale.viewMenu -->
 
                 <!-- ngIf: access.reports.viewMenu -->
-                <li class="comm ng-scope" ng-if="access.reports.viewMenu">
+                <li class="comm ng-scope">
                   <a class="active">Reports<svg class="svg-inline--fa fa-angle-down fa-w-10" aria-hidden="true"
                       focusable="false" data-prefix="fas" data-icon="angle-down" role="img"
                       xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg="">
@@ -10344,122 +10233,10 @@
                         d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z">
                       </path>
                     </svg><!-- <i class="fas fa-angle-down"></i> --></a>
-                  <div class="sub_men comm_sub">
-                    <ul>
-                      <!-- ngIf: access.reports.commission.viewMenu -->
-                      <li ng-click="clearSearchHistory('commissionPayable')"
-                        ng-class="active.page=='commission'?'active':''" ng-if="access.reports.commission.viewMenu"
-                        class="ng-scope" role="button" tabindex="0">
-                        <a ui-sref="commissionPayable" href="/report/commissionPayable">Commission Payable</a>
-                      </li><!-- end ngIf: access.reports.commission.viewMenu -->
-                      <!-- ngIf: access.reports.failedQuotes.viewMenu -->
-                      <li ng-class="active.page=='failedQuotes'?'active':''"
-                        ng-if="access.reports.failedQuotes.viewMenu" class="ng-scope">
-                        <a ui-sref="failedQuotes" href="/report/failedQuotes">Failed Quotes</a>
-                      </li><!-- end ngIf: access.reports.failedQuotes.viewMenu -->
-                      <!-- ngIf: access.reports.expiredFreight.viewMenu -->
-                      <li ng-class="active.page=='expiredFreight'?'active':''"
-                        ng-if="access.reports.expiredFreight.viewMenu" class="ng-scope">
-                        <a ui-sref="expiredFreight" href="/report/expiredFreight">Expired Freight</a>
-                      </li><!-- end ngIf: access.reports.expiredFreight.viewMenu -->
-                      <!-- ngIf: access.reports.freightVariance.viewMenu -->
-                      <li ng-class="active.page=='freightVariance'?'active':''"
-                        ng-if="access.reports.freightVariance.viewMenu" class="ng-scope">
-                        <a ui-sref="freightVariance" href="/report/freightVariance">Freight Variance</a>
-                      </li><!-- end ngIf: access.reports.freightVariance.viewMenu -->
-                      <!-- ngIf: access.reports.position.viewMenu -->
-                      <li ng-class="active.page=='position'?'active':''" ng-if="access.reports.position.viewMenu"
-                        class="ng-scope">
-                        <a ui-sref="positionReport" href="/report/positionReport">Position Report</a>
-                      </li><!-- end ngIf: access.reports.position.viewMenu -->
-                      <!-- ngIf: access.reports.salesSummary.viewMenu -->
-                      <li ng-class="active.page=='salesSummary'?'active':''"
-                        ng-if="access.reports.salesSummary.viewMenu" class="ng-scope">
-                        <a ui-sref="salesSummary" href="/salesSummary">Sales Summary</a>
-                      </li><!-- end ngIf: access.reports.salesSummary.viewMenu -->
-                      <!-- ngIf: access.reports.shippedWeightAnalysis.viewMenu -->
-                      <li ng-click="clearSearchHistory('shippedWeightAnalysis')"
-                        ng-class="active.page=='shippedWeightAnalysis'?'active':''"
-                        ng-if="access.reports.shippedWeightAnalysis.viewMenu" class="ng-scope" role="button"
-                        tabindex="0">
-                        <a ui-sref="shippedWeightAnalysis" href="/report/shippedWeightAnalysis">Shipped Weight
-                          Analysis</a>
-                      </li><!-- end ngIf: access.reports.shippedWeightAnalysis.viewMenu -->
-                      <!-- ngIf: access.reports.forex.viewMenu -->
-                      <li ng-class="active.page=='forex'?'active':''" ng-if="access.reports.forex.viewMenu"
-                        class="ng-scope">
-                        <a ui-sref="forexReport" href="/forexReport">Forex Report</a>
-                      </li><!-- end ngIf: access.reports.forex.viewMenu -->
-                      <!-- ngIf: access.reports.productionContract.viewMenu -->
-                      <li ng-class="active.page=='productionContract'?'active':''"
-                        ng-if="access.reports.productionContract.viewMenu" class="ng-scope">
-                        <a ui-sref="productContractReport" href="/report/productContractReport">Production Contract
-                          Summary</a>
-                      </li><!-- end ngIf: access.reports.productionContract.viewMenu -->
-                      <!-- ngIf: access.reports.purchaseConfirmation.viewMenu -->
-                      <li ng-class="active.page=='purchaseConfirmation'?'active':''"
-                        ng-if="access.reports.purchaseConfirmation.viewMenu" class="ng-scope">
-                        <a ui-sref="purchaseConfirmationReport" href="/report/purchaseConfirmation">Purchase
-                          Confirmation Summary</a>
-                      </li><!-- end ngIf: access.reports.purchaseConfirmation.viewMenu -->
-                      <!-- ngIf: access.reports.area.viewMenu -->
-                      <li ng-class="active.page=='area'?'active':''" ng-if="access.reports.area.viewMenu"
-                        class="ng-scope">
-                        <a ui-sref="areaReport" href="/areaReport">Area Report</a>
-                      </li><!-- end ngIf: access.reports.area.viewMenu -->
-                      <!-- ngIf: access.reports.openContracts.viewMenu -->
-                      <li ng-click="clearSearchHistory('openContractReport')"
-                        ng-class="active.page=='openContracts'?'active':''"
-                        ng-if="access.reports.openContracts.viewMenu" class="ng-scope" role="button" tabindex="0">
-                        <a ui-sref="outStandingReport" href="/outStandingReport">Open Contracts Report</a>
-                      </li><!-- end ngIf: access.reports.openContracts.viewMenu -->
-                      <!-- ngIf: access.reports.performance.viewMenu -->
-                      <li ng-click="clearSearchHistory('performanceReport')"
-                        ng-class="active.page=='performance'?'active':''" ng-if="access.reports.performance.viewMenu"
-                        class="ng-scope" role="button" tabindex="0">
-                        <a ui-sref="performanceReport" href="/performanceReport">Performance Report</a>
-                      </li><!-- end ngIf: access.reports.performance.viewMenu -->
-                      <!-- ngIf: access.reports.groupEmail.viewMenu -->
-                      <li ng-class="active.page=='groupEmail'?'active':''" ng-if="access.reports.groupEmail.viewMenu"
-                        class="ng-scope">
-                        <a ui-sref="growerMassReport" href="/growerMassReport">Group Emails</a>
-                      </li><!-- end ngIf: access.reports.groupEmail.viewMenu -->
-                      <!-- ngIf: access.reports.targetPrice.viewMenu -->
-                      <li ng-click="clearSearchHistory('targetPriceReport')"
-                        ng-class="active.page=='targetPrice'?'active':''" ng-if="access.reports.targetPrice.viewMenu"
-                        class="ng-scope" role="button" tabindex="0">
-                        <a ui-sref="targetPrice" href="/targetPrice">Target Price Report</a>
-                      </li><!-- end ngIf: access.reports.targetPrice.viewMenu -->
-                      <!-- ngIf: access.reports.fxContract.viewMenu -->
-                      <li ng-class="active.page=='fxContract'?'active':''" ng-if="access.reports.fxContract.viewMenu"
-                        class="ng-scope">
-                        <a ui-sref="fxContract" href="/fxContract">FX Contract</a>
-                      </li><!-- end ngIf: access.reports.fxContract.viewMenu -->
-                      <!-- ngIf: access.reports.fxContract.viewMenu -->
-                      <li ng-class="active.page=='fxHedge'?'active':''" ng-if="access.reports.fxContract.viewMenu"
-                        class="ng-scope">
-                        <a ui-sref="fxHedgeReport" href="/fxHedgeReport">FX Hedge Report</a>
-                      </li><!-- end ngIf: access.reports.fxContract.viewMenu -->
-                      <li ng-class="active.page=='rollover'?'active':''">
-                        <a ui-sref="productionRollover" href="/report/productionRollover">Rollover</a>
-                      </li>
-                      <!-- ngIf: access.reports.growerCallBackReport.viewMenu -->
-                      <li ng-if="access.reports.growerCallBackReport.viewMenu"
-                        ng-class="active.page=='growerCallBackReport'?'active':''" class="ng-scope">
-                        <a ui-sref="growerCallBackReport" href="/growerCallBackReport">Grower Call Back Report</a>
-                      </li><!-- end ngIf: access.reports.growerCallBackReport.viewMenu -->
-                      <li ng-class="active.page=='bagInventory'?'active':''">
-                        <a ui-sref="bagInventory" href="/bagInventory">Bag Inventory</a>
-                      </li>
-                      <li ng-class="active.page=='bagInventoryCategorized'?'active':''">
-                        <a ui-sref="bagInventoryCategorized" href="/bagInventoryCategorized">Bag Inventory
-                          Categorized</a>
-                      </li>
-                    </ul>
-                  </div>
+
                 </li><!-- end ngIf: access.reports.viewMenu -->
                 <!-- ngIf: access.setting.viewMenu -->
-                <li class="sett ng-scope" ng-if="access.setting.viewMenu">
+                <li class="sett ng-scope">
                   <a class="active">Setting<svg class="svg-inline--fa fa-angle-down fa-w-10" aria-hidden="true"
                       focusable="false" data-prefix="fas" data-icon="angle-down" role="img"
                       xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg="">
@@ -10467,287 +10244,7 @@
                         d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z">
                       </path>
                     </svg><!-- <i class="fas fa-angle-down"></i> --></a>
-                  <div class="sub_men sett_sub">
-                    <ul>
-                      <!-- ngIf: access.setting.subAdmin.viewMenu -->
-                      <li ng-class="active.page=='subAdmin'?'active':''" ng-if="access.setting.subAdmin.viewMenu"
-                        class="ng-scope">
-                        <a ui-sref="subAdmin" href="/subAdmin">Sub Admin</a>
-                      </li><!-- end ngIf: access.setting.subAdmin.viewMenu -->
 
-                      <li
-                        ng-show="access.setting.commodities.viewMenu || access.setting.commodityType.viewMenu || access.setting.grade.viewMenu || access.setting.analysisList.viewMenu || access.setting.variety.viewMenu"
-                        aria-hidden="false">
-                        <a class="show-caret">Commodity</a>
-                        <ul class="dropdown-menu">
-                          <!-- ngIf: access.setting.commodities.viewMenu -->
-                          <li ng-class="active.page=='commodity'?'active':''"
-                            ng-if="access.setting.commodities.viewMenu" class="ng-scope">
-                            <a ui-sref="commodity" href="/commodity">Commodities</a>
-                          </li><!-- end ngIf: access.setting.commodities.viewMenu -->
-                          <!-- ngIf: access.setting.commodityType.viewMenu -->
-                          <li ng-class="active.page=='commodityType'?'active':''"
-                            ng-if="access.setting.commodityType.viewMenu" class="ng-scope">
-                            <a ui-sref="commodityType" href="/commodityType">Commodity Type</a>
-                          </li><!-- end ngIf: access.setting.commodityType.viewMenu -->
-                          <!-- ngIf: access.setting.grade.viewMenu -->
-                          <li ng-class="active.page=='grade'?'active':''" ng-if="access.setting.grade.viewMenu"
-                            class="ng-scope">
-                            <a ui-sref="grade" href="/grade">Grade </a>
-                          </li><!-- end ngIf: access.setting.grade.viewMenu -->
-                          <!-- ngIf: access.setting.analysisList.viewMenu -->
-                          <li ng-class="active.page=='analysis'?'active':''"
-                            ng-if="access.setting.analysisList.viewMenu" class="ng-scope">
-                            <a ui-sref="analysis" href="/analysis">Analysis List </a>
-                          </li><!-- end ngIf: access.setting.analysisList.viewMenu -->
-                          <!-- ngIf: access.setting.variety.viewMenu -->
-                          <li ng-class="active.page=='variety'?'active':''" ng-if="access.setting.variety.viewMenu"
-                            class="ng-scope">
-                            <a ui-sref="variety" href="/variety">Variety</a>
-                          </li><!-- end ngIf: access.setting.variety.viewMenu -->
-                        </ul>
-                      </li>
-
-                      <li>
-                        <a class="show-caret">Sales Contract Settings</a>
-                        <ul class="dropdown-menu">
-                          <!-- ngIf: access.setting.pricingTerms.viewMenu -->
-                          <li ng-class="active.page=='pricingTerms'?'active':''"
-                            ng-if="access.setting.pricingTerms.viewMenu" class="ng-scope">
-                            <a ui-sref="pricingTerms" href="/pricingTerms">Pricing Terms</a>
-                          </li><!-- end ngIf: access.setting.pricingTerms.viewMenu -->
-
-                          <!-- ngIf: access.setting.tags.viewMenu -->
-                          <li ng-class="active.page=='tags'?'active':''" ng-if="access.setting.tags.viewMenu"
-                            class="ng-scope">
-                            <a ui-sref="tags" href="/tags">Tags</a>
-                          </li><!-- end ngIf: access.setting.tags.viewMenu -->
-
-                          <!-- ngIf: access.setting.documents.viewMenu -->
-                          <li ng-class="active.page=='documents'?'active':''" ng-if="access.setting.documents.viewMenu"
-                            class="ng-scope">
-                            <a ui-sref="documents" href="/documents">Documents</a>
-                          </li><!-- end ngIf: access.setting.documents.viewMenu -->
-
-                          <!-- ngIf: access.setting.tradeRules.viewMenu -->
-                          <li ng-class="active.page=='tradeRules'?'active':''"
-                            ng-if="access.setting.tradeRules.viewMenu" class="ng-scope">
-                            <a ui-sref="tradeRules" href="/tradeRules">Trade Rules</a>
-                          </li><!-- end ngIf: access.setting.tradeRules.viewMenu -->
-
-                          <!-- ngIf: access.setting.paymentMethod.viewMenu -->
-                          <li ng-class="active.page=='paymentMethod'?'active':''"
-                            ng-if="access.setting.paymentMethod.viewMenu" class="ng-scope">
-                            <a ui-sref="paymentMethod" href="/paymentMethod">Payment Method</a>
-                          </li><!-- end ngIf: access.setting.paymentMethod.viewMenu -->
-
-                          <!-- ngIf: access.setting.paymentTerms.viewMenu -->
-                          <li ng-class="active.page=='paymentTerms'?'active':''"
-                            ng-if="access.setting.paymentTerms.viewMenu" class="ng-scope">
-                            <a ui-sref="paymentTerms" href="/paymentTerms">Payment Terms</a>
-                          </li><!-- end ngIf: access.setting.paymentTerms.viewMenu -->
-
-                          <!-- ngIf: access.setting.variance.viewMenu -->
-                          <li ng-class="active.page=='variance'?'active':''" ng-if="access.setting.variance.viewMenu"
-                            class="ng-scope">
-                            <a ui-sref="variance" href="/variance">Variance</a>
-                          </li><!-- end ngIf: access.setting.variance.viewMenu -->
-
-                          <!-- ngIf: access.setting.certificateCost.viewMenu -->
-                          <li ng-class="active.page=='certificateCost'?'active':''"
-                            ng-if="access.setting.certificateCost.viewMenu" class="ng-scope">
-                            <a ui-sref="certificateCost" href="/certificateCost">Certificate Cost</a>
-                          </li><!-- end ngIf: access.setting.certificateCost.viewMenu -->
-
-                          <!-- ngIf: access.setting.baggings.viewMenu -->
-                          <li ng-class="active.page=='bags'?'active':''" ng-if="access.setting.baggings.viewMenu"
-                            class="ng-scope">
-                            <a ui-sref="bags" href="/bags">Add Shipping Material</a>
-                          </li><!-- end ngIf: access.setting.baggings.viewMenu -->
-                          <!-- ngIf: access.setting.bagCategory.viewMenu -->
-                          <li ng-class="active.page=='bagCategory'?'active':''"
-                            ng-if="access.setting.bagCategory.viewMenu" class="ng-scope">
-                            <a ui-sref="bagCategory" href="/bagCategory">Bag Category</a>
-                          </li><!-- end ngIf: access.setting.bagCategory.viewMenu -->
-                          <!-- ngIf: access.setting.eDC.viewMenu -->
-                          <li ng-class="active.page=='edc'?'active':''" ng-if="access.setting.eDC.viewMenu"
-                            class="ng-scope">
-                            <a ui-sref="edc" href="/edc">EDC</a>
-                          </li><!-- end ngIf: access.setting.eDC.viewMenu -->
-                          <!-- ngIf: access.setting.maxWeight.viewMenu -->
-                          <li ng-class="active.page=='maxWeight'?'active':''" ng-if="access.setting.maxWeight.viewMenu"
-                            class="ng-scope">
-                            <a ui-sref="maxWeight" href="/maxWeight">Max Weight</a>
-                          </li><!-- end ngIf: access.setting.maxWeight.viewMenu -->
-                          <li ng-class="active.page=='chemDec'?'active':''">
-                            <!-- TODO: add an access setting view menu for chem decs -->
-                            <a ui-sref="chemDec" href="/chemDec">Chemical Declaration</a>
-                          </li>
-                          <li ng-class="active.page=='hsCodes'?'active':''">
-                            <!-- TODO: add an access setting view menu for hs codes -->
-                            <a ui-sref="hsCodes" href="/hsCodes">HS Codes</a>
-                          </li>
-                        </ul>
-                      </li>
-
-                      <li
-                        ng-show="access.setting.freight.viewMenu || access.setting.equipment.viewMenu || access.setting.freightCompany.viewMenu || access.setting.shippingLine.viewMenu || access.setting.shippingTerms.viewMenu || access.setting.loadingPort.viewMenu  || access.setting.freightSettings.viewMenu"
-                        aria-hidden="false">
-                        <a class="show-caret">Shipment settings</a>
-                        <ul class="dropdown-menu">
-                          <!-- ngIf: access.setting.freight.viewMenu -->
-                          <li ng-click="clearSearchHistory('freights')" ng-class="active.page=='freight'?'active':''"
-                            ng-if="access.setting.freight.viewMenu" class="ng-scope" role="button" tabindex="0">
-                            <a ui-sref="freight" href="/freight">Add Freight</a>
-                          </li><!-- end ngIf: access.setting.freight.viewMenu -->
-
-                          <!-- ngIf: access.setting.equipment.viewMenu -->
-                          <li ng-class="active.page=='equipment'?'active':''" ng-if="access.setting.equipment.viewMenu"
-                            class="ng-scope">
-                            <a ui-sref="equipment" href="/equipment">Add Equipment</a>
-                          </li><!-- end ngIf: access.setting.equipment.viewMenu -->
-
-                          <!-- ngIf: access.setting.freightCompany.viewMenu -->
-                          <li ng-class="active.page=='freightCompany'?'active':''"
-                            ng-if="access.setting.freightCompany.viewMenu" class="ng-scope">
-                            <a ui-sref="freightCompany" href="/freightCompany">Add Freight Company</a>
-                          </li><!-- end ngIf: access.setting.freightCompany.viewMenu -->
-
-                          <!-- ngIf: access.setting.shippingLine.viewMenu -->
-                          <li ng-class="active.page=='shipline'?'active':''"
-                            ng-if="access.setting.shippingLine.viewMenu" class="ng-scope">
-                            <a ui-sref="shipline" href="/shipline">Add Shipping Line</a>
-                          </li><!-- end ngIf: access.setting.shippingLine.viewMenu -->
-
-                          <!-- ngIf: access.setting.shippingTerms.viewMenu -->
-                          <li ng-class="active.page=='shippingTerms'?'active':''"
-                            ng-if="access.setting.shippingTerms.viewMenu" class="ng-scope">
-                            <a ui-sref="shippingTerms" href="/shippingTerms">Add Shipping Term</a>
-                          </li><!-- end ngIf: access.setting.shippingTerms.viewMenu -->
-
-                          <!-- ngIf: access.setting.loadingPort.viewMenu -->
-                          <li ng-class="active.page=='loadingPort'?'active':''"
-                            ng-if="access.setting.loadingPort.viewMenu" class="ng-scope">
-                            <a ui-sref="loadingPort" href="/loadingPort">Add Loading Port</a>
-                          </li><!-- end ngIf: access.setting.loadingPort.viewMenu -->
-
-                          <!-- ngIf: access.setting.inlandDestination.viewMenu -->
-                          <li ng-class="active.page=='inlandDestination'?'active':''"
-                            ng-if="access.setting.inlandDestination.viewMenu" class="ng-scope">
-                            <a ui-sref="inlandDestination" href="/inlandDestination">Add Inland Destination</a>
-                          </li><!-- end ngIf: access.setting.inlandDestination.viewMenu -->
-
-                          <!-- ngIf: access.setting.processingPlant.viewMenu -->
-                          <li ng-class="active.page=='processingPlant'?'active':''"
-                            ng-if="access.setting.processingPlant.viewMenu" class="ng-scope">
-                            <a ui-sref="processingPlant" href="/processingPlant">Add Processing Plant</a>
-                          </li><!-- end ngIf: access.setting.processingPlant.viewMenu -->
-
-                          <!-- ngIf: access.setting.freightSettings.viewMenu -->
-                          <li ng-class="active.page=='freightSetting'?'active':''"
-                            ng-if="access.setting.freightSettings.viewMenu" class="ng-scope">
-                            <a ui-sref="freightSetting" href="/freightSetting">Other Freight Settings</a>
-                          </li><!-- end ngIf: access.setting.freightSettings.viewMenu -->
-                          <!-- ngIf: access.setting.container.viewMenu -->
-                          <li ng-class="active.page=='container'?'active':''" ng-if="access.setting.container.viewMenu"
-                            class="ng-scope">
-                            <a ui-sref="container" href="/container">Add Container Inventory</a>
-                          </li><!-- end ngIf: access.setting.container.viewMenu -->
-                          <li ng-class="active.page=='coaTemplates'?'active':''">
-                            <!-- TODO: add an access setting view menu for coa templates -->
-                            <a ui-sref="coaTemplates" href="/coaTemplates">COA Templates</a>
-                          </li>
-                        </ul>
-                      </li>
-
-                      <li
-                        ng-show="access.setting.weather.viewMenu || access.setting.currency.viewMenu || access.setting.trucker.viewMenu|| access.setting.origin.viewMenu || access.setting.country.viewMenu || access.setting.town.viewMenu ||access.setting.bidPeriod.viewMenu || access.setting.scaleTicketNumber.viewMenu || access.setting.receiver.viewMen"
-                        aria-hidden="false">
-                        <a class="show-caret">Other Controls</a>
-                        <ul class="dropdown-menu">
-                          <!-- ngIf: access.setting.weather.viewMenu -->
-                          <li ng-class="active.page=='weather'?'active':''" ng-if="access.setting.weather.viewMenu"
-                            class="ng-scope">
-                            <a ui-sref="weather" href="/weather">Weather Update</a>
-                          </li><!-- end ngIf: access.setting.weather.viewMenu -->
-
-                          <!-- ngIf: access.setting.currency.viewMenu -->
-                          <li ng-class="active.page=='currency'?'active':''" ng-if="access.setting.currency.viewMenu"
-                            class="ng-scope">
-                            <a ui-sref="currency" href="/currency">Currency Update</a>
-                          </li><!-- end ngIf: access.setting.currency.viewMenu -->
-                          <!-- ngIf: access.setting.country.viewMenu -->
-                          <li ng-class="active.page=='country'?'active':''" ng-if="access.setting.country.viewMenu"
-                            class="ng-scope">
-                            <a ui-sref="country" href="/country">Country</a>
-                          </li><!-- end ngIf: access.setting.country.viewMenu -->
-
-                          <!-- ngIf: access.setting.city.viewMenu -->
-                          <li ng-if="access.setting.city.viewMenu" ng-class="active.page=='city'?'active':''"
-                            class="ng-scope">
-                            <a ui-sref="city" href="/city">City</a>
-                          </li><!-- end ngIf: access.setting.city.viewMenu -->
-                          <!-- ngIf: access.setting.origin.viewMenu -->
-                          <li ng-class="active.page=='origin'?'active':''" ng-if="access.setting.origin.viewMenu"
-                            class="ng-scope">
-                            <a ui-sref="origin" href="/origin">Origin</a>
-                          </li><!-- end ngIf: access.setting.origin.viewMenu -->
-                          <!-- ngIf: access.setting.town.viewMenu -->
-                          <li ng-class="active.page=='town'?'active':''" ng-if="access.setting.town.viewMenu"
-                            class="ng-scope">
-                            <a ui-sref="town" href="/town">Town</a>
-                          </li><!-- end ngIf: access.setting.town.viewMenu -->
-                          <!-- ngIf: access.setting.bidPeriod.viewMenu -->
-                          <li ng-class="active.page=='bidPeriod'?'active':''" ng-if="access.setting.bidPeriod.viewMenu"
-                            class="ng-scope">
-                            <a ui-sref="bidPeriod" href="/bidPeriod">Bid Period</a>
-                          </li><!-- end ngIf: access.setting.bidPeriod.viewMenu -->
-                          <!-- ngIf: access.setting.trucker.viewMenu -->
-                          <li ng-class="active.page=='trucker'?'active':''" ng-if="access.setting.trucker.viewMenu"
-                            class="ng-scope">
-                            <a ui-sref="trucker" href="/trucker">Trucker</a>
-                          </li><!-- end ngIf: access.setting.trucker.viewMenu -->
-                          <!-- ngIf: access.setting.scaleTicketNumber.viewMenu -->
-                          <li ng-class="active.page=='scaleTicketNumber'?'active':''"
-                            ng-if="access.setting.scaleTicketNumber.viewMenu" class="ng-scope">
-                            <a ui-sref="scaleTicketNumber" href="/scaleTicketNumber">Scale Ticket Number</a>
-                          </li><!-- end ngIf: access.setting.scaleTicketNumber.viewMenu -->
-                          <!-- ngIf: access.setting.receiver.viewMenu -->
-                          <li ng-class="active.page=='receiver'?'active':''" ng-if="access.setting.receiver.viewMenu"
-                            class="ng-scope">
-                            <a ui-sref="receiver" href="/receiver">Receiver</a>
-                          </li><!-- end ngIf: access.setting.receiver.viewMenu -->
-                          <!-- ngIf: access.setting.cropYear.viewMenu -->
-                          <li ng-class="active.page=='cropYear'?'active':''" ng-if="access.setting.cropYear.viewMenu"
-                            class="ng-scope">
-                            <a ui-sref="cropYear" href="/cropYear">Crop Year</a>
-                          </li><!-- end ngIf: access.setting.cropYear.viewMenu -->
-                        </ul>
-                      </li>
-
-                      <li ng-show="access.setting.bin.viewMenu" aria-hidden="false">
-                        <a class="show-caret">Bin Controls</a>
-                        <ul class="dropdown-menu">
-                          <!-- ngIf: access.setting.bin.viewMenu -->
-                          <li ng-class="active.page=='bin'?'active':''" ng-if="access.setting.bin.viewMenu"
-                            class="ng-scope">
-                            <a ui-sref="bin" href="/bin">Bin</a>
-                          </li><!-- end ngIf: access.setting.bin.viewMenu -->
-                        </ul>
-                      </li>
-
-                      <li>
-                        <a style="cursor: pointer" ng-click="logout()" class="head_ico_ac"><svg
-                            class="svg-inline--fa fa-sign-out-alt fa-w-16" aria-hidden="true" focusable="false"
-                            data-prefix="fas" data-icon="sign-out-alt" role="img" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 512 512" data-fa-i2svg="">
-                            <path fill="currentColor"
-                              d="M497 273L329 441c-15 15-41 4.5-41-17v-96H152c-13.3 0-24-10.7-24-24v-96c0-13.3 10.7-24 24-24h136V88c0-21.4 25.9-32 41-17l168 168c9.3 9.4 9.3 24.6 0 34zM192 436v-40c0-6.6-5.4-12-12-12H96c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32h84c6.6 0 12-5.4 12-12V76c0-6.6-5.4-12-12-12H96c-53 0-96 43-96 96v192c0 53 43 96 96 96h84c6.6 0 12-5.4 12-12z">
-                            </path>
-                          </svg><!-- <i class="fas fa-sign-out-alt"></i> --> <span>Logout</span></a>
-                      </li>
-                    </ul>
-                  </div>
                 </li><!-- end ngIf: access.setting.viewMenu -->
                 <li class="profile">
                   <a class="active">
@@ -10756,11 +10253,10 @@
                       <div class="sub_men sett_profile">
                         <ul>
                           <li ng-class="active.page=='profile'?'active':''">
-                            <a ui-sref="profile" href="/profile">Profile</a>
+                            <a>Profile</a>
                           </li>
-                          <li class="comm" ng-show="userInfo.type!='SUPERADMIN' || userInfo.type!='ADMIN'"
-                            aria-hidden="false">
-                            <a style="cursor: pointer" ng-click="logout()">Logout</a>
+                          <li class="comm">
+                            <a style="cursor: pointer">Logout</a>
                           </li>
                         </ul>
                       </div>
