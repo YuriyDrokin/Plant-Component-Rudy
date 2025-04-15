@@ -10338,10 +10338,10 @@
         </header>
 
 
-        <div class="panel_body" ng-init="DoCtrlPagingAct()">
+        <div class="panel_body">
           <h3 class="heading_cls" style="padding: 0 0 0 170px;">Operator Shift Logs
 
-            <a class="btn_top" ng-show="" href="/plantOperatorNewLog.html" aria-hidden="false">Add Shift
+            <a class="btn_top" href="/plantOperatorNewLog.html">Add Shift
               <svg class="svg-inline--fa fa-plus-circle fa-w-16" aria-hidden="true" focusable="false" data-prefix="fas"
                 data-icon="plus-circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
                 data-fa-i2svg="">
@@ -10916,7 +10916,6 @@
                 <table class="table table-striped commodity_table" style="font-size: 14px;">
                   <thead>
                     <tr>
-                      <!--<th>Email</th>-->
                       <th style="width: 8%;">Date</th>
                       <th>Operator Name</th>
                       <th style="width: 8%;">Shift Start Time</th>
@@ -11371,8 +11370,7 @@
                   </tbody>
                 </table> <!-- Table End-->
 
-                <div paging="" page="page" page-size="myForm.limit" total="totalPages"
-                  paging-action="DoCtrlPagingAct(page)" class="ng-isolate-scope">
+                <div paging="" page="page" class="ng-isolate-scope">
                   <ul data-ng-hide="Hide" data-ng-class="ulClass" aria-hidden="false" class="pagination">
                     <!-- ngRepeat: Item in List -->
                     <li title="Page 1" data-ng-class="Item.liClass" data-ng-repeat="Item in List"
@@ -12100,98 +12098,30 @@
                       <!--<th>Email</th>-->
                       <th style="width: 8%;">Date</th>
                       <th>Operator Name</th>
-                      <th style="width: 8%;">Shift Start Time</th>
-                      <th>Shift End Time</th>
-                      <th>Shift Hours</th>
-                      <th style="width: 9%;">Running Time</th>
-                      <th style="width: 9%;">Down Time</th>
-                      <th>Switch Over</th>
-                      <th>Commodity</th>
-                      <th>% Moisture</th>
-                      <th>Raw Bin</th>
-                      <th>Clean Bin</th>
-                      <th>Flow Meter</th>
-                      <th>Total lbs Cleaned</th>
-                      <th style="width: 10%;" aria-hidden="false" class="">
+                      <th>Switch Over Start Time</th>
+                      <th>Switch Over End Time</th>
+                      <th>Previous Commodity</th>
+                      <th>Next Commodity</th>
+                      <th>Approved by</th>
+
+                      <th>
                         Action</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <!-- ngRepeat: result in incomingList -->
+
                     <tr>
                       <td>Jul 29, 2024</td>
                       <td>Vyacheslav Horidko</td>
                       <td>23:00</td>
-                      <td>7:00</td>
-                      <td>8 hours</td>
-                      <td>2 hours, 30 minutes</td>
-                      <td>5 hours, 30 minutes</td>
-                      <td>0 hours, 0 minutes</td>
-                      <td>Marrowfat Peas</td>
-                      <td>12.7 %</td>
-                      <td>R2</td>
-                      <td>C2</td>
-                      <td>127,000 lbs</td>
-                      <td>107,000 lbs</td>
+                      <td>5:00</td>
+                      <td>MFP</td>
+                      <td>Kcp</td>
+                      <td>Alex Smlk</td>
+
                       <td class="text-right">
 
-                        <a class="veiw_detail" style="cursor: pointer;" ng-click="openPdf(result.pdfUrl)">
-                          <svg class="svg-inline--fa fa-eye fa-w-18" aria-hidden="true" focusable="false"
-                            data-prefix="fa" data-icon="eye" role="img" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 576 512" data-fa-i2svg="">
-                            <path fill="currentColor"
-                              d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z">
-                            </path>
-                          </svg><!-- <i class="fa fa-eye" aria-hidden="true"></i> -->
-                        </a>
-
-
-                        <a ng-show="loginUserAccess.truckScale.incoming.edit"
-                          ng-href="incomingScale/66a7d0b8850c78ec2c45b9b2" class="edit_details"
-                          href="incomingScale/66a7d0b8850c78ec2c45b9b2" aria-hidden="false">
-                          <svg class="svg-inline--fa fa-pen-square fa-w-14" aria-hidden="true" focusable="false"
-                            data-prefix="fas" data-icon="pen-square" role="img" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 448 512" data-fa-i2svg="">
-                            <path fill="currentColor"
-                              d="M400 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zM238.1 177.9L102.4 313.6l-6.3 57.1c-.8 7.6 5.6 14.1 13.3 13.3l57.1-6.3L302.2 242c2.3-2.3 2.3-6.1 0-8.5L246.7 178c-2.5-2.4-6.3-2.4-8.6-.1zM345 165.1L314.9 135c-9.4-9.4-24.6-9.4-33.9 0l-23.1 23.1c-2.3 2.3-2.3 6.1 0 8.5l55.5 55.5c2.3 2.3 6.1 2.3 8.5 0L345 199c9.3-9.3 9.3-24.5 0-33.9z">
-                            </path>
-                          </svg><!-- <i class="fas fa-pen-square"></i> -->
-                        </a>
-                      </td>
-                    </tr><!-- end ngRepeat: result in incomingList -->
-
-                    <!-- ngRepeat: result in incomingList -->
-                    <tr>
-                      <td>Jul 29, 2024</td>
-                      <td>Yuriy Drkn</td>
-                      <td>15:00</td>
-                      <td>23:00</td>
-                      <td>8 hours</td>
-                      <td>6 hours, 45 minutes</td>
-                      <td>1 hours, 15 minutes</td>
-                      <td>0 hours, 0 minutes</td>
-                      <td>Marrowfat Peas</td>
-                      <td>13.1 %</td>
-                      <td>R2, R3</td>
-                      <td>TB, C2</td>
-                      <td>147,000 lbs</td>
-                      <td>137,000 lbs</td>
-                      <td class="text-right">
-
-                        <a class="veiw_detail" style="cursor: pointer;" ng-click="openPdf(result.pdfUrl)">
-                          <svg class="svg-inline--fa fa-eye fa-w-18" aria-hidden="true" focusable="false"
-                            data-prefix="fa" data-icon="eye" role="img" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 576 512" data-fa-i2svg="">
-                            <path fill="currentColor"
-                              d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z">
-                            </path>
-                          </svg><!-- <i class="fa fa-eye" aria-hidden="true"></i> -->
-                        </a>
-
-
-                        <a ng-show="loginUserAccess.truckScale.incoming.edit"
-                          ng-href="incomingScale/66a7d0b8850c78ec2c45b9b2" class="edit_details"
-                          href="incomingScale/66a7d0b8850c78ec2c45b9b2" aria-hidden="false">
+                        <a class="edit_details" href="/plantOperatorSwitchOver.html" aria-hidden="false">
                           <svg class="svg-inline--fa fa-pen-square fa-w-14" aria-hidden="true" focusable="false"
                             data-prefix="fas" data-icon="pen-square" role="img" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 448 512" data-fa-i2svg="">
@@ -12204,125 +12134,17 @@
                     </tr>
 
                     <tr>
-                      <td>Jul 29, 2024</td>
-                      <td>Stanislav Keshman</td>
-                      <td>7:00</td>
-                      <td>15:00</td>
-                      <td>8 hours</td>
-                      <td>5 hours, 15 minutes</td>
-                      <td>2 hours, 45 minutes</td>
-                      <td>0 hours, 0 minutes</td>
-                      <td>Marrowfat Peas</td>
-                      <td>12.9 %</td>
-                      <td>R2, R3, R12</td>
-                      <td>C7, TB</td>
-                      <td>102,000 lbs</td>
-                      <td>95,000 lbs</td>
-                      <td class="text-right"
-                        ng-show="loginUserAccess.truckScale.incoming.view || loginUserAccess.truckScale.incoming.edit"
-                        aria-hidden="false">
-
-                        <a class="veiw_detail" style="cursor: pointer;" ng-click="openPdf(result.pdfUrl)">
-                          <svg class="svg-inline--fa fa-eye fa-w-18" aria-hidden="true" focusable="false"
-                            data-prefix="fa" data-icon="eye" role="img" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 576 512" data-fa-i2svg="">
-                            <path fill="currentColor"
-                              d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z">
-                            </path>
-                          </svg><!-- <i class="fa fa-eye" aria-hidden="true"></i> -->
-                        </a>
-
-                        <a ng-show="loginUserAccess.truckScale.incoming.edit"
-                          ng-href="incomingScale/66a3d1e5b6daf2e9ace96b8a" class="edit_details"
-                          href="incomingScale/66a3d1e5b6daf2e9ace96b8a" aria-hidden="false">
-                          <svg class="svg-inline--fa fa-pen-square fa-w-14" aria-hidden="true" focusable="false"
-                            data-prefix="fas" data-icon="pen-square" role="img" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 448 512" data-fa-i2svg="">
-                            <path fill="currentColor"
-                              d="M400 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zM238.1 177.9L102.4 313.6l-6.3 57.1c-.8 7.6 5.6 14.1 13.3 13.3l57.1-6.3L302.2 242c2.3-2.3 2.3-6.1 0-8.5L246.7 178c-2.5-2.4-6.3-2.4-8.6-.1zM345 165.1L314.9 135c-9.4-9.4-24.6-9.4-33.9 0l-23.1 23.1c-2.3 2.3-2.3 6.1 0 8.5l55.5 55.5c2.3 2.3 6.1 2.3 8.5 0L345 199c9.3-9.3 9.3-24.5 0-33.9z">
-                            </path>
-                          </svg><!-- <i class="fas fa-pen-square"></i> -->
-                        </a>
-                      </td>
-                    </tr><!-- end ngRepeat: result in incomingList -->
-
-
-                    <tr>
-                      <td>Jul 28, 2024</td>
-                      <td>Vyacheslav Horidko</td>
-                      <td>23:00</td>
-                      <td>7:00</td>
-                      <td>8 hours</td>
-                      <td>4 hours, 0 minutes</td>
-                      <td>0 hours, 0 minutes</td>
-                      <td>4 hours, 0 minutes</td>
-                      <td>Marrofat Peas</td>
-                      <td>12.4 %</td>
-                      <td>R12, R9</td>
-                      <td>C8, C7</td>
-                      <td>84,000 lbs</td>
-                      <td>64,000 lbs</td>
-                      <td class="text-right"
-                        ng-show="loginUserAccess.truckScale.incoming.view || loginUserAccess.truckScale.incoming.edit"
-                        aria-hidden="false">
-
-                        <a class="veiw_detail" style="cursor: pointer;" ng-click="openPdf(result.pdfUrl)">
-                          <svg class="svg-inline--fa fa-eye fa-w-18" aria-hidden="true" focusable="false"
-                            data-prefix="fa" data-icon="eye" role="img" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 576 512" data-fa-i2svg="">
-                            <path fill="currentColor"
-                              d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z">
-                            </path>
-                          </svg><!-- <i class="fa fa-eye" aria-hidden="true"></i> -->
-                        </a>
-
-                        <a ng-show="loginUserAccess.truckScale.incoming.edit"
-                          ng-href="incomingScale/66a3d1e5b6daf2e9ace96b8a" class="edit_details"
-                          href="incomingScale/66a3d1e5b6daf2e9ace96b8a" aria-hidden="false">
-                          <svg class="svg-inline--fa fa-pen-square fa-w-14" aria-hidden="true" focusable="false"
-                            data-prefix="fas" data-icon="pen-square" role="img" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 448 512" data-fa-i2svg="">
-                            <path fill="currentColor"
-                              d="M400 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zM238.1 177.9L102.4 313.6l-6.3 57.1c-.8 7.6 5.6 14.1 13.3 13.3l57.1-6.3L302.2 242c2.3-2.3 2.3-6.1 0-8.5L246.7 178c-2.5-2.4-6.3-2.4-8.6-.1zM345 165.1L314.9 135c-9.4-9.4-24.6-9.4-33.9 0l-23.1 23.1c-2.3 2.3-2.3 6.1 0 8.5l55.5 55.5c2.3 2.3 6.1 2.3 8.5 0L345 199c9.3-9.3 9.3-24.5 0-33.9z">
-                            </path>
-                          </svg><!-- <i class="fas fa-pen-square"></i> -->
-                        </a>
-                      </td>
-                    </tr><!-- end ngRepeat: result in incomingList -->
-
-
-                    <tr>
                       <td>Jul 28, 2024</td>
                       <td>Yuriy Drkn</td>
                       <td>15:00</td>
-                      <td>23:00</td>
-                      <td>8 hours</td>
-                      <td>4 hours, 0 minutes</td>
-                      <td>0 hours, 0 minutes</td>
-                      <td>4 hours, 0 minutes</td>
-                      <td>Marrofat Peas</td>
-                      <td>12.4 %</td>
-                      <td>R12, R9</td>
-                      <td>C8, C7</td>
-                      <td>84,000 lbs</td>
-                      <td>64,000 lbs</td>
-                      <td class="text-right"
-                        ng-show="loginUserAccess.truckScale.incoming.view || loginUserAccess.truckScale.incoming.edit"
-                        aria-hidden="false">
+                      <td>20:00</td>
+                      <td>KCP</td>
+                      <td>Large Green Lentils</td>
+                      <td>Vitaliy Kvbsk</td>
 
-                        <a class="veiw_detail" style="cursor: pointer;" ng-click="openPdf(result.pdfUrl)">
-                          <svg class="svg-inline--fa fa-eye fa-w-18" aria-hidden="true" focusable="false"
-                            data-prefix="fa" data-icon="eye" role="img" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 576 512" data-fa-i2svg="">
-                            <path fill="currentColor"
-                              d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z">
-                            </path>
-                          </svg><!-- <i class="fa fa-eye" aria-hidden="true"></i> -->
-                        </a>
+                      <td class="text-right">
 
-                        <a ng-show="loginUserAccess.truckScale.incoming.edit"
-                          ng-href="incomingScale/66a3d1e5b6daf2e9ace96b8a" class="edit_details"
-                          href="incomingScale/66a3d1e5b6daf2e9ace96b8a" aria-hidden="false">
+                        <a class="edit_details" href="/plantOperatorSwitchOver.html" aria-hidden="false">
                           <svg class="svg-inline--fa fa-pen-square fa-w-14" aria-hidden="true" focusable="false"
                             data-prefix="fas" data-icon="pen-square" role="img" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 448 512" data-fa-i2svg="">
@@ -12332,40 +12154,20 @@
                           </svg><!-- <i class="fas fa-pen-square"></i> -->
                         </a>
                       </td>
-                    </tr><!-- end ngRepeat: result in incomingList -->
+                    </tr>
 
                     <tr>
-                      <td>Jul 28, 2024</td>
+                      <td>Jul 27, 2024</td>
                       <td>Stanislav Keshman</td>
                       <td>7:00</td>
                       <td>15:00</td>
-                      <td>8 hours</td>
-                      <td>6 hours, 0 minutes</td>
-                      <td>0 hours, 0 minutes</td>
-                      <td>2 hours, 0 minutes</td>
-                      <td>KCP</td>
-                      <td>12.2 %</td>
-                      <td>R14, R8</td>
-                      <td>BB, C4</td>
-                      <td>153,000 lbs</td>
-                      <td>141,000 lbs</td>
-                      <td class="text-right"
-                        ng-show="loginUserAccess.truckScale.incoming.view || loginUserAccess.truckScale.incoming.edit"
-                        aria-hidden="false">
+                      <td>Large Green Lentils</td>
+                      <td>MFP</td>
+                      <td>Alex Smlk</td>
 
-                        <a class="veiw_detail" style="cursor: pointer;" ng-click="openPdf(result.pdfUrl)">
-                          <svg class="svg-inline--fa fa-eye fa-w-18" aria-hidden="true" focusable="false"
-                            data-prefix="fa" data-icon="eye" role="img" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 576 512" data-fa-i2svg="">
-                            <path fill="currentColor"
-                              d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z">
-                            </path>
-                          </svg><!-- <i class="fa fa-eye" aria-hidden="true"></i> -->
-                        </a>
+                      <td class="text-right">
 
-                        <a ng-show="loginUserAccess.truckScale.incoming.edit"
-                          ng-href="incomingScale/66a3d1e5b6daf2e9ace96b8a" class="edit_details"
-                          href="incomingScale/66a3d1e5b6daf2e9ace96b8a" aria-hidden="false">
+                        <a class="edit_details" href="/plantOperatorSwitchOver.html" aria-hidden="false">
                           <svg class="svg-inline--fa fa-pen-square fa-w-14" aria-hidden="true" focusable="false"
                             data-prefix="fas" data-icon="pen-square" role="img" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 448 512" data-fa-i2svg="">
@@ -12377,38 +12179,43 @@
                       </td>
                     </tr><!-- end ngRepeat: result in incomingList -->
 
+
                     <tr>
-                      <td>Jul 27, 2024</td>
+                      <td>Jul 26, 2024</td>
                       <td>Vyacheslav Horidko</td>
                       <td>23:00</td>
                       <td>7:00</td>
-                      <td>8 hours</td>
-                      <td>8 hours, 0 minutes</td>
-                      <td>0 hours, 0 minutes</td>
-                      <td>0 hours, 0 minutes</td>
-                      <td>KCP</td>
-                      <td>12.4 %</td>
-                      <td>R12, R9</td>
-                      <td>C8, C7</td>
-                      <td>84,000 lbs</td>
-                      <td>64,000 lbs</td>
-                      <td class="text-right"
-                        ng-show="loginUserAccess.truckScale.incoming.view || loginUserAccess.truckScale.incoming.edit"
-                        aria-hidden="false">
+                      <td>Kcp</td>
+                      <td>Large Green Lentils</td>
+                      <td>Alex Smlk</td>
 
-                        <a class="veiw_detail" style="cursor: pointer;" ng-click="openPdf(result.pdfUrl)">
-                          <svg class="svg-inline--fa fa-eye fa-w-18" aria-hidden="true" focusable="false"
-                            data-prefix="fa" data-icon="eye" role="img" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 576 512" data-fa-i2svg="">
+                      <td class="text-right">
+
+                        <a class="edit_details" href="/plantOperatorSwitchOver.html" aria-hidden="false">
+                          <svg class="svg-inline--fa fa-pen-square fa-w-14" aria-hidden="true" focusable="false"
+                            data-prefix="fas" data-icon="pen-square" role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 448 512" data-fa-i2svg="">
                             <path fill="currentColor"
-                              d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z">
+                              d="M400 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zM238.1 177.9L102.4 313.6l-6.3 57.1c-.8 7.6 5.6 14.1 13.3 13.3l57.1-6.3L302.2 242c2.3-2.3 2.3-6.1 0-8.5L246.7 178c-2.5-2.4-6.3-2.4-8.6-.1zM345 165.1L314.9 135c-9.4-9.4-24.6-9.4-33.9 0l-23.1 23.1c-2.3 2.3-2.3 6.1 0 8.5l55.5 55.5c2.3 2.3 6.1 2.3 8.5 0L345 199c9.3-9.3 9.3-24.5 0-33.9z">
                             </path>
-                          </svg><!-- <i class="fa fa-eye" aria-hidden="true"></i> -->
+                          </svg><!-- <i class="fas fa-pen-square"></i> -->
                         </a>
+                      </td>
+                    </tr><!-- end ngRepeat: result in incomingList -->
 
-                        <a ng-show="loginUserAccess.truckScale.incoming.edit"
-                          ng-href="incomingScale/66a3d1e5b6daf2e9ace96b8a" class="edit_details"
-                          href="incomingScale/66a3d1e5b6daf2e9ace96b8a" aria-hidden="false">
+
+                    <tr>
+                      <td>Jul 25, 2024</td>
+                      <td>Yuriy Drkn</td>
+                      <td>15:00</td>
+                      <td>23:00</td>
+                      <td>Black Beans</td>
+                      <td>Kcp</td>
+                      <td></td>
+
+                      <td class="text-right">
+
+                        <a class="edit_details" href="/plantOperatorSwitchOver.html" aria-hidden="false">
                           <svg class="svg-inline--fa fa-pen-square fa-w-14" aria-hidden="true" focusable="false"
                             data-prefix="fas" data-icon="pen-square" role="img" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 448 512" data-fa-i2svg="">
@@ -12421,37 +12228,63 @@
                     </tr><!-- end ngRepeat: result in incomingList -->
 
                     <tr>
-                      <td>Jul 27, 2024</td>
+                      <td>Jul 24, 2024</td>
+                      <td>Stanislav Keshman</td>
+                      <td>7:00</td>
+                      <td>15:00</td>
+                      <td>Reds</td>
+                      <td>Black Beans</td>
+                      <td></td>
+
+                      <td class="text-right">
+
+                        <a class="edit_details" href="/plantOperatorSwitchOver.html" aria-hidden="false">
+                          <svg class="svg-inline--fa fa-pen-square fa-w-14" aria-hidden="true" focusable="false"
+                            data-prefix="fas" data-icon="pen-square" role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 448 512" data-fa-i2svg="">
+                            <path fill="currentColor"
+                              d="M400 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zM238.1 177.9L102.4 313.6l-6.3 57.1c-.8 7.6 5.6 14.1 13.3 13.3l57.1-6.3L302.2 242c2.3-2.3 2.3-6.1 0-8.5L246.7 178c-2.5-2.4-6.3-2.4-8.6-.1zM345 165.1L314.9 135c-9.4-9.4-24.6-9.4-33.9 0l-23.1 23.1c-2.3 2.3-2.3 6.1 0 8.5l55.5 55.5c2.3 2.3 6.1 2.3 8.5 0L345 199c9.3-9.3 9.3-24.5 0-33.9z">
+                            </path>
+                          </svg><!-- <i class="fas fa-pen-square"></i> -->
+                        </a>
+                      </td>
+                    </tr><!-- end ngRepeat: result in incomingList -->
+
+                    <tr>
+                      <td>Jul 23, 2024</td>
+                      <td>Vyacheslav Horidko</td>
+                      <td>23:00</td>
+                      <td>7:00</td>
+                      <td>Small Marrofat Peas</td>
+                      <td>Reds</td>
+                      <td>Alex Smlk</td>
+
+                      <td class="text-right">
+
+                        <a class="edit_details" href="/plantOperatorSwitchOver.html" aria-hidden="false">
+                          <svg class="svg-inline--fa fa-pen-square fa-w-14" aria-hidden="true" focusable="false"
+                            data-prefix="fas" data-icon="pen-square" role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 448 512" data-fa-i2svg="">
+                            <path fill="currentColor"
+                              d="M400 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zM238.1 177.9L102.4 313.6l-6.3 57.1c-.8 7.6 5.6 14.1 13.3 13.3l57.1-6.3L302.2 242c2.3-2.3 2.3-6.1 0-8.5L246.7 178c-2.5-2.4-6.3-2.4-8.6-.1zM345 165.1L314.9 135c-9.4-9.4-24.6-9.4-33.9 0l-23.1 23.1c-2.3 2.3-2.3 6.1 0 8.5l55.5 55.5c2.3 2.3 6.1 2.3 8.5 0L345 199c9.3-9.3 9.3-24.5 0-33.9z">
+                            </path>
+                          </svg><!-- <i class="fas fa-pen-square"></i> -->
+                        </a>
+                      </td>
+                    </tr><!-- end ngRepeat: result in incomingList -->
+
+                    <tr>
+                      <td>Jul 23, 2024</td>
                       <td>Yuriy Drokin</td>
                       <td>15:00</td>
                       <td>23:00</td>
-                      <td>8 hours</td>
-                      <td>0 hours, 0 minutes</td>
-                      <td>0 hours, 0 minutes</td>
-                      <td>0 hours, 0 minutes</td>
-                      <td>KCP</td>
-                      <td>12.1 %</td>
-                      <td>R14, R8</td>
-                      <td>C1, C2</td>
-                      <td>155,000 lbs</td>
-                      <td>142,000 lbs</td>
-                      <td class="text-right"
-                        ng-show="loginUserAccess.truckScale.incoming.view || loginUserAccess.truckScale.incoming.edit"
-                        aria-hidden="false">
+                      <td>Otebo</td>
+                      <td>Small Marrofat Peas</td>
+                      <td>Alex Smlk</td>
 
-                        <a class="veiw_detail" style="cursor: pointer;" ng-click="openPdf(result.pdfUrl)">
-                          <svg class="svg-inline--fa fa-eye fa-w-18" aria-hidden="true" focusable="false"
-                            data-prefix="fa" data-icon="eye" role="img" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 576 512" data-fa-i2svg="">
-                            <path fill="currentColor"
-                              d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z">
-                            </path>
-                          </svg><!-- <i class="fa fa-eye" aria-hidden="true"></i> -->
-                        </a>
+                      <td class="text-right">
 
-                        <a ng-show="loginUserAccess.truckScale.incoming.edit"
-                          ng-href="incomingScale/66a3d1e5b6daf2e9ace96b8a" class="edit_details"
-                          href="incomingScale/66a3d1e5b6daf2e9ace96b8a" aria-hidden="false">
+                        <a class="edit_details" href="/plantOperatorSwitchOver.html" aria-hidden="false">
                           <svg class="svg-inline--fa fa-pen-square fa-w-14" aria-hidden="true" focusable="false"
                             data-prefix="fas" data-icon="pen-square" role="img" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 448 512" data-fa-i2svg="">
@@ -12464,37 +12297,17 @@
                     </tr><!-- end ngRepeat: result in incomingList -->
 
                     <tr>
-                      <td>Jul 27, 2024</td>
+                      <td>Jul 21, 2024</td>
                       <td>Stanislav Keshman</td>
                       <td>7:00</td>
                       <td>15:00</td>
-                      <td>6 hours</td>
-                      <td>4 hours, 0 minutes</td>
-                      <td>2 hours, 0 minutes</td>
-                      <td>0 hours, 0 minutes</td>
-                      <td>KCP</td>
-                      <td>12.1 %</td>
-                      <td>R14, R8</td>
-                      <td>C1, C2</td>
-                      <td>155,000 lbs</td>
-                      <td>142,000 lbs</td>
-                      <td class="text-right"
-                        ng-show="loginUserAccess.truckScale.incoming.view || loginUserAccess.truckScale.incoming.edit"
-                        aria-hidden="false">
+                      <td>Kcp</td>
+                      <td>Otebo</td>
+                      <td>Alex Smlk</td>
 
-                        <a class="veiw_detail" style="cursor: pointer;" ng-click="openPdf(result.pdfUrl)">
-                          <svg class="svg-inline--fa fa-eye fa-w-18" aria-hidden="true" focusable="false"
-                            data-prefix="fa" data-icon="eye" role="img" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 576 512" data-fa-i2svg="">
-                            <path fill="currentColor"
-                              d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z">
-                            </path>
-                          </svg><!-- <i class="fa fa-eye" aria-hidden="true"></i> -->
-                        </a>
+                      <td class="text-right">
 
-                        <a ng-show="loginUserAccess.truckScale.incoming.edit"
-                          ng-href="incomingScale/66a3d1e5b6daf2e9ace96b8a" class="edit_details"
-                          href="incomingScale/66a3d1e5b6daf2e9ace96b8a" aria-hidden="false">
+                        <a class="edit_details" href="/plantOperatorSwitchOver.html" aria-hidden="false">
                           <svg class="svg-inline--fa fa-pen-square fa-w-14" aria-hidden="true" focusable="false"
                             data-prefix="fas" data-icon="pen-square" role="img" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 448 512" data-fa-i2svg="">
@@ -12506,37 +12319,17 @@
                       </td>
                     </tr><!-- end ngRepeat: result in incomingList -->
                     <tr>
-                      <td>Jul 26, 2024</td>
+                      <td>Jul 20, 2024</td>
                       <td>Yuriy Drkn</td>
                       <td>7:00</td>
                       <td>19:00</td>
-                      <td>12 hours</td>
-                      <td>11 hours, 0 minutes</td>
-                      <td>1 hours, 0 minutes</td>
-                      <td>0 hours, 0 minutes</td>
-                      <td>KCP</td>
-                      <td>12.2 %</td>
-                      <td>R14, R2</td>
-                      <td>C5, C6</td>
-                      <td>220,000 lbs</td>
-                      <td>201,000 lbs</td>
-                      <td class="text-right"
-                        ng-show="loginUserAccess.truckScale.incoming.view || loginUserAccess.truckScale.incoming.edit"
-                        aria-hidden="false">
+                      <td>Small Green Lentils</td>
+                      <td>Kcp</td>
+                      <td>Vitaliy Kvbsk</td>
 
-                        <a class="veiw_detail" style="cursor: pointer;" ng-click="openPdf(result.pdfUrl)">
-                          <svg class="svg-inline--fa fa-eye fa-w-18" aria-hidden="true" focusable="false"
-                            data-prefix="fa" data-icon="eye" role="img" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 576 512" data-fa-i2svg="">
-                            <path fill="currentColor"
-                              d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z">
-                            </path>
-                          </svg><!-- <i class="fa fa-eye" aria-hidden="true"></i> -->
-                        </a>
+                      <td class="text-right">
 
-                        <a ng-show="loginUserAccess.truckScale.incoming.edit"
-                          ng-href="incomingScale/66a3d1e5b6daf2e9ace96b8a" class="edit_details"
-                          href="incomingScale/66a3d1e5b6daf2e9ace96b8a" aria-hidden="false">
+                        <a class="edit_details" href="/plantOperatorSwitchOver.html" aria-hidden="false">
                           <svg class="svg-inline--fa fa-pen-square fa-w-14" aria-hidden="true" focusable="false"
                             data-prefix="fas" data-icon="pen-square" role="img" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 448 512" data-fa-i2svg="">
@@ -12550,8 +12343,7 @@
                   </tbody>
                 </table> <!-- Table End-->
 
-                <div paging="" page="page" page-size="myForm.limit" total="totalPages"
-                  paging-action="DoCtrlPagingAct(page)" class="ng-isolate-scope">
+                <div paging="" page="page" class="ng-isolate-scope">
                   <ul data-ng-hide="Hide" data-ng-class="ulClass" aria-hidden="false" class="pagination">
                     <!-- ngRepeat: Item in List -->
                     <li title="Page 1" data-ng-class="Item.liClass" data-ng-repeat="Item in List"
