@@ -10348,18 +10348,14 @@
 
 
           <div class="panel_body_inner inner_box">
-            <form name="scaleForm" class="ng-pristine ng-invalid ng-invalid-required">
+            <form name="" class="ng-pristine ng-invalid ng-invalid-required">
               <div class="pro_header ">
 
-                <div class="row ng-scope" ng-if="ticketNumber == 'add'">
+                <div class="row ng-scope">
                   <div class="col-md-3">
                     <div class="com_pac">
                       <label>Operator</label>
-                      <select ng-show="!commodityTypeInput" name="commodityType"
-                        ng-options="commodityType._id as commodityType.commodityTypeName for commodityType in commodityList"
-                        track="" by="" commoditytype="" ng-model="myForm.commodityTypeId"
-                        class="ng-pristine ng-valid ng-empty ng-touched" aria-hidden="false" aria-invalid="false"
-                        style="">
+                      <select class="ng-pristine ng-valid ng-empty ng-touched" style="">
                         <option value="" class="" selected="selected">Select Operator Name</option>
                         <option label="Stanislav Keshman" value="">Stas Keshman</option>
                         <option label="Yuriy Drokin" value="">Yuriy Drokin</option>
@@ -10374,11 +10370,7 @@
                   <div class="col-md-3">
                     <div class="com_pac">
                       <label>Previous Commodity</label>
-                      <select ng-show="!commodityTypeInput" name="commodityType"
-                        ng-options="commodityType._id as commodityType.commodityTypeName for commodityType in commodityList"
-                        track="" by="" commoditytype="" ng-model="myForm.commodityTypeId"
-                        class="ng-pristine ng-valid ng-empty ng-touched" aria-hidden="false" aria-invalid="false"
-                        style="">
+                      <select class="ng-pristine ng-valid ng-empty ng-touched">
                         <option value="" class="" selected="selected">Select Previous Commodity</option>
                         <option label="Kabuli Chick Peas" value="">KCP</option>
                         <option label="Marrofat Peas" value=""> MFP</option>
@@ -10393,11 +10385,7 @@
                   <div class="col-md-3">
                     <div class="com_pac">
                       <label>Next Commodity</label>
-                      <select ng-show="!commodityTypeInput" name="commodityType"
-                        ng-options="commodityType._id as commodityType.commodityTypeName for commodityType in commodityList"
-                        track="" by="" commoditytype="" ng-model="myForm.commodityTypeId"
-                        class="ng-pristine ng-valid ng-empty ng-touched" aria-hidden="false" aria-invalid="false"
-                        style="">
+                      <select class="ng-pristine ng-valid ng-empty ng-touched">
                         <option value="" class="" selected="selected">Select Next Commodity</option>
                         <option label="Kabuli Chick Peas" value="">KCP</option>
                         <option label="Marrofat Peas" value=""> MFP</option>
@@ -10446,7 +10434,7 @@
                     <div class="row"> <!-- Row Delta Screens-->
                       <div class="col-md-6 col-sm-6 col-xs-12">
                         <div class="comodity_table comodity_table_list">
-                          <table class="table table-striped commodity_table" style="font-size: 14px;">
+                          <table class="table table-striped commodity_table" style="font-size: 13px;">
                             <thead>
                               <tr>
                                 <th style="text-align: center;">LMC Cleaning Check List</th>
