@@ -11101,8 +11101,8 @@
                                   </td>
                                 </tr>
                                 <tr>
-                                  <td><select class="form-control" aria-invalid="false" style="">
-                                      <option value="" class="" selected="selected">Choose Run #</option>
+                                  <td><select class="form-control">
+                                      <option selected="selected">Choose Run #</option>
                                       <option label="" value="">Run 1</option>
                                       <option label="" value="">Run 2</option>
                                       <option label="" value="">Run 3</option>
@@ -11179,10 +11179,10 @@
                               <thead>
                                 <tr>
                                   <th colspan="11" style="text-align: center;">Peas</th>
-                                  <th rowspan="2" style="text-align: center; width: 8%;">Raw Bin</th>
-                                  <th rowspan="2" style="text-align: center; width: 8%;">Cleaning Bin</th>
-                                  <th rowspan="2" style="text-align: center;">Sorter Used</th>
-                                  <th colspan="2" rowspan="2" style="width: 12%;">Action</th>
+                                  <th rowspan="2" style=" width: 16%;">Raw Bin</th>
+                                  <th rowspan="2" style=" width: 16%;">Cleaning Bin</th>
+                                  <th rowspan="2">Sorter Used</th>
+                                  <th colspan="2" rowspan="2" style="width: 6%;">Action</th>
                                 </tr>
                                 <tr>
                                   <th style="width: 5%;">Time</th>
@@ -11211,8 +11211,14 @@
                                   <td>1</td>
                                   <td>0</td>
                                   <td>0.03</td>
-                                  <td>R2, R3, R7</td>
-                                  <td>TB, C7</td>
+                                  <td class="text-center">
+                                    <div id="rawBinContainer_1"></div>
+                                    <button class="btn green-btn" onclick="addRawBin(1)">Add Raw Bin</button>
+                                  </td>
+                                  <td class="text-center">
+                                    <div id="cleanBinContainer_1"></div>
+                                    <button class="btn green-btn" onclick="addCleanBin(1)">Add Clean Bin</button>
+                                  </td>
                                   <td><input type="checkbox" style="width: 20px; height: 20px;"> </td>
                                   <td class="text-right">
                                     <a class="edit_details" data-ng-show=""
@@ -11938,8 +11944,7 @@
                                   <td class="text-right">
 
 
-                                    <a class="edit_details" data-ng-show=""
-                                      data-ng-click="editMode = false; saveField(result)" aria-hidden="false" style="">
+                                    <a class="edit_details">
                                       <svg class="svg-inline--fa fa-save fa-w-14" aria-hidden="true" focusable="false"
                                         data-prefix="fas" data-icon="save" role="img" xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 448 512" data-fa-i2svg="">
@@ -11985,7 +11990,7 @@
                                         <path fill="currentColor"
                                           d="M433.941 129.941l-83.882-83.882A48 48 0 0 0 316.118 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V163.882a48 48 0 0 0-14.059-33.941zM224 416c-35.346 0-64-28.654-64-64 0-35.346 28.654-64 64-64s64 28.654 64 64c0 35.346-28.654 64-64 64zm96-304.52V212c0 6.627-5.373 12-12 12H76c-6.627 0-12-5.373-12-12V108c0-6.627 5.373-12 12-12h228.52c3.183 0 6.235 1.264 8.485 3.515l3.48 3.48A11.996 11.996 0 0 1 320 111.48z">
                                         </path>
-                                      </svg><!-- <i style="margin: 4px 0 0 4px;font-size: 25px;" class="fas fa-save"></i> -->
+                                      </svg>
                                     </a>
 
                                     <a ng-show="" ng-href="" class="edit_details" href="" aria-hidden="false">
@@ -11995,7 +12000,7 @@
                                         <path fill="currentColor"
                                           d="M400 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zM238.1 177.9L102.4 313.6l-6.3 57.1c-.8 7.6 5.6 14.1 13.3 13.3l57.1-6.3L302.2 242c2.3-2.3 2.3-6.1 0-8.5L246.7 178c-2.5-2.4-6.3-2.4-8.6-.1zM345 165.1L314.9 135c-9.4-9.4-24.6-9.4-33.9 0l-23.1 23.1c-2.3 2.3-2.3 6.1 0 8.5l55.5 55.5c2.3 2.3 6.1 2.3 8.5 0L345 199c9.3-9.3 9.3-24.5 0-33.9z">
                                         </path>
-                                      </svg><!-- <i class="fas fa-pen-square"></i> -->
+                                      </svg>
                                     </a>
 
                                     <a ng-show="" class="veiw_detail" ng-click="" aria-hidden="false">
@@ -12247,7 +12252,149 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.0/moment.min.js"></script>
         <script type="text/javascript"
           src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/0.9.0rc1/jspdf.min.js"></script>
-        <script></script>
+
+        <script>
+          function addRawBin(rowId) {
+            const container = document.getElementById('rawBinContainer_' + rowId);
+            const div = document.createElement('div');
+            div.className = 'form-inline';
+            div.innerHTML = `
+            
+               <select class="form-control form-group" ">
+                <option value="">Raw Bin</option>
+                <option value="1">R 1</option>
+                <option value="2">R 2</option>
+                <option value="3">R 3</option>
+                <option value="4">R 4</option>
+                <option value="5">R 5</option>
+                <option value="7">R 7</option>
+                <option value="8">R 8</option>
+                <option value="9">R 9</option>
+                <option value="10">R 10</option>
+                <option value="11">R 11</option>
+                <option value="12">R 12</option>
+                <option value="13">R 13</option>
+                <option value="14">R 14</option>
+                
+                
+              </select>
+               <select class="form-control form-group" ">
+                <option value="">Select %</option>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+                <option value="25">25</option>
+                <option value="30">30</option>
+                <option value="35">35</option>
+                <option value="40">40</option>
+                <option value="45">45</option>
+                <option value="50">50</option>
+                <option value="55">55</option>
+                <option value="60">60</option>
+                <option value="65">65</option>
+                <option value="70">75</option>
+                <option value="80">80</option>
+                <option value="85">90</option>
+                <option value="95">95</option>
+                <option value="100">100</option>
+                
+               </select>
+
+<a class="edit_details" data-ng-show=""
+                                      data-ng-click="editMode = false; saveField(result)" aria-hidden="false" style="">
+                                      <svg class="svg-inline--fa fa-save fa-w-14" aria-hidden="true" focusable="false"
+                                        data-prefix="fas" data-icon="save" role="img" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 448 512" data-fa-i2svg="">
+                                        <path fill="currentColor"
+                                          d="M433.941 129.941l-83.882-83.882A48 48 0 0 0 316.118 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V163.882a48 48 0 0 0-14.059-33.941zM224 416c-35.346 0-64-28.654-64-64 0-35.346 28.654-64 64-64s64 28.654 64 64c0 35.346-28.654 64-64 64zm96-304.52V212c0 6.627-5.373 12-12 12H76c-6.627 0-12-5.373-12-12V108c0-6.627 5.373-12 12-12h228.52c3.183 0 6.235 1.264 8.485 3.515l3.48 3.48A11.996 11.996 0 0 1 320 111.48z">
+                                        </path>
+                                      </svg>
+                                    </a>
+
+                                    <a class="edit_details" >
+                                      <svg class="svg-inline--fa fa-pen-square fa-w-14" aria-hidden="true"
+                                        focusable="false" data-prefix="fas" data-icon="pen-square" role="img"
+                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                                        <path fill="currentColor"
+                                          d="M400 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zM238.1 177.9L102.4 313.6l-6.3 57.1c-.8 7.6 5.6 14.1 13.3 13.3l57.1-6.3L302.2 242c2.3-2.3 2.3-6.1 0-8.5L246.7 178c-2.5-2.4-6.3-2.4-8.6-.1zM345 165.1L314.9 135c-9.4-9.4-24.6-9.4-33.9 0l-23.1 23.1c-2.3 2.3-2.3 6.1 0 8.5l55.5 55.5c2.3 2.3 6.1 2.3 8.5 0L345 199c9.3-9.3 9.3-24.5 0-33.9z">
+                                        </path>
+                                      </svg>
+                                    </a>
+
+                <a  class="veiw_detail" onclick="removeRawBin(this)" ">
+              <svg class="svg-inline--fa fa-trash fa-w-14" aria-hidden="true" focusable="false"
+              data-prefix="fa" data-icon="trash" role="img" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512" data-fa-i2svg="">
+              <path fill="currentColor"
+                                          d="M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z">
+              </path>
+                                      </svg><!-- <i class="fa fa-trash" aria-hidden="true"></i> -->
+                                    </a>
+            `;
+            container.appendChild(div);
+          }
+
+          function removeRawBin(button) {
+            button.parentElement.remove();
+          }
+
+          function addCleanBin(rowId) {
+            const container = document.getElementById('cleanBinContainer_' + rowId);
+            const div = document.createElement('div');
+            div.className = 'form-inline';
+            div.innerHTML = `
+              <select class="form-control form-group">
+                <option value="1">Select Clean Bin</option>
+                <option value="2">C1</option>
+                <option value="3">C2</option>
+                <option value="4">C3</option>
+                <option value="5">C4</option>
+                <option value="6">C5</option>
+                <option value="7">C6</option>
+                <option value="8">C7</option>
+                <option value="9">C8</option>
+                <option value="10">C9</option>
+                <option value="11">C10</option>
+                <option value="12">BB</option>
+                <option value="13">TB</option>
+                               
+              </select>
+              
+              <a class="edit_details" data-ng-show=""
+                                      data-ng-click="editMode = false; saveField(result)" aria-hidden="false" style="">
+                                      <svg class="svg-inline--fa fa-save fa-w-14" aria-hidden="true" focusable="false"
+                                        data-prefix="fas" data-icon="save" role="img" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 448 512" data-fa-i2svg="">
+                                        <path fill="currentColor"
+                                          d="M433.941 129.941l-83.882-83.882A48 48 0 0 0 316.118 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V163.882a48 48 0 0 0-14.059-33.941zM224 416c-35.346 0-64-28.654-64-64 0-35.346 28.654-64 64-64s64 28.654 64 64c0 35.346-28.654 64-64 64zm96-304.52V212c0 6.627-5.373 12-12 12H76c-6.627 0-12-5.373-12-12V108c0-6.627 5.373-12 12-12h228.52c3.183 0 6.235 1.264 8.485 3.515l3.48 3.48A11.996 11.996 0 0 1 320 111.48z">
+                                        </path>
+                                      </svg>
+                                    </a>
+
+                                    <a class="edit_details" >
+                                      <svg class="svg-inline--fa fa-pen-square fa-w-14" aria-hidden="true"
+                                        focusable="false" data-prefix="fas" data-icon="pen-square" role="img"
+                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                                        <path fill="currentColor"
+                                          d="M400 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zM238.1 177.9L102.4 313.6l-6.3 57.1c-.8 7.6 5.6 14.1 13.3 13.3l57.1-6.3L302.2 242c2.3-2.3 2.3-6.1 0-8.5L246.7 178c-2.5-2.4-6.3-2.4-8.6-.1zM345 165.1L314.9 135c-9.4-9.4-24.6-9.4-33.9 0l-23.1 23.1c-2.3 2.3-2.3 6.1 0 8.5l55.5 55.5c2.3 2.3 6.1 2.3 8.5 0L345 199c9.3-9.3 9.3-24.5 0-33.9z">
+                                        </path>
+                                      </svg>
+                                    </a>
+              
+            <a  class="veiw_detail" onclick="removeRawBin(this)" ">
+              <svg class="svg-inline--fa fa-trash fa-w-14" aria-hidden="true" focusable="false"
+              data-prefix="fa" data-icon="trash" role="img" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512" data-fa-i2svg="">
+              <path fill="currentColor"
+                                          d="M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z">
+              </path>
+                                      </svg><!-- <i class="fa fa-trash" aria-hidden="true"></i> -->
+                                    </a>
+            `;
+            container.appendChild(div);
+          }
+        </script>
 
 </body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration>
 
