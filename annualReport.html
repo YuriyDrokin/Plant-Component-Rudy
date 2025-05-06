@@ -10001,7 +10001,6 @@ overflow: hidden;">
               </div><!--END Commodity per year -->
 
 
-
               <!-- Downtime Chart per year -->
 
               <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pad_top">
@@ -10047,9 +10046,9 @@ overflow: hidden;">
                   </div>
 
                   <div style="position: relative;
-    margin: auto;
-    height: 40vh;
-    width: 40vw;">
+margin: auto;
+height: 40vh;
+width: 40vw;">
                     <canvas id="pieDowntime"></canvas>
                   </div>
 
@@ -10057,8 +10056,60 @@ overflow: hidden;">
 
               </div><!-- END Downtime per year -->
 
+              <!-- Bin Usage -->
+
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad_top">
+                <div style="margin: 0;
+              padding: 15px 0;
+              float: left;
+              width: 100%;
+              background: #fafafa;
+              border-radius: 5px;
+              min-height: 600px;
+              overflow: hidden;">
+
+                  <div class="col-md-12 col-sm-12 col-xs-12">
+
+                    <h3
+                      style="font-size:16px !important;display: flex;align-items:center;justify-content: space-between;">
+                      Annual Bin Usage
+                      <select style="margin-left: auto;font-size: 9pt;height: 22px;margin-right: 10px;" ng-model=""
+                        ng-change="" ng-options="" class="" aria-invalid="false">
+                        <option label="2025" value="commodity2025" selected="selected">2025</option>
+                        <option label="2026" value="commodity2026">2026</option>
+                        <option label="2027" value="commodity2027">2027</option>
+                        <option label="2027" value="commodity2028">2028</option>
+                        <option label="2028" value="commodity2029">2029</option>
+                        <option label="2029" value="commodity2030">2030</option>
+                        <option label="2030" value="commodity2031">2031</option>
+                        <option label="2031" value="commodity2032">2032</option>
+                        <option label="2033" value="commodity2033">2033</option>
+                        <option label="2034" value="commodity2034">2034</option>
+                        <option label="2035" value="commodity2035">2035</option>
 
 
+                      </select>
+                      <a><svg style="font-size: 13px;color: green;" class="svg-inline--fa fa-sync fa-w-16"
+                          aria-hidden="true" focusable="false" data-prefix="fa" data-icon="sync" role="img"
+                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
+                          <path fill="currentColor"
+                            d="M440.65 12.57l4 82.77A247.16 247.16 0 0 0 255.83 8C134.73 8 33.91 94.92 12.29 209.82A12 12 0 0 0 24.09 224h49.05a12 12 0 0 0 11.67-9.26 175.91 175.91 0 0 1 317-56.94l-101.46-4.86a12 12 0 0 0-12.57 12v47.41a12 12 0 0 0 12 12H500a12 12 0 0 0 12-12V12a12 12 0 0 0-12-12h-47.37a12 12 0 0 0-11.98 12.57zM255.83 432a175.61 175.61 0 0 1-146-77.8l101.8 4.87a12 12 0 0 0 12.57-12v-47.4a12 12 0 0 0-12-12H12a12 12 0 0 0-12 12V500a12 12 0 0 0 12 12h47.35a12 12 0 0 0 12-12.6l-4.15-82.57A247.17 247.17 0 0 0 255.83 504c121.11 0 221.93-86.92 243.55-201.82a12 12 0 0 0-11.8-14.18h-49.05a12 12 0 0 0-11.67 9.26A175.86 175.86 0 0 1 255.83 432z">
+                          </path>
+                        </svg></a>
+                    </h3>
+                    <hr />
+                  </div>
+
+                  <div style="position: relative;
+                  margin: auto;
+                  height: 50vh;
+                  width: 50vw;">
+                    <canvas id="barBinUsage"></canvas>
+                  </div>
+
+                </div>
+
+              </div><!-- END Bin Usage per year -->
 
               <!-- Operators table-->
               <div class="col-lg-12 col-sm-12 pad_top">
@@ -10529,6 +10580,85 @@ overflow: hidden;">
             },
             plugins: []
           });
+
+          const labels = ["R1", "R2", "R3", "R4", "R5", "R7", "R8", "R9", "R10", "R11", "R12", "R13", "R14"];
+          const totalHours = [44450, 11360, 36670, 45560, 47670, 65780, 55780, 77540, 88330, 99120, 80500, 67000, 58000];
+
+          // Simulate running time: 3,000–8,000 hours less per bin
+          const runningHours = totalHours.map(h => h - Math.floor(Math.random() * 5000 + 3000));
+
+          // Calculate usage % for each bin based on total vs running time
+          const usagePercent = runningHours.map((run, i) => ((run / totalHours[i]) * 100).toFixed(2));
+
+          const ctx6 = document.getElementById('barBinUsage').getContext('2d');
+
+          new Chart(ctx6, {
+            type: 'bar',
+            data: {
+              labels: labels,
+              datasets: [
+
+                {
+                  label: 'Running Time Hours',
+                  data: runningHours,
+                  backgroundColor: [
+                    'rgba(231, 76, 60, 0.5)',
+                    'rgba(46, 204, 113, 0.5)',
+                    'rgba(52, 152, 219, 0.5)',
+                    'rgba(230, 126, 34, 0.5)',
+                    'rgba(155, 89, 182, 0.5)',
+                    'rgba(26, 188, 156, 0.5)',
+                    'rgba(253, 121, 168, 0.5)',
+                    'rgba(241, 196, 15, 0.5)',
+                    'rgba(142, 68, 173, 0.5)',
+                    'rgba(0, 206, 201, 0.5)',
+                    'rgba(108, 92, 231, 0.5)',
+                    'rgba(163, 203, 56, 0.5)',
+                    'rgba(127, 140, 141, 0.5)'
+
+                  ],
+                  borderColor: [
+                    'rgba(231, 76, 60, 1)',
+                    'rgba(46, 204, 113, 1)',
+                    'rgba(52, 152, 219, 1)',
+                    'rgba(230, 126, 34, 1)',
+                    'rgba(155, 89, 182, 1)',
+                    'rgba(26, 188, 156, 1)',
+                    'rgba(253, 121, 168, 1)',
+                    'rgba(241, 196, 15, 1)',
+                    'rgba(142, 68, 173, 1)',
+                    'rgba(0, 206, 201, 1)',
+                    'rgba(108, 92, 231, 1)',
+                    'rgba(163, 203, 56, 1)',
+                    'rgba(127, 140, 141, 1)'
+                  ],
+                  borderWidth: 1
+                }
+              ]
+            },
+            options: {
+              responsive: true,
+              plugins: {
+                tooltip: {
+                  callbacks: {
+                    afterBody: function (context) {
+                      const i = context[0].dataIndex;
+                      return `Usage Efficiency: ${usagePercent[i]}%`;
+                    }
+                  }
+                }
+              },
+              scales: {
+                y: {
+                  beginAtZero: true
+                }
+              }
+            }
+          });
+
+
+
+
         </script>
 
 
