@@ -10378,17 +10378,20 @@
                         </label>
                       </div>
                     </div>
-                    <div class="tbl" style="width: 20%!important;">
+                    <div class="tbl" style="width: 11%!important;">
                       <label>Operator Name</label>
-                      <input type="text" name="" class="ng-pristine ng-untouched ng-valid ng-empty"
-                        aria-invalid="false">
+                      <select class="form-control" style="font-size: 14px;height: 34px;color: #000;width: 100%;">
+                        <option value="" class="" selected="selected">Operator</option>
+                        <option label="" value="">Stas Keshman</option>
+                        <option label="" value="">Yuriy Drokin</option>
+                        <option label="" value="">Valeriy Vasil'evich</option>
+                        <option label="" value="">Slavik Horidko</option>
+                      </select>
                     </div>
-                    <div class="tbl" style="width: 20%!important;">
+                    <div class="tbl" style="width: 11%!important;">
                       <label>Commodity</label>
-                      <select style="font-size: 14px;height: 34px;color: #000;width: 100%;" name="commodity"
-                        ng-options="commodity._id as commodity.commodityName for commodity in commoditys"
-                        ng-model="myForm.commodity" ng-change="search()"
-                        class="ng-pristine ng-untouched ng-valid ng-empty" aria-invalid="false">
+                      <select class="form-control" style="font-size: 14px;height: 34px;color: #000;width: 100%;"
+                        name="commodity">
                         <option value="" class="" selected="selected">Select Commodity</option>
                         <option label="Austrian Winter Peas" value="string:5ba54ecbfebd7239631cb242">Austrian Winter
                           Peas</option>
@@ -10501,15 +10504,56 @@
                         </option>
                       </select>
                     </div>
-                    <!--
-                    <div class="tbl" style="width: 15%!important;">
-                      <label>Contract #</label>
-                      <input type="text" name="" ng-enter="search()" ng-model="myForm.contractNumber"
-                        class="ng-pristine ng-untouched ng-valid ng-empty" aria-invalid="false">
-                    </div>-->
+                    <div class="tbl" style="width: 11%!important;">
+                      <label>Shift Start time</label>
+                      <select class="form-control " style="font-size: 14px;height: 34px;color: #000;width: 100%;">
+                        <option value="">Shift Start time</option>
+                        <option value="1">7 AM</option>
+                        <option value="2">3 PM</option>
+                        <option value="3">11 PM</option>
+                      </select>
+                    </div>
+                    <div class="tbl" style="width: 11%!important;">
+                      <label>Raw Bin</label>
+                      <select class="form-control " style="font-size: 14px;height: 34px;color: #000;width: 100%;">
+                        <option value="">Select Raw Bin</option>
+                        <option value="1">R1</option>
+                        <option value="2">R2</option>
+                        <option value="3">R3</option>
+                        <option value="4">R4</option>
+                        <option value="5">R5</option>
+                        <option value="7">R7</option>
+                        <option value="8">R8</option>
+                        <option value="9">R9</option>
+                        <option value="10">R10</option>
+                        <option value="11">R11</option>
+                        <option value="12">R12</option>
+                        <option value="13">R13</option>
+                        <option value="14">R14</option>
 
+                      </select>
+                    </div>
+                    <div class="tbl" style="width: 11%!important;">
+                      <label>Clean Bin</label>
+                      <select class="form-control " style="font-size: 14px;height: 34px;color: #000;width: 100%;">
+                        <option value="1">Select Clean Bin</option>
+                        <option value="2">C1</option>
+                        <option value="3">C2</option>
+                        <option value="4">C3</option>
+                        <option value="5">C4</option>
+                        <option value="6">C5</option>
+                        <option value="7">C6</option>
+                        <option value="8">C7</option>
+                        <option value="9">C8</option>
+                        <option value="10">C9</option>
+                        <option value="11">C10</option>
+                        <option value="12">BB</option>
+                        <option value="13">TB</option>
+
+                      </select>
+                    </div>
                     <!-- FROM Date -->
-                    <div class="tbl" style="width: 20%!important;">
+                    <div class="tbl" style="width: 11%!important;">
                       <label>From Date</label>
                       <datepicker style="width: 100%" class="date_pic ng-isolate-scope" date-format="yyyy-MM-dd"
                         selector="form-control">
@@ -10764,7 +10808,7 @@
                       </datepicker>
                     </div><!-- FROM Date  END-->
                     <!-- To Date -->
-                    <div class="tbl" style="width: 20%!important;">
+                    <div class="tbl" style="width: 11%!important;">
                       <label>To Date</label>
                       <datepicker style="width: 100%" class="date_pic ng-isolate-scope" date-format="yyyy-MM-dd"
                         selector="form-control">
@@ -10902,7 +10946,7 @@
                       </datepicker>
                     </div><!-- To Date  END-->
                     <!-- See More -->
-                    <div class="tbl" style="width: 10%!important;">
+                    <div class="tbl" style="width: 11%!important;">
                       <label>See More</label>
                       <select style="font-size: 14px;height: 34px;color: #000;width: 100%;" name="seeMore"
                         ng-model="myForm.limit" ng-change="search()"
