@@ -10212,14 +10212,14 @@
                         <a class="show-caret">Operators</a>
                         <ul class="dropdown-menu">
                           <!-- ngIf: access.setting.bin.viewMenu -->
-                          <li>
+                          <li class="ng-scope">
                             <a href="/plantOperatorsShiftLogs.html">Shift Logs</a>
                             <a href="/plantOperatorsSwitchOvers.html">Switch Overs</a>
                           </li><!-- end ngIf: access.setting.bin.viewMenu -->
                         </ul>
 
                       </li>
-                      <li class="ng-scope">
+                      <li>
                         <a href="/plantMaintenance.html">Maintenance</a>
                       </li><!-- end ngIf: access.truckScale.tradePurchase.viewMenu -->
 
@@ -10345,10 +10345,11 @@
           </style>
         </header>
 
+
         <div class="panel_body">
-          <h3 class="heading_cls" style="padding: 0 0 0 170px;">Maintenance Log
+          <h3 class="heading_cls" style="padding: 0 0 0 170px;">Operator Shift Logs
             <button class="btn_top">Export/Print</button>
-            <a class="btn_top" href="./maintenanceNewIssue.html" aria-hidden="false">NEW ISSUE
+            <a class="btn_top" href="/plantOperatorNewLog.html">Add Shift
               <svg class="svg-inline--fa fa-plus-circle fa-w-16" aria-hidden="true" focusable="false" data-prefix="fas"
                 data-icon="plus-circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
                 data-fa-i2svg="">
@@ -10356,11 +10357,14 @@
                   d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm144 276c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92h-92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z">
                 </path>
               </svg><!-- <i class="fas fa-plus-circle"></i> --></a>
+
+
+
             <!-- </div> -->
           </h3>
           <hr class="heading_hr">
-          <div class="panel_body">
-            <div class="col-lg-12 col-md-12 col-12">
+          <div class="panel_body_inner inner_box" style="padding: 0;">
+            <div class="col-md-12">
 
               <div class="row">
                 <div class="col-md-12">
@@ -10369,30 +10373,142 @@
                       <div class="grop_rad" style="width: 100%;height: 34px;">
                         <label class="grop_rad_check" style="width: 100%;font-size: 10pt;color: darkgray;">
                           <input type="checkbox" value="0" ng-change="search()" ng-model="myForm.tGB"
-                            class="ng-pristine ng-untouched ng-valid ng-not-empty" aria-invalid="false">
+                            class="ng-pristine ng-untouched ng-valid ng-empty" aria-invalid="false">
                           <span class="checkmark" style="top: 25px;"></span>
                         </label>
                       </div>
                     </div>
                     <div class="tbl" style="width: 20%!important;">
-                      <label>Search Issue by Equipment/Asset</label>
-                      <input type="text" name="" ng-enter="search()" ng-model="myForm.name"
-                        class="ng-pristine ng-untouched ng-valid ng-empty" aria-invalid="false">
+                      <label>Operator Name</label>
+                      <input type="text" name="" class="ng-pristine ng-untouched ng-valid ng-empty"
+                        aria-invalid="false">
                     </div>
                     <div class="tbl" style="width: 20%!important;">
-                      <label>Department</label>
+                      <label>Commodity</label>
                       <select style="font-size: 14px;height: 34px;color: #000;width: 100%;" name="commodity"
-                        ng-options="" ng-model="" ng-change="" class="ng-pristine ng-untouched ng-valid ng-empty"
-                        aria-invalid="false">
-                        <option value="" class="" selected="selected">Select Department</option>
-                        <option label="Office" value="">Office</option>
-                        <option label="Operators" value="">Operator's</option>
-                        <option label="Shipping" value="">Shipping</option>
-                        <option label="Transferring">Transferring</option>
-
+                        ng-options="commodity._id as commodity.commodityName for commodity in commoditys"
+                        ng-model="myForm.commodity" ng-change="search()"
+                        class="ng-pristine ng-untouched ng-valid ng-empty" aria-invalid="false">
+                        <option value="" class="" selected="selected">Select Commodity</option>
+                        <option label="Austrian Winter Peas" value="string:5ba54ecbfebd7239631cb242">Austrian Winter
+                          Peas</option>
+                        <option label="Austrian Winter Peas 4" value="string:5cb5ea824c50d3484a78f686">Austrian Winter
+                          Peas 4</option>
+                        <option label="B90 Chickpea" value="string:6077154f587979a3004b54aa">B90 Chickpea</option>
+                        <option label="Barley" value="string:5d72c7140457d163cafc83df">Barley</option>
+                        <option label="Bean Splits" value="string:5e8e08fa57f3c27ff3134c5a">Bean Splits</option>
+                        <option label="Beluga Lentil" value="string:5d95011749024303670af43e">Beluga Lentil</option>
+                        <option label="Black Beans" value="string:5bc63a890268e557be9a3530">Black Beans</option>
+                        <option label="CDC RAY" value="string:5ba550a2febd7239631cb266">CDC RAY</option>
+                        <option label="Canaryseed" value="string:5ba54792e623a2362e4b36a2">Canaryseed</option>
+                        <option label="Canola" value="string:5d597a315830ff57711813f2">Canola</option>
+                        <option label="Cranberry Bean" value="string:5bc63bc60268e557be9a3551">Cranberry Bean</option>
+                        <option label="Cranberry Bean Splits" value="string:5ebada7e3a1ce64a89e2f1e8">Cranberry Bean
+                          Splits</option>
+                        <option label="Dark Red Kidney" value="string:5c6c0f73d44222314ac5e550">Dark Red Kidney</option>
+                        <option label="Desi Chick Pea Splits (Chana Dahl)" value="string:6560e2190756d1ddc13e3b9d">Desi
+                          Chick Pea Splits (Chana Dahl)</option>
+                        <option label="Dunn Pea" value="string:642358a8df648d000b4b15dc">Dunn Pea</option>
+                        <option label="Faba Bean (Low Tannin)" value="string:5ba54875e623a2362e4b36a6">Faba Bean (Low
+                          Tannin)</option>
+                        <option label="Faba Bean Tannin" value="string:5fc6848dea929f015c2880c0">Faba Bean Tannin
+                        </option>
+                        <option label="Fall Rye" value="string:61e9abfa34592a000b504b9c">Fall Rye</option>
+                        <option label="Feed Peas" value="string:5bc82c240268e557be9a3adc">Feed Peas</option>
+                        <option label="Flaxseed Brown" value="string:5ba548bde623a2362e4b36a8">Flaxseed Brown</option>
+                        <option label="Flaxseed Golden" value="string:664f7df36af8e5ad362b865f">Flaxseed Golden</option>
+                        <option label="French Green Lentils" value="string:5c47be7371b30655e6c8000a">French Green
+                          Lentils</option>
+                        <option label="Green Split Peas" value="string:5c10958a3c63f6272266ee0d">Green Split Peas
+                        </option>
+                        <option label="Hemp Seeds" value="string:5ba550dcfebd7239631cb268">Hemp Seeds</option>
+                        <option label="Kabuli Chick Peas" value="string:5ba549c3e623a2362e4b36ae">Kabuli Chick Peas
+                        </option>
+                        <option label="Kabuli Chickpea Splits" value="string:5ebadb373a1ce64a89e2f1ea">Kabuli Chickpea
+                          Splits</option>
+                        <option label="Large Green Lentils (Laird type)" value="string:5ba54c12e623a2362e4b36d0">Large
+                          Green Lentils (Laird type)</option>
+                        <option label="MFP Feed (Splits and Smalls)" value="string:5e44d50940e43115611d3ba7">MFP Feed
+                          (Splits and Smalls)</option>
+                        <option label="Maple Peas" value="string:5ba5496de623a2362e4b36ac">Maple Peas</option>
+                        <option label="Maple Peas JP type" value="string:5bc81c340268e557be9a3ad6">Maple Peas JP type
+                        </option>
+                        <option label="Maple Peas JPD" value="string:5bc81f070268e557be9a3ad8">Maple Peas JPD</option>
+                        <option label="Marrowfat Peas" value="string:5bc1096e318e903923f9a1f7">Marrowfat Peas</option>
+                        <option label="Medium Green Lentils (Richlea Type)" value="string:5ba54b4fe623a2362e4b36b2">
+                          Medium Green Lentils (Richlea Type)</option>
+                        <option label="Navy Bean" value="string:5f19aa38b8a23017c554633e">Navy Bean</option>
+                        <option label="Oats" value="string:60286847a773a21edeff3e31">Oats</option>
+                        <option label="Organic Beluga" value="string:5f57e176c8a3e631e5350680">Organic Beluga</option>
+                        <option label="Organic Black Beans" value="string:5e25d1042f48971585a6f190">Organic Black Beans
+                        </option>
+                        <option label="Organic Brown Flax" value="string:60708ae3587979a3004afeb9">Organic Brown Flax
+                        </option>
+                        <option label="Organic Desi Chick Peas" value="string:5e25cdcf2f48971585a6f13d">Organic Desi
+                          Chick Peas</option>
+                        <option label="Organic Faba Beans" value="string:5e25bcc92f48971585a6f0dc">Organic Faba Beans
+                        </option>
+                        <option label="Organic French Green Lentils" value="string:5c5b0488962c025e067837ed">Organic
+                          French Green Lentils</option>
+                        <option label="Organic Kabuli Chickpeas" value="string:5bc79b420268e557be9a3a86">Organic Kabuli
+                          Chickpeas</option>
+                        <option label="Organic Large Green Lentils" value="string:5ba55157334a51398f88bc85">Organic
+                          Large Green Lentils</option>
+                        <option label="Organic Marrowfat Peas" value="string:5ba54fbdfebd7239631cb248">Organic Marrowfat
+                          Peas</option>
+                        <option label="Organic Pinto Beans" value="string:5bd152b6fb09b01b6aba9d36">Organic Pinto Beans
+                        </option>
+                        <option label="Organic Red Lentils" value="string:5f15abfbb8a23017c5543002">Organic Red Lentils
+                        </option>
+                        <option label="Organic Small Green Lentils" value="string:5c86a48768bd7838821cf90a">Organic
+                          Small Green Lentils</option>
+                        <option label="Organic Small Marrowfat Pea" value="string:65fb287fd044bdbc1103fea6">Organic
+                          Small Marrowfat Pea</option>
+                        <option label="Organic Wheat" value="string:6070905d587979a3004afedb">Organic Wheat</option>
+                        <option label="Organic Whole Green Peas" value="string:5ddd97dc0ed39e02215590a4">Organic Whole
+                          Green Peas</option>
+                        <option label="Organic Whole Green Peas Espace Type" value="string:5f75f51e29352f2768a5589f">
+                          Organic Whole Green Peas Espace Type</option>
+                        <option label="Organic Yellow Flax" value="string:60708af9587979a3004afebb">Organic Yellow Flax
+                        </option>
+                        <option label="Organic Yellow Peas" value="string:5bfe4a4ea2467f3dc8f79322">Organic Yellow Peas
+                        </option>
+                        <option label="Otebo Beans" value="string:5ba54f2dfebd7239631cb244">Otebo Beans</option>
+                        <option label="Pea Hulls" value="string:62bddd15479a8b000ba31cf1">Pea Hulls</option>
+                        <option label="Pea/Lentil Screenings" value="string:5c10da64cbdd6837ed51f32a">Pea/Lentil
+                          Screenings</option>
+                        <option label="Pinto Bean" value="string:5ba54baae623a2362e4b36ce">Pinto Bean</option>
+                        <option label="Red Split Lentils" value="string:5bc7b6510268e557be9a3ad2">Red Split Lentils
+                        </option>
+                        <option label="Small Green Lentils (Eston Type)" value="string:5ba5502efebd7239631cb24a">Small
+                          Green Lentils (Eston Type)</option>
+                        <option label="Small Marrowfat Pea" value="string:5bf487652ffe4a6a595fdec9">Small Marrowfat Pea
+                        </option>
+                        <option label="Wheat" value="string:60286754a773a21edeff3d8c">Wheat</option>
+                        <option label="Whole Green Peas" value="string:5ba5491be623a2362e4b36aa">Whole Green Peas
+                        </option>
+                        <option label="Whole Green Peas (Espace Type)" value="string:5ba54c83e623a2362e4b36d2">Whole
+                          Green Peas (Espace Type)</option>
+                        <option label="Whole Red Lentils (Crimson type)" value="string:5ba54a61e623a2362e4b36b0">Whole
+                          Red Lentils (Crimson type)</option>
+                        <option label="Whole Yellow Peas" value="string:5ba547fee623a2362e4b36a4">Whole Yellow Peas
+                        </option>
+                        <option label="Whole Yellow Peas (TRK)" value="string:66422cda7568ba15131de1b1">Whole Yellow
+                          Peas (TRK)</option>
+                        <option label="Yellow Bean" value="string:5ea314ad04f2fc2d287e4a9b">Yellow Bean</option>
+                        <option label="Yellow Flax" value="string:6077141e587979a3004b5499">Yellow Flax</option>
+                        <option label="Yellow Split Peas" value="string:5c1095013c63f6272266ee0a">Yellow Split Peas
+                        </option>
                       </select>
                     </div>
+                    <!--
+                    <div class="tbl" style="width: 15%!important;">
+                      <label>Contract #</label>
+                      <input type="text" name="" ng-enter="search()" ng-model="myForm.contractNumber"
+                        class="ng-pristine ng-untouched ng-valid ng-empty" aria-invalid="false">
+                    </div>-->
 
+                    <!-- FROM Date -->
                     <div class="tbl" style="width: 20%!important;">
                       <label>From Date</label>
                       <datepicker style="width: 100%" class="date_pic ng-isolate-scope" date-format="yyyy-MM-dd"
@@ -10411,7 +10527,7 @@
                                     class="_720kb-datepicker-default-button">⟨</b></a></div>
                               <div
                                 class="_720kb-datepicker-calendar-header-middle _720kb-datepicker-calendar-month ng-binding">
-                                September&nbsp;<a href="javascript:void(0)"
+                                July&nbsp;<a href="javascript:void(0)"
                                   ng-click="paginateYears(year); showYearsPagination = !showYearsPagination;"><span
                                     class="ng-binding">2024<i
                                       ng-class="{'_720kb-datepicker-calendar-header-closed-pagination': !showYearsPagination, '_720kb-datepicker-calendar-header-opened-pagination': showYearsPagination}"
@@ -10531,8 +10647,9 @@
                               <div ng-repeat="d in daysInString" class="ng-binding ng-scope">Sat</div>
                               <!-- end ngRepeat: d in daysInString -->
                             </div>
-                            <div class="_720kb-datepicker-calendar-body">
-                              <!-- ngRepeat: px in prevMonthDays --><!-- ngRepeat: item in days --><a
+                            <div class="_720kb-datepicker-calendar-body"><!-- ngRepeat: px in prevMonthDays --><a
+                                href="javascript:void(0)" ng-repeat="px in prevMonthDays"
+                                class="_720kb-datepicker-calendar-day _720kb-datepicker-disabled ng-binding ng-scope">30</a><!-- end ngRepeat: px in prevMonthDays --><!-- ngRepeat: item in days --><a
                                 href="javascript:void(0)" ng-repeat="item in days" ng-click="setDatepickerDay(item)"
                                 ng-class="{'_720kb-datepicker-active': selectedDay === item &amp;&amp; selectedMonth === monthNumber &amp;&amp; selectedYear === year, '_720kb-datepicker-disabled': !isSelectableMinDate(year + '/' + monthNumber + '/' + item ) || !isSelectableMaxDate(year + '/' + monthNumber + '/' + item) || !isSelectableDate(monthNumber, year, item) || !isSelectableDay(monthNumber, year, item),'_720kb-datepicker-today': item === today.getDate() &amp;&amp; monthNumber === (today.getMonth() + 1) &amp;&amp; year === today.getFullYear() &amp;&amp; !selectedDay}"
                                 class="_720kb-datepicker-calendar-day ng-binding ng-scope">1</a><!-- end ngRepeat: item in days --><a
@@ -10622,17 +10739,16 @@
                                 class="_720kb-datepicker-calendar-day ng-binding ng-scope">29</a><!-- end ngRepeat: item in days --><a
                                 href="javascript:void(0)" ng-repeat="item in days" ng-click="setDatepickerDay(item)"
                                 ng-class="{'_720kb-datepicker-active': selectedDay === item &amp;&amp; selectedMonth === monthNumber &amp;&amp; selectedYear === year, '_720kb-datepicker-disabled': !isSelectableMinDate(year + '/' + monthNumber + '/' + item ) || !isSelectableMaxDate(year + '/' + monthNumber + '/' + item) || !isSelectableDate(monthNumber, year, item) || !isSelectableDay(monthNumber, year, item),'_720kb-datepicker-today': item === today.getDate() &amp;&amp; monthNumber === (today.getMonth() + 1) &amp;&amp; year === today.getFullYear() &amp;&amp; !selectedDay}"
-                                class="_720kb-datepicker-calendar-day ng-binding ng-scope">30</a><!-- end ngRepeat: item in days --><!-- ngRepeat: nx in nextMonthDays --><a
+                                class="_720kb-datepicker-calendar-day ng-binding ng-scope">30</a><!-- end ngRepeat: item in days --><a
+                                href="javascript:void(0)" ng-repeat="item in days" ng-click="setDatepickerDay(item)"
+                                ng-class="{'_720kb-datepicker-active': selectedDay === item &amp;&amp; selectedMonth === monthNumber &amp;&amp; selectedYear === year, '_720kb-datepicker-disabled': !isSelectableMinDate(year + '/' + monthNumber + '/' + item ) || !isSelectableMaxDate(year + '/' + monthNumber + '/' + item) || !isSelectableDate(monthNumber, year, item) || !isSelectableDay(monthNumber, year, item),'_720kb-datepicker-today': item === today.getDate() &amp;&amp; monthNumber === (today.getMonth() + 1) &amp;&amp; year === today.getFullYear() &amp;&amp; !selectedDay}"
+                                class="_720kb-datepicker-calendar-day ng-binding ng-scope">31</a><!-- end ngRepeat: item in days --><!-- ngRepeat: nx in nextMonthDays --><a
                                 href="javascript:void(0)" ng-repeat="nx in nextMonthDays"
                                 class="_720kb-datepicker-calendar-day _720kb-datepicker-disabled ng-binding ng-scope">1</a><!-- end ngRepeat: nx in nextMonthDays --><a
                                 href="javascript:void(0)" ng-repeat="nx in nextMonthDays"
                                 class="_720kb-datepicker-calendar-day _720kb-datepicker-disabled ng-binding ng-scope">2</a><!-- end ngRepeat: nx in nextMonthDays --><a
                                 href="javascript:void(0)" ng-repeat="nx in nextMonthDays"
-                                class="_720kb-datepicker-calendar-day _720kb-datepicker-disabled ng-binding ng-scope">3</a><!-- end ngRepeat: nx in nextMonthDays --><a
-                                href="javascript:void(0)" ng-repeat="nx in nextMonthDays"
-                                class="_720kb-datepicker-calendar-day _720kb-datepicker-disabled ng-binding ng-scope">4</a><!-- end ngRepeat: nx in nextMonthDays --><a
-                                href="javascript:void(0)" ng-repeat="nx in nextMonthDays"
-                                class="_720kb-datepicker-calendar-day _720kb-datepicker-disabled ng-binding ng-scope">5</a><!-- end ngRepeat: nx in nextMonthDays -->
+                                class="_720kb-datepicker-calendar-day _720kb-datepicker-disabled ng-binding ng-scope">3</a><!-- end ngRepeat: nx in nextMonthDays -->
                             </div>
                           </div>
                           <span class="input-group-addon" style="cursor: pointer">
@@ -10644,9 +10760,10 @@
                               </path>
                             </svg><!-- <i class="fa fa-lg fa-calendar"></i> -->
                           </span>
-                        </div>
+                        </div><!-- div date end-->
                       </datepicker>
-                    </div>
+                    </div><!-- FROM Date  END-->
+                    <!-- To Date -->
                     <div class="tbl" style="width: 20%!important;">
                       <label>To Date</label>
                       <datepicker style="width: 100%" class="date_pic ng-isolate-scope" date-format="yyyy-MM-dd"
@@ -10665,7 +10782,7 @@
                                     class="_720kb-datepicker-default-button">⟨</b></a></div>
                               <div
                                 class="_720kb-datepicker-calendar-header-middle _720kb-datepicker-calendar-month ng-binding">
-                                September&nbsp;<a href="javascript:void(0)"
+                                July&nbsp;<a href="javascript:void(0)"
                                   ng-click="paginateYears(year); showYearsPagination = !showYearsPagination;"><span
                                     class="ng-binding">2024<i
                                       ng-class="{'_720kb-datepicker-calendar-header-closed-pagination': !showYearsPagination, '_720kb-datepicker-calendar-header-opened-pagination': showYearsPagination}"
@@ -10769,125 +10886,8 @@
                                   ng-class="{'_720kb-datepicker-item-hidden': paginationYearsNextDisabled}"><b
                                     class="_720kb-datepicker-default-button">⟩</b></a></div>
                             </div>
-                            <div class="_720kb-datepicker-calendar-days-header"><!-- ngRepeat: d in daysInString -->
-                              <div ng-repeat="d in daysInString" class="ng-binding ng-scope">Sun</div>
-                              <!-- end ngRepeat: d in daysInString -->
-                              <div ng-repeat="d in daysInString" class="ng-binding ng-scope">Mon</div>
-                              <!-- end ngRepeat: d in daysInString -->
-                              <div ng-repeat="d in daysInString" class="ng-binding ng-scope">Tue</div>
-                              <!-- end ngRepeat: d in daysInString -->
-                              <div ng-repeat="d in daysInString" class="ng-binding ng-scope">Wed</div>
-                              <!-- end ngRepeat: d in daysInString -->
-                              <div ng-repeat="d in daysInString" class="ng-binding ng-scope">Thu</div>
-                              <!-- end ngRepeat: d in daysInString -->
-                              <div ng-repeat="d in daysInString" class="ng-binding ng-scope">Fri</div>
-                              <!-- end ngRepeat: d in daysInString -->
-                              <div ng-repeat="d in daysInString" class="ng-binding ng-scope">Sat</div>
-                              <!-- end ngRepeat: d in daysInString -->
-                            </div>
-                            <div class="_720kb-datepicker-calendar-body">
-                              <!-- ngRepeat: px in prevMonthDays --><!-- ngRepeat: item in days --><a
-                                href="javascript:void(0)" ng-repeat="item in days" ng-click="setDatepickerDay(item)"
-                                ng-class="{'_720kb-datepicker-active': selectedDay === item &amp;&amp; selectedMonth === monthNumber &amp;&amp; selectedYear === year, '_720kb-datepicker-disabled': !isSelectableMinDate(year + '/' + monthNumber + '/' + item ) || !isSelectableMaxDate(year + '/' + monthNumber + '/' + item) || !isSelectableDate(monthNumber, year, item) || !isSelectableDay(monthNumber, year, item),'_720kb-datepicker-today': item === today.getDate() &amp;&amp; monthNumber === (today.getMonth() + 1) &amp;&amp; year === today.getFullYear() &amp;&amp; !selectedDay}"
-                                class="_720kb-datepicker-calendar-day ng-binding ng-scope">1</a><!-- end ngRepeat: item in days --><a
-                                href="javascript:void(0)" ng-repeat="item in days" ng-click="setDatepickerDay(item)"
-                                ng-class="{'_720kb-datepicker-active': selectedDay === item &amp;&amp; selectedMonth === monthNumber &amp;&amp; selectedYear === year, '_720kb-datepicker-disabled': !isSelectableMinDate(year + '/' + monthNumber + '/' + item ) || !isSelectableMaxDate(year + '/' + monthNumber + '/' + item) || !isSelectableDate(monthNumber, year, item) || !isSelectableDay(monthNumber, year, item),'_720kb-datepicker-today': item === today.getDate() &amp;&amp; monthNumber === (today.getMonth() + 1) &amp;&amp; year === today.getFullYear() &amp;&amp; !selectedDay}"
-                                class="_720kb-datepicker-calendar-day ng-binding ng-scope">2</a><!-- end ngRepeat: item in days --><a
-                                href="javascript:void(0)" ng-repeat="item in days" ng-click="setDatepickerDay(item)"
-                                ng-class="{'_720kb-datepicker-active': selectedDay === item &amp;&amp; selectedMonth === monthNumber &amp;&amp; selectedYear === year, '_720kb-datepicker-disabled': !isSelectableMinDate(year + '/' + monthNumber + '/' + item ) || !isSelectableMaxDate(year + '/' + monthNumber + '/' + item) || !isSelectableDate(monthNumber, year, item) || !isSelectableDay(monthNumber, year, item),'_720kb-datepicker-today': item === today.getDate() &amp;&amp; monthNumber === (today.getMonth() + 1) &amp;&amp; year === today.getFullYear() &amp;&amp; !selectedDay}"
-                                class="_720kb-datepicker-calendar-day ng-binding ng-scope">3</a><!-- end ngRepeat: item in days --><a
-                                href="javascript:void(0)" ng-repeat="item in days" ng-click="setDatepickerDay(item)"
-                                ng-class="{'_720kb-datepicker-active': selectedDay === item &amp;&amp; selectedMonth === monthNumber &amp;&amp; selectedYear === year, '_720kb-datepicker-disabled': !isSelectableMinDate(year + '/' + monthNumber + '/' + item ) || !isSelectableMaxDate(year + '/' + monthNumber + '/' + item) || !isSelectableDate(monthNumber, year, item) || !isSelectableDay(monthNumber, year, item),'_720kb-datepicker-today': item === today.getDate() &amp;&amp; monthNumber === (today.getMonth() + 1) &amp;&amp; year === today.getFullYear() &amp;&amp; !selectedDay}"
-                                class="_720kb-datepicker-calendar-day ng-binding ng-scope">4</a><!-- end ngRepeat: item in days --><a
-                                href="javascript:void(0)" ng-repeat="item in days" ng-click="setDatepickerDay(item)"
-                                ng-class="{'_720kb-datepicker-active': selectedDay === item &amp;&amp; selectedMonth === monthNumber &amp;&amp; selectedYear === year, '_720kb-datepicker-disabled': !isSelectableMinDate(year + '/' + monthNumber + '/' + item ) || !isSelectableMaxDate(year + '/' + monthNumber + '/' + item) || !isSelectableDate(monthNumber, year, item) || !isSelectableDay(monthNumber, year, item),'_720kb-datepicker-today': item === today.getDate() &amp;&amp; monthNumber === (today.getMonth() + 1) &amp;&amp; year === today.getFullYear() &amp;&amp; !selectedDay}"
-                                class="_720kb-datepicker-calendar-day ng-binding ng-scope">5</a><!-- end ngRepeat: item in days --><a
-                                href="javascript:void(0)" ng-repeat="item in days" ng-click="setDatepickerDay(item)"
-                                ng-class="{'_720kb-datepicker-active': selectedDay === item &amp;&amp; selectedMonth === monthNumber &amp;&amp; selectedYear === year, '_720kb-datepicker-disabled': !isSelectableMinDate(year + '/' + monthNumber + '/' + item ) || !isSelectableMaxDate(year + '/' + monthNumber + '/' + item) || !isSelectableDate(monthNumber, year, item) || !isSelectableDay(monthNumber, year, item),'_720kb-datepicker-today': item === today.getDate() &amp;&amp; monthNumber === (today.getMonth() + 1) &amp;&amp; year === today.getFullYear() &amp;&amp; !selectedDay}"
-                                class="_720kb-datepicker-calendar-day ng-binding ng-scope">6</a><!-- end ngRepeat: item in days --><a
-                                href="javascript:void(0)" ng-repeat="item in days" ng-click="setDatepickerDay(item)"
-                                ng-class="{'_720kb-datepicker-active': selectedDay === item &amp;&amp; selectedMonth === monthNumber &amp;&amp; selectedYear === year, '_720kb-datepicker-disabled': !isSelectableMinDate(year + '/' + monthNumber + '/' + item ) || !isSelectableMaxDate(year + '/' + monthNumber + '/' + item) || !isSelectableDate(monthNumber, year, item) || !isSelectableDay(monthNumber, year, item),'_720kb-datepicker-today': item === today.getDate() &amp;&amp; monthNumber === (today.getMonth() + 1) &amp;&amp; year === today.getFullYear() &amp;&amp; !selectedDay}"
-                                class="_720kb-datepicker-calendar-day ng-binding ng-scope">7</a><!-- end ngRepeat: item in days --><a
-                                href="javascript:void(0)" ng-repeat="item in days" ng-click="setDatepickerDay(item)"
-                                ng-class="{'_720kb-datepicker-active': selectedDay === item &amp;&amp; selectedMonth === monthNumber &amp;&amp; selectedYear === year, '_720kb-datepicker-disabled': !isSelectableMinDate(year + '/' + monthNumber + '/' + item ) || !isSelectableMaxDate(year + '/' + monthNumber + '/' + item) || !isSelectableDate(monthNumber, year, item) || !isSelectableDay(monthNumber, year, item),'_720kb-datepicker-today': item === today.getDate() &amp;&amp; monthNumber === (today.getMonth() + 1) &amp;&amp; year === today.getFullYear() &amp;&amp; !selectedDay}"
-                                class="_720kb-datepicker-calendar-day ng-binding ng-scope">8</a><!-- end ngRepeat: item in days --><a
-                                href="javascript:void(0)" ng-repeat="item in days" ng-click="setDatepickerDay(item)"
-                                ng-class="{'_720kb-datepicker-active': selectedDay === item &amp;&amp; selectedMonth === monthNumber &amp;&amp; selectedYear === year, '_720kb-datepicker-disabled': !isSelectableMinDate(year + '/' + monthNumber + '/' + item ) || !isSelectableMaxDate(year + '/' + monthNumber + '/' + item) || !isSelectableDate(monthNumber, year, item) || !isSelectableDay(monthNumber, year, item),'_720kb-datepicker-today': item === today.getDate() &amp;&amp; monthNumber === (today.getMonth() + 1) &amp;&amp; year === today.getFullYear() &amp;&amp; !selectedDay}"
-                                class="_720kb-datepicker-calendar-day ng-binding ng-scope">9</a><!-- end ngRepeat: item in days --><a
-                                href="javascript:void(0)" ng-repeat="item in days" ng-click="setDatepickerDay(item)"
-                                ng-class="{'_720kb-datepicker-active': selectedDay === item &amp;&amp; selectedMonth === monthNumber &amp;&amp; selectedYear === year, '_720kb-datepicker-disabled': !isSelectableMinDate(year + '/' + monthNumber + '/' + item ) || !isSelectableMaxDate(year + '/' + monthNumber + '/' + item) || !isSelectableDate(monthNumber, year, item) || !isSelectableDay(monthNumber, year, item),'_720kb-datepicker-today': item === today.getDate() &amp;&amp; monthNumber === (today.getMonth() + 1) &amp;&amp; year === today.getFullYear() &amp;&amp; !selectedDay}"
-                                class="_720kb-datepicker-calendar-day ng-binding ng-scope">10</a><!-- end ngRepeat: item in days --><a
-                                href="javascript:void(0)" ng-repeat="item in days" ng-click="setDatepickerDay(item)"
-                                ng-class="{'_720kb-datepicker-active': selectedDay === item &amp;&amp; selectedMonth === monthNumber &amp;&amp; selectedYear === year, '_720kb-datepicker-disabled': !isSelectableMinDate(year + '/' + monthNumber + '/' + item ) || !isSelectableMaxDate(year + '/' + monthNumber + '/' + item) || !isSelectableDate(monthNumber, year, item) || !isSelectableDay(monthNumber, year, item),'_720kb-datepicker-today': item === today.getDate() &amp;&amp; monthNumber === (today.getMonth() + 1) &amp;&amp; year === today.getFullYear() &amp;&amp; !selectedDay}"
-                                class="_720kb-datepicker-calendar-day ng-binding ng-scope">11</a><!-- end ngRepeat: item in days --><a
-                                href="javascript:void(0)" ng-repeat="item in days" ng-click="setDatepickerDay(item)"
-                                ng-class="{'_720kb-datepicker-active': selectedDay === item &amp;&amp; selectedMonth === monthNumber &amp;&amp; selectedYear === year, '_720kb-datepicker-disabled': !isSelectableMinDate(year + '/' + monthNumber + '/' + item ) || !isSelectableMaxDate(year + '/' + monthNumber + '/' + item) || !isSelectableDate(monthNumber, year, item) || !isSelectableDay(monthNumber, year, item),'_720kb-datepicker-today': item === today.getDate() &amp;&amp; monthNumber === (today.getMonth() + 1) &amp;&amp; year === today.getFullYear() &amp;&amp; !selectedDay}"
-                                class="_720kb-datepicker-calendar-day ng-binding ng-scope">12</a><!-- end ngRepeat: item in days --><a
-                                href="javascript:void(0)" ng-repeat="item in days" ng-click="setDatepickerDay(item)"
-                                ng-class="{'_720kb-datepicker-active': selectedDay === item &amp;&amp; selectedMonth === monthNumber &amp;&amp; selectedYear === year, '_720kb-datepicker-disabled': !isSelectableMinDate(year + '/' + monthNumber + '/' + item ) || !isSelectableMaxDate(year + '/' + monthNumber + '/' + item) || !isSelectableDate(monthNumber, year, item) || !isSelectableDay(monthNumber, year, item),'_720kb-datepicker-today': item === today.getDate() &amp;&amp; monthNumber === (today.getMonth() + 1) &amp;&amp; year === today.getFullYear() &amp;&amp; !selectedDay}"
-                                class="_720kb-datepicker-calendar-day ng-binding ng-scope">13</a><!-- end ngRepeat: item in days --><a
-                                href="javascript:void(0)" ng-repeat="item in days" ng-click="setDatepickerDay(item)"
-                                ng-class="{'_720kb-datepicker-active': selectedDay === item &amp;&amp; selectedMonth === monthNumber &amp;&amp; selectedYear === year, '_720kb-datepicker-disabled': !isSelectableMinDate(year + '/' + monthNumber + '/' + item ) || !isSelectableMaxDate(year + '/' + monthNumber + '/' + item) || !isSelectableDate(monthNumber, year, item) || !isSelectableDay(monthNumber, year, item),'_720kb-datepicker-today': item === today.getDate() &amp;&amp; monthNumber === (today.getMonth() + 1) &amp;&amp; year === today.getFullYear() &amp;&amp; !selectedDay}"
-                                class="_720kb-datepicker-calendar-day ng-binding ng-scope">14</a><!-- end ngRepeat: item in days --><a
-                                href="javascript:void(0)" ng-repeat="item in days" ng-click="setDatepickerDay(item)"
-                                ng-class="{'_720kb-datepicker-active': selectedDay === item &amp;&amp; selectedMonth === monthNumber &amp;&amp; selectedYear === year, '_720kb-datepicker-disabled': !isSelectableMinDate(year + '/' + monthNumber + '/' + item ) || !isSelectableMaxDate(year + '/' + monthNumber + '/' + item) || !isSelectableDate(monthNumber, year, item) || !isSelectableDay(monthNumber, year, item),'_720kb-datepicker-today': item === today.getDate() &amp;&amp; monthNumber === (today.getMonth() + 1) &amp;&amp; year === today.getFullYear() &amp;&amp; !selectedDay}"
-                                class="_720kb-datepicker-calendar-day ng-binding ng-scope">15</a><!-- end ngRepeat: item in days --><a
-                                href="javascript:void(0)" ng-repeat="item in days" ng-click="setDatepickerDay(item)"
-                                ng-class="{'_720kb-datepicker-active': selectedDay === item &amp;&amp; selectedMonth === monthNumber &amp;&amp; selectedYear === year, '_720kb-datepicker-disabled': !isSelectableMinDate(year + '/' + monthNumber + '/' + item ) || !isSelectableMaxDate(year + '/' + monthNumber + '/' + item) || !isSelectableDate(monthNumber, year, item) || !isSelectableDay(monthNumber, year, item),'_720kb-datepicker-today': item === today.getDate() &amp;&amp; monthNumber === (today.getMonth() + 1) &amp;&amp; year === today.getFullYear() &amp;&amp; !selectedDay}"
-                                class="_720kb-datepicker-calendar-day ng-binding ng-scope">16</a><!-- end ngRepeat: item in days --><a
-                                href="javascript:void(0)" ng-repeat="item in days" ng-click="setDatepickerDay(item)"
-                                ng-class="{'_720kb-datepicker-active': selectedDay === item &amp;&amp; selectedMonth === monthNumber &amp;&amp; selectedYear === year, '_720kb-datepicker-disabled': !isSelectableMinDate(year + '/' + monthNumber + '/' + item ) || !isSelectableMaxDate(year + '/' + monthNumber + '/' + item) || !isSelectableDate(monthNumber, year, item) || !isSelectableDay(monthNumber, year, item),'_720kb-datepicker-today': item === today.getDate() &amp;&amp; monthNumber === (today.getMonth() + 1) &amp;&amp; year === today.getFullYear() &amp;&amp; !selectedDay}"
-                                class="_720kb-datepicker-calendar-day ng-binding ng-scope">17</a><!-- end ngRepeat: item in days --><a
-                                href="javascript:void(0)" ng-repeat="item in days" ng-click="setDatepickerDay(item)"
-                                ng-class="{'_720kb-datepicker-active': selectedDay === item &amp;&amp; selectedMonth === monthNumber &amp;&amp; selectedYear === year, '_720kb-datepicker-disabled': !isSelectableMinDate(year + '/' + monthNumber + '/' + item ) || !isSelectableMaxDate(year + '/' + monthNumber + '/' + item) || !isSelectableDate(monthNumber, year, item) || !isSelectableDay(monthNumber, year, item),'_720kb-datepicker-today': item === today.getDate() &amp;&amp; monthNumber === (today.getMonth() + 1) &amp;&amp; year === today.getFullYear() &amp;&amp; !selectedDay}"
-                                class="_720kb-datepicker-calendar-day ng-binding ng-scope">18</a><!-- end ngRepeat: item in days --><a
-                                href="javascript:void(0)" ng-repeat="item in days" ng-click="setDatepickerDay(item)"
-                                ng-class="{'_720kb-datepicker-active': selectedDay === item &amp;&amp; selectedMonth === monthNumber &amp;&amp; selectedYear === year, '_720kb-datepicker-disabled': !isSelectableMinDate(year + '/' + monthNumber + '/' + item ) || !isSelectableMaxDate(year + '/' + monthNumber + '/' + item) || !isSelectableDate(monthNumber, year, item) || !isSelectableDay(monthNumber, year, item),'_720kb-datepicker-today': item === today.getDate() &amp;&amp; monthNumber === (today.getMonth() + 1) &amp;&amp; year === today.getFullYear() &amp;&amp; !selectedDay}"
-                                class="_720kb-datepicker-calendar-day ng-binding ng-scope">19</a><!-- end ngRepeat: item in days --><a
-                                href="javascript:void(0)" ng-repeat="item in days" ng-click="setDatepickerDay(item)"
-                                ng-class="{'_720kb-datepicker-active': selectedDay === item &amp;&amp; selectedMonth === monthNumber &amp;&amp; selectedYear === year, '_720kb-datepicker-disabled': !isSelectableMinDate(year + '/' + monthNumber + '/' + item ) || !isSelectableMaxDate(year + '/' + monthNumber + '/' + item) || !isSelectableDate(monthNumber, year, item) || !isSelectableDay(monthNumber, year, item),'_720kb-datepicker-today': item === today.getDate() &amp;&amp; monthNumber === (today.getMonth() + 1) &amp;&amp; year === today.getFullYear() &amp;&amp; !selectedDay}"
-                                class="_720kb-datepicker-calendar-day ng-binding ng-scope">20</a><!-- end ngRepeat: item in days --><a
-                                href="javascript:void(0)" ng-repeat="item in days" ng-click="setDatepickerDay(item)"
-                                ng-class="{'_720kb-datepicker-active': selectedDay === item &amp;&amp; selectedMonth === monthNumber &amp;&amp; selectedYear === year, '_720kb-datepicker-disabled': !isSelectableMinDate(year + '/' + monthNumber + '/' + item ) || !isSelectableMaxDate(year + '/' + monthNumber + '/' + item) || !isSelectableDate(monthNumber, year, item) || !isSelectableDay(monthNumber, year, item),'_720kb-datepicker-today': item === today.getDate() &amp;&amp; monthNumber === (today.getMonth() + 1) &amp;&amp; year === today.getFullYear() &amp;&amp; !selectedDay}"
-                                class="_720kb-datepicker-calendar-day ng-binding ng-scope">21</a><!-- end ngRepeat: item in days --><a
-                                href="javascript:void(0)" ng-repeat="item in days" ng-click="setDatepickerDay(item)"
-                                ng-class="{'_720kb-datepicker-active': selectedDay === item &amp;&amp; selectedMonth === monthNumber &amp;&amp; selectedYear === year, '_720kb-datepicker-disabled': !isSelectableMinDate(year + '/' + monthNumber + '/' + item ) || !isSelectableMaxDate(year + '/' + monthNumber + '/' + item) || !isSelectableDate(monthNumber, year, item) || !isSelectableDay(monthNumber, year, item),'_720kb-datepicker-today': item === today.getDate() &amp;&amp; monthNumber === (today.getMonth() + 1) &amp;&amp; year === today.getFullYear() &amp;&amp; !selectedDay}"
-                                class="_720kb-datepicker-calendar-day ng-binding ng-scope">22</a><!-- end ngRepeat: item in days --><a
-                                href="javascript:void(0)" ng-repeat="item in days" ng-click="setDatepickerDay(item)"
-                                ng-class="{'_720kb-datepicker-active': selectedDay === item &amp;&amp; selectedMonth === monthNumber &amp;&amp; selectedYear === year, '_720kb-datepicker-disabled': !isSelectableMinDate(year + '/' + monthNumber + '/' + item ) || !isSelectableMaxDate(year + '/' + monthNumber + '/' + item) || !isSelectableDate(monthNumber, year, item) || !isSelectableDay(monthNumber, year, item),'_720kb-datepicker-today': item === today.getDate() &amp;&amp; monthNumber === (today.getMonth() + 1) &amp;&amp; year === today.getFullYear() &amp;&amp; !selectedDay}"
-                                class="_720kb-datepicker-calendar-day ng-binding ng-scope">23</a><!-- end ngRepeat: item in days --><a
-                                href="javascript:void(0)" ng-repeat="item in days" ng-click="setDatepickerDay(item)"
-                                ng-class="{'_720kb-datepicker-active': selectedDay === item &amp;&amp; selectedMonth === monthNumber &amp;&amp; selectedYear === year, '_720kb-datepicker-disabled': !isSelectableMinDate(year + '/' + monthNumber + '/' + item ) || !isSelectableMaxDate(year + '/' + monthNumber + '/' + item) || !isSelectableDate(monthNumber, year, item) || !isSelectableDay(monthNumber, year, item),'_720kb-datepicker-today': item === today.getDate() &amp;&amp; monthNumber === (today.getMonth() + 1) &amp;&amp; year === today.getFullYear() &amp;&amp; !selectedDay}"
-                                class="_720kb-datepicker-calendar-day ng-binding ng-scope">24</a><!-- end ngRepeat: item in days --><a
-                                href="javascript:void(0)" ng-repeat="item in days" ng-click="setDatepickerDay(item)"
-                                ng-class="{'_720kb-datepicker-active': selectedDay === item &amp;&amp; selectedMonth === monthNumber &amp;&amp; selectedYear === year, '_720kb-datepicker-disabled': !isSelectableMinDate(year + '/' + monthNumber + '/' + item ) || !isSelectableMaxDate(year + '/' + monthNumber + '/' + item) || !isSelectableDate(monthNumber, year, item) || !isSelectableDay(monthNumber, year, item),'_720kb-datepicker-today': item === today.getDate() &amp;&amp; monthNumber === (today.getMonth() + 1) &amp;&amp; year === today.getFullYear() &amp;&amp; !selectedDay}"
-                                class="_720kb-datepicker-calendar-day ng-binding ng-scope">25</a><!-- end ngRepeat: item in days --><a
-                                href="javascript:void(0)" ng-repeat="item in days" ng-click="setDatepickerDay(item)"
-                                ng-class="{'_720kb-datepicker-active': selectedDay === item &amp;&amp; selectedMonth === monthNumber &amp;&amp; selectedYear === year, '_720kb-datepicker-disabled': !isSelectableMinDate(year + '/' + monthNumber + '/' + item ) || !isSelectableMaxDate(year + '/' + monthNumber + '/' + item) || !isSelectableDate(monthNumber, year, item) || !isSelectableDay(monthNumber, year, item),'_720kb-datepicker-today': item === today.getDate() &amp;&amp; monthNumber === (today.getMonth() + 1) &amp;&amp; year === today.getFullYear() &amp;&amp; !selectedDay}"
-                                class="_720kb-datepicker-calendar-day ng-binding ng-scope">26</a><!-- end ngRepeat: item in days --><a
-                                href="javascript:void(0)" ng-repeat="item in days" ng-click="setDatepickerDay(item)"
-                                ng-class="{'_720kb-datepicker-active': selectedDay === item &amp;&amp; selectedMonth === monthNumber &amp;&amp; selectedYear === year, '_720kb-datepicker-disabled': !isSelectableMinDate(year + '/' + monthNumber + '/' + item ) || !isSelectableMaxDate(year + '/' + monthNumber + '/' + item) || !isSelectableDate(monthNumber, year, item) || !isSelectableDay(monthNumber, year, item),'_720kb-datepicker-today': item === today.getDate() &amp;&amp; monthNumber === (today.getMonth() + 1) &amp;&amp; year === today.getFullYear() &amp;&amp; !selectedDay}"
-                                class="_720kb-datepicker-calendar-day ng-binding ng-scope">27</a><!-- end ngRepeat: item in days --><a
-                                href="javascript:void(0)" ng-repeat="item in days" ng-click="setDatepickerDay(item)"
-                                ng-class="{'_720kb-datepicker-active': selectedDay === item &amp;&amp; selectedMonth === monthNumber &amp;&amp; selectedYear === year, '_720kb-datepicker-disabled': !isSelectableMinDate(year + '/' + monthNumber + '/' + item ) || !isSelectableMaxDate(year + '/' + monthNumber + '/' + item) || !isSelectableDate(monthNumber, year, item) || !isSelectableDay(monthNumber, year, item),'_720kb-datepicker-today': item === today.getDate() &amp;&amp; monthNumber === (today.getMonth() + 1) &amp;&amp; year === today.getFullYear() &amp;&amp; !selectedDay}"
-                                class="_720kb-datepicker-calendar-day ng-binding ng-scope">28</a><!-- end ngRepeat: item in days --><a
-                                href="javascript:void(0)" ng-repeat="item in days" ng-click="setDatepickerDay(item)"
-                                ng-class="{'_720kb-datepicker-active': selectedDay === item &amp;&amp; selectedMonth === monthNumber &amp;&amp; selectedYear === year, '_720kb-datepicker-disabled': !isSelectableMinDate(year + '/' + monthNumber + '/' + item ) || !isSelectableMaxDate(year + '/' + monthNumber + '/' + item) || !isSelectableDate(monthNumber, year, item) || !isSelectableDay(monthNumber, year, item),'_720kb-datepicker-today': item === today.getDate() &amp;&amp; monthNumber === (today.getMonth() + 1) &amp;&amp; year === today.getFullYear() &amp;&amp; !selectedDay}"
-                                class="_720kb-datepicker-calendar-day ng-binding ng-scope">29</a><!-- end ngRepeat: item in days --><a
-                                href="javascript:void(0)" ng-repeat="item in days" ng-click="setDatepickerDay(item)"
-                                ng-class="{'_720kb-datepicker-active': selectedDay === item &amp;&amp; selectedMonth === monthNumber &amp;&amp; selectedYear === year, '_720kb-datepicker-disabled': !isSelectableMinDate(year + '/' + monthNumber + '/' + item ) || !isSelectableMaxDate(year + '/' + monthNumber + '/' + item) || !isSelectableDate(monthNumber, year, item) || !isSelectableDay(monthNumber, year, item),'_720kb-datepicker-today': item === today.getDate() &amp;&amp; monthNumber === (today.getMonth() + 1) &amp;&amp; year === today.getFullYear() &amp;&amp; !selectedDay}"
-                                class="_720kb-datepicker-calendar-day ng-binding ng-scope">30</a><!-- end ngRepeat: item in days --><!-- ngRepeat: nx in nextMonthDays --><a
-                                href="javascript:void(0)" ng-repeat="nx in nextMonthDays"
-                                class="_720kb-datepicker-calendar-day _720kb-datepicker-disabled ng-binding ng-scope">1</a><!-- end ngRepeat: nx in nextMonthDays --><a
-                                href="javascript:void(0)" ng-repeat="nx in nextMonthDays"
-                                class="_720kb-datepicker-calendar-day _720kb-datepicker-disabled ng-binding ng-scope">2</a><!-- end ngRepeat: nx in nextMonthDays --><a
-                                href="javascript:void(0)" ng-repeat="nx in nextMonthDays"
-                                class="_720kb-datepicker-calendar-day _720kb-datepicker-disabled ng-binding ng-scope">3</a><!-- end ngRepeat: nx in nextMonthDays --><a
-                                href="javascript:void(0)" ng-repeat="nx in nextMonthDays"
-                                class="_720kb-datepicker-calendar-day _720kb-datepicker-disabled ng-binding ng-scope">4</a><!-- end ngRepeat: nx in nextMonthDays --><a
-                                href="javascript:void(0)" ng-repeat="nx in nextMonthDays"
-                                class="_720kb-datepicker-calendar-day _720kb-datepicker-disabled ng-binding ng-scope">5</a><!-- end ngRepeat: nx in nextMonthDays -->
-                            </div>
+
+
                           </div>
                           <span class="input-group-addon" style="cursor: pointer">
                             <svg class="svg-inline--fa fa-calendar fa-w-14 fa-lg" aria-hidden="true" focusable="false"
@@ -10900,7 +10900,8 @@
                           </span>
                         </div>
                       </datepicker>
-                    </div>
+                    </div><!-- To Date  END-->
+                    <!-- See More -->
                     <div class="tbl" style="width: 10%!important;">
                       <label>See More</label>
                       <select style="font-size: 14px;height: 34px;color: #000;width: 100%;" name="seeMore"
@@ -10915,100 +10916,112 @@
                         <option value="150">150</option>
                         <option value="200">200</option>
                       </select>
-                    </div>
+                    </div><!-- See More END-->
                     <button ng-click="clear()">Clear</button>
                   </div>
                 </div>
-              </div>
+              </div> <!-- row end-->
+
               <div class="comodity_table comodity_table_list">
                 <table class="table table-striped commodity_table" style="font-size: 14px;">
                   <thead>
                     <tr>
-                      <th>Date Reported</th>
-                      <th>Equipment / Asset</th>
-                      <th>Reported Issue</th>
-                      <th>Department</th>
-                      <th>Requested By</th>
-                      <th>Work Description</th>
-                      <th>Technician</th>
-                      <th>Resolution</th>
-                      <th>Status</th>
-                      <th>Date of Maintenance</th>
-                      <th>Next Maintenance</th>
-                      <th>Notes</th>
-                      <th style="width: 10%;">
+                      <th style="width: 8%;">Date</th>
+                      <th>Operator Name</th>
+                      <th style="width: 8%;">Shift Start Time</th>
+                      <th>Shift End Time</th>
+                      <th>Shift Hours</th>
+                      <th style="width: 9%;">Running Time</th>
+                      <th style="width: 9%;">Down Time</th>
+                      <th>Switch Over</th>
+                      <th>Commodity</th>
+                      <th>% Moisture</th>
+                      <th>Raw Bin</th>
+                      <th>Clean Bin</th>
+                      <th>Flow Meter</th>
+                      <th>Total lbs Cleaned</th>
+                      <th style="width: 10%;"
+                        ng-show="loginUserAccess.truckScale.incoming.view || loginUserAccess.truckScale.incoming.edit"
+                        aria-hidden="false" class="">
                         Action</th>
                     </tr>
                   </thead>
                   <tbody>
-
+                    <!-- ngRepeat: result in incomingList -->
                     <tr>
-
-                      <td>April 15, 2025</td>
-                      <td>LMC 2</td>
-                      <td>lower Bearing</td>
-                      <td>Operator's</td>
-                      <td>Alex Smk</td>
-                      <td>Bearing Wear and Tear</td>
-                      <td>Volodymir Msltn</td>
-                      <td>Repair Completed</td>
-                      <td>Completed</td>
-                      <td>April 15, 2025</td>
-                      <td>September 15, 2025</td>
-                      <td></td>
+                      <td>Jul 29, 2024</td>
+                      <td>Vyacheslav Horidko</td>
+                      <td>23:00</td>
+                      <td>7:00</td>
+                      <td>8 hours</td>
+                      <td>2 hours, 30 minutes</td>
+                      <td>5 hours, 30 minutes</td>
+                      <td>0 hours, 0 minutes</td>
+                      <td>Marrowfat Peas</td>
+                      <td>12.7 %</td>
+                      <td>R2</td>
+                      <td>C2</td>
+                      <td>127,000 lbs</td>
+                      <td>107,000 lbs</td>
                       <td class="text-right">
 
-                        <a style="cursor: pointer;" class="edit_details ng-hide">
-                          <svg class="svg-inline--fa fa-unlock fa-w-14" aria-hidden="true" focusable="false"
-                            data-prefix="fa" data-icon="unlock" role="img" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 448 512" data-fa-i2svg="">
+                        <a class="veiw_detail" style="cursor: pointer;" ng-click="openPdf(result.pdfUrl)">
+                          <svg class="svg-inline--fa fa-eye fa-w-18" aria-hidden="true" focusable="false"
+                            data-prefix="fa" data-icon="eye" role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 576 512" data-fa-i2svg="">
                             <path fill="currentColor"
-                              d="M400 256H152V152.9c0-39.6 31.7-72.5 71.3-72.9 40-.4 72.7 32.1 72.7 72v16c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24v-16C376 68 307.5-.3 223.5 0 139.5.3 72 69.5 72 153.5V256H48c-26.5 0-48 21.5-48 48v160c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48z">
+                              d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z">
                             </path>
-                          </svg>
+                          </svg><!-- <i class="fa fa-eye" aria-hidden="true"></i> -->
                         </a>
 
-                        <a class="edit_details" href="/maintenanceNewIssue.html" aria-hidden="false">
+
+                        <a ng-show="loginUserAccess.truckScale.incoming.edit"
+                          ng-href="incomingScale/66a7d0b8850c78ec2c45b9b2" class="edit_details"
+                          href="incomingScale/66a7d0b8850c78ec2c45b9b2" aria-hidden="false">
                           <svg class="svg-inline--fa fa-pen-square fa-w-14" aria-hidden="true" focusable="false"
                             data-prefix="fas" data-icon="pen-square" role="img" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 448 512" data-fa-i2svg="">
                             <path fill="currentColor"
                               d="M400 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zM238.1 177.9L102.4 313.6l-6.3 57.1c-.8 7.6 5.6 14.1 13.3 13.3l57.1-6.3L302.2 242c2.3-2.3 2.3-6.1 0-8.5L246.7 178c-2.5-2.4-6.3-2.4-8.6-.1zM345 165.1L314.9 135c-9.4-9.4-24.6-9.4-33.9 0l-23.1 23.1c-2.3 2.3-2.3 6.1 0 8.5l55.5 55.5c2.3 2.3 6.1 2.3 8.5 0L345 199c9.3-9.3 9.3-24.5 0-33.9z">
                             </path>
-                          </svg>
+                          </svg><!-- <i class="fas fa-pen-square"></i> -->
                         </a>
                       </td>
-                    </tr>
-                    <tr>
+                    </tr><!-- end ngRepeat: result in incomingList -->
 
-                      <td>April 14, 2025</td>
-                      <td>M 107 incline new Receiving</td>
-                      <td>Belts burned</td>
-                      <td>Operator's</td>
+                    <!-- ngRepeat: result in incomingList -->
+                    <tr>
+                      <td>Jul 29, 2024</td>
                       <td>Yuriy Drkn</td>
-                      <td>Replace belts, adjustments and new belt needed</td>
-                      <td>Volodymir Msltn</td>
-                      <td>Temporary Fix Applied</td>
-                      <td>Awaiting Resources</td>
-                      <td>April 14, 2025
-
-
-                      </td>
-                      <td>May 10, 2025</td>
-                      <td>Watch for the water in receiving</td>
+                      <td>15:00</td>
+                      <td>23:00</td>
+                      <td>8 hours</td>
+                      <td>6 hours, 45 minutes</td>
+                      <td>1 hours, 15 minutes</td>
+                      <td>0 hours, 0 minutes</td>
+                      <td>Marrowfat Peas</td>
+                      <td>13.1 %</td>
+                      <td>R2, R3</td>
+                      <td>TB, C2</td>
+                      <td>147,000 lbs</td>
+                      <td>137,000 lbs</td>
                       <td class="text-right">
 
-                        <a style="cursor: pointer;" class="edit_details ng-hide">
-                          <svg class="svg-inline--fa fa-unlock fa-w-14" aria-hidden="true" focusable="false"
-                            data-prefix="fa" data-icon="unlock" role="img" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 448 512" data-fa-i2svg="">
+                        <a class="veiw_detail" style="cursor: pointer;" ng-click="openPdf(result.pdfUrl)">
+                          <svg class="svg-inline--fa fa-eye fa-w-18" aria-hidden="true" focusable="false"
+                            data-prefix="fa" data-icon="eye" role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 576 512" data-fa-i2svg="">
                             <path fill="currentColor"
-                              d="M400 256H152V152.9c0-39.6 31.7-72.5 71.3-72.9 40-.4 72.7 32.1 72.7 72v16c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24v-16C376 68 307.5-.3 223.5 0 139.5.3 72 69.5 72 153.5V256H48c-26.5 0-48 21.5-48 48v160c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48z">
+                              d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z">
                             </path>
-                          </svg>
+                          </svg><!-- <i class="fa fa-eye" aria-hidden="true"></i> -->
                         </a>
 
-                        <a class="edit_details" href="/maintenanceNewIssue.html" aria-hidden="false">
+
+                        <a ng-show="loginUserAccess.truckScale.incoming.edit"
+                          ng-href="incomingScale/66a7d0b8850c78ec2c45b9b2" class="edit_details"
+                          href="incomingScale/66a7d0b8850c78ec2c45b9b2" aria-hidden="false">
                           <svg class="svg-inline--fa fa-pen-square fa-w-14" aria-hidden="true" focusable="false"
                             data-prefix="fas" data-icon="pen-square" role="img" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 448 512" data-fa-i2svg="">
@@ -11019,36 +11032,39 @@
                         </a>
                       </td>
                     </tr>
+
                     <tr>
+                      <td>Jul 29, 2024</td>
+                      <td>Stanislav Keshman</td>
+                      <td>7:00</td>
+                      <td>15:00</td>
+                      <td>8 hours</td>
+                      <td>5 hours, 15 minutes</td>
+                      <td>2 hours, 45 minutes</td>
+                      <td>0 hours, 0 minutes</td>
+                      <td>Marrowfat Peas</td>
+                      <td>12.9 %</td>
+                      <td>R2, R3, R12</td>
+                      <td>C7, TB</td>
+                      <td>102,000 lbs</td>
+                      <td>95,000 lbs</td>
+                      <td class="text-right"
+                        ng-show="loginUserAccess.truckScale.incoming.view || loginUserAccess.truckScale.incoming.edit"
+                        aria-hidden="false">
 
-                      <td>April 11, 2025</td>
-                      <td>M 108 Incline old receiving</td>
-                      <td>Leg lower bearing </td>
-                      <td>Transferring</td>
-                      <td>Igor Okrmnk</td>
-                      <td>Replace belts, adjustments and new belt needed</td>
-                      <td>Yuriy Krtzv</td>
-                      <td>Scheduled Maintenance</td>
-                      <td>In Progress</td>
-                      <td>April 10, 2025
-
-
-                      </td>
-                      <td>April 16, 2025</td>
-                      <td></td>
-                      <td class="text-right">
-
-                        <a style="cursor: pointer;" class="edit_details ng-hide">
-                          <svg class="svg-inline--fa fa-unlock fa-w-14" aria-hidden="true" focusable="false"
-                            data-prefix="fa" data-icon="unlock" role="img" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 448 512" data-fa-i2svg="">
+                        <a class="veiw_detail" style="cursor: pointer;" ng-click="openPdf(result.pdfUrl)">
+                          <svg class="svg-inline--fa fa-eye fa-w-18" aria-hidden="true" focusable="false"
+                            data-prefix="fa" data-icon="eye" role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 576 512" data-fa-i2svg="">
                             <path fill="currentColor"
-                              d="M400 256H152V152.9c0-39.6 31.7-72.5 71.3-72.9 40-.4 72.7 32.1 72.7 72v16c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24v-16C376 68 307.5-.3 223.5 0 139.5.3 72 69.5 72 153.5V256H48c-26.5 0-48 21.5-48 48v160c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48z">
+                              d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z">
                             </path>
-                          </svg>
+                          </svg><!-- <i class="fa fa-eye" aria-hidden="true"></i> -->
                         </a>
 
-                        <a class="edit_details" href="/maintenanceNewIssue.html" aria-hidden="false">
+                        <a ng-show="loginUserAccess.truckScale.incoming.edit"
+                          ng-href="incomingScale/66a3d1e5b6daf2e9ace96b8a" class="edit_details"
+                          href="incomingScale/66a3d1e5b6daf2e9ace96b8a" aria-hidden="false">
                           <svg class="svg-inline--fa fa-pen-square fa-w-14" aria-hidden="true" focusable="false"
                             data-prefix="fas" data-icon="pen-square" role="img" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 448 512" data-fa-i2svg="">
@@ -11058,37 +11074,41 @@
                           </svg><!-- <i class="fas fa-pen-square"></i> -->
                         </a>
                       </td>
-                    </tr>
+                    </tr><!-- end ngRepeat: result in incomingList -->
+
+
                     <tr>
+                      <td>Jul 28, 2024</td>
+                      <td>Vyacheslav Horidko</td>
+                      <td>23:00</td>
+                      <td>7:00</td>
+                      <td>8 hours</td>
+                      <td>4 hours, 0 minutes</td>
+                      <td>0 hours, 0 minutes</td>
+                      <td>4 hours, 0 minutes</td>
+                      <td>Marrofat Peas</td>
+                      <td>12.4 %</td>
+                      <td>R12, R9</td>
+                      <td>C8, C7</td>
+                      <td>84,000 lbs</td>
+                      <td>64,000 lbs</td>
+                      <td class="text-right"
+                        ng-show="loginUserAccess.truckScale.incoming.view || loginUserAccess.truckScale.incoming.edit"
+                        aria-hidden="false">
 
-                      <td>April 10, 2025</td>
-                      <td>Atv</td>
-                      <td>doesn't start</td>
-                      <td>Transferring</td>
-                      <td>Igor Okrmnk</td>
-                      <td>Need new fuel pump</td>
-                      <td>Yuriy Krtzv</td>
-                      <td>Parts Ordered</td>
-                      <td>Awaiting Resources</td>
-                      <td>April 10, 2025
-
-
-                      </td>
-                      <td>April 28, 2025</td>
-                      <td></td>
-                      <td class="text-right">
-
-                        <a style="cursor: pointer;" class="edit_details ng-hide">
-                          <svg class="svg-inline--fa fa-unlock fa-w-14" aria-hidden="true" focusable="false"
-                            data-prefix="fa" data-icon="unlock" role="img" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 448 512" data-fa-i2svg="">
+                        <a class="veiw_detail" style="cursor: pointer;" ng-click="openPdf(result.pdfUrl)">
+                          <svg class="svg-inline--fa fa-eye fa-w-18" aria-hidden="true" focusable="false"
+                            data-prefix="fa" data-icon="eye" role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 576 512" data-fa-i2svg="">
                             <path fill="currentColor"
-                              d="M400 256H152V152.9c0-39.6 31.7-72.5 71.3-72.9 40-.4 72.7 32.1 72.7 72v16c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24v-16C376 68 307.5-.3 223.5 0 139.5.3 72 69.5 72 153.5V256H48c-26.5 0-48 21.5-48 48v160c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48z">
+                              d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z">
                             </path>
-                          </svg>
+                          </svg><!-- <i class="fa fa-eye" aria-hidden="true"></i> -->
                         </a>
 
-                        <a class="edit_details" href="/maintenanceNewIssue.html" aria-hidden="false">
+                        <a ng-show="loginUserAccess.truckScale.incoming.edit"
+                          ng-href="incomingScale/66a3d1e5b6daf2e9ace96b8a" class="edit_details"
+                          href="incomingScale/66a3d1e5b6daf2e9ace96b8a" aria-hidden="false">
                           <svg class="svg-inline--fa fa-pen-square fa-w-14" aria-hidden="true" focusable="false"
                             data-prefix="fas" data-icon="pen-square" role="img" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 448 512" data-fa-i2svg="">
@@ -11098,37 +11118,41 @@
                           </svg><!-- <i class="fas fa-pen-square"></i> -->
                         </a>
                       </td>
-                    </tr>
+                    </tr><!-- end ngRepeat: result in incomingList -->
+
+
                     <tr>
+                      <td>Jul 28, 2024</td>
+                      <td>Yuriy Drkn</td>
+                      <td>15:00</td>
+                      <td>23:00</td>
+                      <td>8 hours</td>
+                      <td>4 hours, 0 minutes</td>
+                      <td>0 hours, 0 minutes</td>
+                      <td>4 hours, 0 minutes</td>
+                      <td>Marrofat Peas</td>
+                      <td>12.4 %</td>
+                      <td>R12, R9</td>
+                      <td>C8, C7</td>
+                      <td>84,000 lbs</td>
+                      <td>64,000 lbs</td>
+                      <td class="text-right"
+                        ng-show="loginUserAccess.truckScale.incoming.view || loginUserAccess.truckScale.incoming.edit"
+                        aria-hidden="false">
 
-                      <td>April 9, 2025</td>
-                      <td>New Delta </td>
-                      <td>Rebuilding Reclean Leg</td>
-                      <td>Main Office</td>
-                      <td>Less Abn</td>
-                      <td>Waiting for instructions</td>
-                      <td>Yuriy Krtzv , Vladimir Msltn</td>
-                      <td>Parts Ordered</td>
-                      <td>Awaiting Resources</td>
-                      <td>April 9, 2025
-
-
-                      </td>
-                      <td>May 21, 2025</td>
-                      <td></td>
-                      <td class="text-right">
-
-                        <a style="cursor: pointer;" class="edit_details ng-hide">
-                          <svg class="svg-inline--fa fa-unlock fa-w-14" aria-hidden="true" focusable="false"
-                            data-prefix="fa" data-icon="unlock" role="img" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 448 512" data-fa-i2svg="">
+                        <a class="veiw_detail" style="cursor: pointer;" ng-click="openPdf(result.pdfUrl)">
+                          <svg class="svg-inline--fa fa-eye fa-w-18" aria-hidden="true" focusable="false"
+                            data-prefix="fa" data-icon="eye" role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 576 512" data-fa-i2svg="">
                             <path fill="currentColor"
-                              d="M400 256H152V152.9c0-39.6 31.7-72.5 71.3-72.9 40-.4 72.7 32.1 72.7 72v16c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24v-16C376 68 307.5-.3 223.5 0 139.5.3 72 69.5 72 153.5V256H48c-26.5 0-48 21.5-48 48v160c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48z">
+                              d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z">
                             </path>
-                          </svg>
+                          </svg><!-- <i class="fa fa-eye" aria-hidden="true"></i> -->
                         </a>
 
-                        <a class="edit_details" href="/maintenanceNewIssue.html" aria-hidden="false">
+                        <a ng-show="loginUserAccess.truckScale.incoming.edit"
+                          ng-href="incomingScale/66a3d1e5b6daf2e9ace96b8a" class="edit_details"
+                          href="incomingScale/66a3d1e5b6daf2e9ace96b8a" aria-hidden="false">
                           <svg class="svg-inline--fa fa-pen-square fa-w-14" aria-hidden="true" focusable="false"
                             data-prefix="fas" data-icon="pen-square" role="img" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 448 512" data-fa-i2svg="">
@@ -11138,37 +11162,40 @@
                           </svg><!-- <i class="fas fa-pen-square"></i> -->
                         </a>
                       </td>
-                    </tr>
+                    </tr><!-- end ngRepeat: result in incomingList -->
+
                     <tr>
+                      <td>Jul 28, 2024</td>
+                      <td>Stanislav Keshman</td>
+                      <td>7:00</td>
+                      <td>15:00</td>
+                      <td>8 hours</td>
+                      <td>6 hours, 0 minutes</td>
+                      <td>0 hours, 0 minutes</td>
+                      <td>2 hours, 0 minutes</td>
+                      <td>KCP</td>
+                      <td>12.2 %</td>
+                      <td>R14, R8</td>
+                      <td>BB, C4</td>
+                      <td>153,000 lbs</td>
+                      <td>141,000 lbs</td>
+                      <td class="text-right"
+                        ng-show="loginUserAccess.truckScale.incoming.view || loginUserAccess.truckScale.incoming.edit"
+                        aria-hidden="false">
 
-                      <td>April 8, 2025</td>
-                      <td>Screening tube M 208</td>
-                      <td>belts are loose</td>
-                      <td>Operator's</td>
-                      <td>Valeriy Klmnk</td>
-                      <td>Waiting for instructions</td>
-                      <td>Vladimir Msltn</td>
-                      <td>Repair Completed</td>
-                      <td>Completed</td>
-                      <td>April 8, 2025
-
-
-                      </td>
-                      <td>October 8, 2025</td>
-                      <td>Need grease up every week</td>
-                      <td class="text-right">
-
-                        <a style="cursor: pointer;" class="edit_details ng-hide">
-                          <svg class="svg-inline--fa fa-unlock fa-w-14" aria-hidden="true" focusable="false"
-                            data-prefix="fa" data-icon="unlock" role="img" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 448 512" data-fa-i2svg="">
+                        <a class="veiw_detail" style="cursor: pointer;" ng-click="openPdf(result.pdfUrl)">
+                          <svg class="svg-inline--fa fa-eye fa-w-18" aria-hidden="true" focusable="false"
+                            data-prefix="fa" data-icon="eye" role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 576 512" data-fa-i2svg="">
                             <path fill="currentColor"
-                              d="M400 256H152V152.9c0-39.6 31.7-72.5 71.3-72.9 40-.4 72.7 32.1 72.7 72v16c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24v-16C376 68 307.5-.3 223.5 0 139.5.3 72 69.5 72 153.5V256H48c-26.5 0-48 21.5-48 48v160c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48z">
+                              d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z">
                             </path>
-                          </svg>
+                          </svg><!-- <i class="fa fa-eye" aria-hidden="true"></i> -->
                         </a>
 
-                        <a class="edit_details" href="/maintenanceNewIssue.html" aria-hidden="false">
+                        <a ng-show="loginUserAccess.truckScale.incoming.edit"
+                          ng-href="incomingScale/66a3d1e5b6daf2e9ace96b8a" class="edit_details"
+                          href="incomingScale/66a3d1e5b6daf2e9ace96b8a" aria-hidden="false">
                           <svg class="svg-inline--fa fa-pen-square fa-w-14" aria-hidden="true" focusable="false"
                             data-prefix="fas" data-icon="pen-square" role="img" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 448 512" data-fa-i2svg="">
@@ -11178,20 +11205,190 @@
                           </svg><!-- <i class="fas fa-pen-square"></i> -->
                         </a>
                       </td>
-                    </tr>
+                    </tr><!-- end ngRepeat: result in incomingList -->
+
+                    <tr>
+                      <td>Jul 27, 2024</td>
+                      <td>Vyacheslav Horidko</td>
+                      <td>23:00</td>
+                      <td>7:00</td>
+                      <td>8 hours</td>
+                      <td>8 hours, 0 minutes</td>
+                      <td>0 hours, 0 minutes</td>
+                      <td>0 hours, 0 minutes</td>
+                      <td>KCP</td>
+                      <td>12.4 %</td>
+                      <td>R12, R9</td>
+                      <td>C8, C7</td>
+                      <td>84,000 lbs</td>
+                      <td>64,000 lbs</td>
+                      <td class="text-right"
+                        ng-show="loginUserAccess.truckScale.incoming.view || loginUserAccess.truckScale.incoming.edit"
+                        aria-hidden="false">
+
+                        <a class="veiw_detail" style="cursor: pointer;" ng-click="openPdf(result.pdfUrl)">
+                          <svg class="svg-inline--fa fa-eye fa-w-18" aria-hidden="true" focusable="false"
+                            data-prefix="fa" data-icon="eye" role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 576 512" data-fa-i2svg="">
+                            <path fill="currentColor"
+                              d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z">
+                            </path>
+                          </svg><!-- <i class="fa fa-eye" aria-hidden="true"></i> -->
+                        </a>
+
+                        <a ng-show="loginUserAccess.truckScale.incoming.edit"
+                          ng-href="incomingScale/66a3d1e5b6daf2e9ace96b8a" class="edit_details"
+                          href="incomingScale/66a3d1e5b6daf2e9ace96b8a" aria-hidden="false">
+                          <svg class="svg-inline--fa fa-pen-square fa-w-14" aria-hidden="true" focusable="false"
+                            data-prefix="fas" data-icon="pen-square" role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 448 512" data-fa-i2svg="">
+                            <path fill="currentColor"
+                              d="M400 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zM238.1 177.9L102.4 313.6l-6.3 57.1c-.8 7.6 5.6 14.1 13.3 13.3l57.1-6.3L302.2 242c2.3-2.3 2.3-6.1 0-8.5L246.7 178c-2.5-2.4-6.3-2.4-8.6-.1zM345 165.1L314.9 135c-9.4-9.4-24.6-9.4-33.9 0l-23.1 23.1c-2.3 2.3-2.3 6.1 0 8.5l55.5 55.5c2.3 2.3 6.1 2.3 8.5 0L345 199c9.3-9.3 9.3-24.5 0-33.9z">
+                            </path>
+                          </svg><!-- <i class="fas fa-pen-square"></i> -->
+                        </a>
+                      </td>
+                    </tr><!-- end ngRepeat: result in incomingList -->
+
+                    <tr>
+                      <td>Jul 27, 2024</td>
+                      <td>Yuriy Drokin</td>
+                      <td>15:00</td>
+                      <td>23:00</td>
+                      <td>8 hours</td>
+                      <td>0 hours, 0 minutes</td>
+                      <td>0 hours, 0 minutes</td>
+                      <td>0 hours, 0 minutes</td>
+                      <td>KCP</td>
+                      <td>12.1 %</td>
+                      <td>R14, R8</td>
+                      <td>C1, C2</td>
+                      <td>155,000 lbs</td>
+                      <td>142,000 lbs</td>
+                      <td class="text-right"
+                        ng-show="loginUserAccess.truckScale.incoming.view || loginUserAccess.truckScale.incoming.edit"
+                        aria-hidden="false">
+
+                        <a class="veiw_detail" style="cursor: pointer;" ng-click="openPdf(result.pdfUrl)">
+                          <svg class="svg-inline--fa fa-eye fa-w-18" aria-hidden="true" focusable="false"
+                            data-prefix="fa" data-icon="eye" role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 576 512" data-fa-i2svg="">
+                            <path fill="currentColor"
+                              d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z">
+                            </path>
+                          </svg><!-- <i class="fa fa-eye" aria-hidden="true"></i> -->
+                        </a>
+
+                        <a ng-show="loginUserAccess.truckScale.incoming.edit"
+                          ng-href="incomingScale/66a3d1e5b6daf2e9ace96b8a" class="edit_details"
+                          href="incomingScale/66a3d1e5b6daf2e9ace96b8a" aria-hidden="false">
+                          <svg class="svg-inline--fa fa-pen-square fa-w-14" aria-hidden="true" focusable="false"
+                            data-prefix="fas" data-icon="pen-square" role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 448 512" data-fa-i2svg="">
+                            <path fill="currentColor"
+                              d="M400 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zM238.1 177.9L102.4 313.6l-6.3 57.1c-.8 7.6 5.6 14.1 13.3 13.3l57.1-6.3L302.2 242c2.3-2.3 2.3-6.1 0-8.5L246.7 178c-2.5-2.4-6.3-2.4-8.6-.1zM345 165.1L314.9 135c-9.4-9.4-24.6-9.4-33.9 0l-23.1 23.1c-2.3 2.3-2.3 6.1 0 8.5l55.5 55.5c2.3 2.3 6.1 2.3 8.5 0L345 199c9.3-9.3 9.3-24.5 0-33.9z">
+                            </path>
+                          </svg><!-- <i class="fas fa-pen-square"></i> -->
+                        </a>
+                      </td>
+                    </tr><!-- end ngRepeat: result in incomingList -->
+
+                    <tr>
+                      <td>Jul 27, 2024</td>
+                      <td>Stanislav Keshman</td>
+                      <td>7:00</td>
+                      <td>15:00</td>
+                      <td>6 hours</td>
+                      <td>4 hours, 0 minutes</td>
+                      <td>2 hours, 0 minutes</td>
+                      <td>0 hours, 0 minutes</td>
+                      <td>KCP</td>
+                      <td>12.1 %</td>
+                      <td>R14, R8</td>
+                      <td>C1, C2</td>
+                      <td>155,000 lbs</td>
+                      <td>142,000 lbs</td>
+                      <td class="text-right"
+                        ng-show="loginUserAccess.truckScale.incoming.view || loginUserAccess.truckScale.incoming.edit"
+                        aria-hidden="false">
+
+                        <a class="veiw_detail" style="cursor: pointer;" ng-click="openPdf(result.pdfUrl)">
+                          <svg class="svg-inline--fa fa-eye fa-w-18" aria-hidden="true" focusable="false"
+                            data-prefix="fa" data-icon="eye" role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 576 512" data-fa-i2svg="">
+                            <path fill="currentColor"
+                              d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z">
+                            </path>
+                          </svg><!-- <i class="fa fa-eye" aria-hidden="true"></i> -->
+                        </a>
+
+                        <a ng-show="loginUserAccess.truckScale.incoming.edit"
+                          ng-href="incomingScale/66a3d1e5b6daf2e9ace96b8a" class="edit_details"
+                          href="incomingScale/66a3d1e5b6daf2e9ace96b8a" aria-hidden="false">
+                          <svg class="svg-inline--fa fa-pen-square fa-w-14" aria-hidden="true" focusable="false"
+                            data-prefix="fas" data-icon="pen-square" role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 448 512" data-fa-i2svg="">
+                            <path fill="currentColor"
+                              d="M400 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zM238.1 177.9L102.4 313.6l-6.3 57.1c-.8 7.6 5.6 14.1 13.3 13.3l57.1-6.3L302.2 242c2.3-2.3 2.3-6.1 0-8.5L246.7 178c-2.5-2.4-6.3-2.4-8.6-.1zM345 165.1L314.9 135c-9.4-9.4-24.6-9.4-33.9 0l-23.1 23.1c-2.3 2.3-2.3 6.1 0 8.5l55.5 55.5c2.3 2.3 6.1 2.3 8.5 0L345 199c9.3-9.3 9.3-24.5 0-33.9z">
+                            </path>
+                          </svg><!-- <i class="fas fa-pen-square"></i> -->
+                        </a>
+                      </td>
+                    </tr><!-- end ngRepeat: result in incomingList -->
+                    <tr>
+                      <td>Jul 26, 2024</td>
+                      <td>Yuriy Drkn</td>
+                      <td>7:00</td>
+                      <td>19:00</td>
+                      <td>12 hours</td>
+                      <td>11 hours, 0 minutes</td>
+                      <td>1 hours, 0 minutes</td>
+                      <td>0 hours, 0 minutes</td>
+                      <td>KCP</td>
+                      <td>12.2 %</td>
+                      <td>R14, R2</td>
+                      <td>C5, C6</td>
+                      <td>220,000 lbs</td>
+                      <td>201,000 lbs</td>
+                      <td class="text-right"
+                        ng-show="loginUserAccess.truckScale.incoming.view || loginUserAccess.truckScale.incoming.edit"
+                        aria-hidden="false">
+
+                        <a class="veiw_detail" style="cursor: pointer;" ng-click="openPdf(result.pdfUrl)">
+                          <svg class="svg-inline--fa fa-eye fa-w-18" aria-hidden="true" focusable="false"
+                            data-prefix="fa" data-icon="eye" role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 576 512" data-fa-i2svg="">
+                            <path fill="currentColor"
+                              d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z">
+                            </path>
+                          </svg><!-- <i class="fa fa-eye" aria-hidden="true"></i> -->
+                        </a>
+
+                        <a ng-show="loginUserAccess.truckScale.incoming.edit"
+                          ng-href="incomingScale/66a3d1e5b6daf2e9ace96b8a" class="edit_details"
+                          href="incomingScale/66a3d1e5b6daf2e9ace96b8a" aria-hidden="false">
+                          <svg class="svg-inline--fa fa-pen-square fa-w-14" aria-hidden="true" focusable="false"
+                            data-prefix="fas" data-icon="pen-square" role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 448 512" data-fa-i2svg="">
+                            <path fill="currentColor"
+                              d="M400 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zM238.1 177.9L102.4 313.6l-6.3 57.1c-.8 7.6 5.6 14.1 13.3 13.3l57.1-6.3L302.2 242c2.3-2.3 2.3-6.1 0-8.5L246.7 178c-2.5-2.4-6.3-2.4-8.6-.1zM345 165.1L314.9 135c-9.4-9.4-24.6-9.4-33.9 0l-23.1 23.1c-2.3 2.3-2.3 6.1 0 8.5l55.5 55.5c2.3 2.3 6.1 2.3 8.5 0L345 199c9.3-9.3 9.3-24.5 0-33.9z">
+                            </path>
+                          </svg><!-- <i class="fas fa-pen-square"></i> -->
+                        </a>
+                      </td>
+                    </tr><!-- end ngRepeat: result in incomingList -->
                   </tbody>
-                </table>
-                <div paging="" page="page" page-size="myForm.limit" total="totalPages"
-                  paging-action="DoCtrlPagingAct(page)" class="ng-isolate-scope">
+                </table> <!-- Table End-->
+
+                <div paging="" page="page" class="ng-isolate-scope">
                   <ul data-ng-hide="Hide" data-ng-class="ulClass" aria-hidden="false" class="pagination">
                     <!-- ngRepeat: Item in List -->
                     <li title="Page 1" data-ng-class="Item.liClass" data-ng-repeat="Item in List"
-                      class="ng-scope active" style=""> <a href="" data-ng-class="Item.aClass"
-                        data-ng-click="Item.action()" data-ng-bind="Item.value" class="ng-binding">1</a> </li>
-                    <!-- end ngRepeat: Item in List -->
-                    <li title="Page 2" data-ng-class="Item.liClass" data-ng-repeat="Item in List" class="ng-scope"
-                      style=""> <a href="" data-ng-class="Item.aClass" data-ng-click="Item.action()"
-                        data-ng-bind="Item.value" class="ng-binding">2</a> </li><!-- end ngRepeat: Item in List -->
+                      class="ng-scope active"> <a href="" data-ng-class="Item.aClass" data-ng-click="Item.action()"
+                        data-ng-bind="Item.value" class="ng-binding">1</a> </li><!-- end ngRepeat: Item in List -->
+                    <li title="Page 2" data-ng-class="Item.liClass" data-ng-repeat="Item in List" class="ng-scope"> <a
+                        href="" data-ng-class="Item.aClass" data-ng-click="Item.action()" data-ng-bind="Item.value"
+                        class="ng-binding">2</a> </li><!-- end ngRepeat: Item in List -->
                     <li title="Page 3" data-ng-class="Item.liClass" data-ng-repeat="Item in List" class="ng-scope"> <a
                         href="" data-ng-class="Item.aClass" data-ng-click="Item.action()" data-ng-bind="Item.value"
                         class="ng-binding">3</a> </li><!-- end ngRepeat: Item in List -->
@@ -11207,18 +11404,21 @@
                     <li title="Page 7" data-ng-class="Item.liClass" data-ng-repeat="Item in List" class="ng-scope"> <a
                         href="" data-ng-class="Item.aClass" data-ng-click="Item.action()" data-ng-bind="Item.value"
                         class="ng-binding">7</a> </li><!-- end ngRepeat: Item in List -->
-                    <li title="" data-ng-class="Item.liClass" data-ng-repeat="Item in List" class="ng-scope disabled"
-                      style=""> <a href="" data-ng-class="Item.aClass" data-ng-click="Item.action()"
-                        data-ng-bind="Item.value" class="ng-binding">...</a> </li><!-- end ngRepeat: Item in List -->
-                    <li title="Page 517" data-ng-class="Item.liClass" data-ng-repeat="Item in List" class="ng-scope"> <a
+                    <li title="" data-ng-class="Item.liClass" data-ng-repeat="Item in List" class="ng-scope disabled">
+                      <a href="" data-ng-class="Item.aClass" data-ng-click="Item.action()" data-ng-bind="Item.value"
+                        class="ng-binding">...</a>
+                    </li><!-- end ngRepeat: Item in List -->
+                    <li title="Page 502" data-ng-class="Item.liClass" data-ng-repeat="Item in List" class="ng-scope"> <a
                         href="" data-ng-class="Item.aClass" data-ng-click="Item.action()" data-ng-bind="Item.value"
-                        class="ng-binding">517</a> </li><!-- end ngRepeat: Item in List -->
-                    <li title="Page 518" data-ng-class="Item.liClass" data-ng-repeat="Item in List" class="ng-scope"> <a
+                        class="ng-binding">10</a> </li><!-- end ngRepeat: Item in List -->
+                    <li title="Page 503" data-ng-class="Item.liClass" data-ng-repeat="Item in List" class="ng-scope"> <a
                         href="" data-ng-class="Item.aClass" data-ng-click="Item.action()" data-ng-bind="Item.value"
-                        class="ng-binding">518</a> </li><!-- end ngRepeat: Item in List -->
+                        class="ng-binding">11</a> </li><!-- end ngRepeat: Item in List -->
                   </ul>
                 </div>
               </div>
+
+
 
             </div>
           </div>

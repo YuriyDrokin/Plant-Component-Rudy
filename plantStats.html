@@ -10203,8 +10203,16 @@
                       <li class="ng-scope active">
                         <a href="/index.html">Operator Lead</a>
                       </li>
-                      <li class="ng-scope">
-                        <a href="/PlantOperators.html">Operators</a>
+                      <li>
+                        <a class="show-caret">Operators</a>
+                        <ul class="dropdown-menu">
+                          <!-- ngIf: access.setting.bin.viewMenu -->
+                          <li>
+                            <a href="/plantOperatorsShiftLogs.html">Shift Logs</a>
+                            <a href="/plantOperatorsSwitchOvers.html">Switch Overs</a>
+                          </li><!-- end ngIf: access.setting.bin.viewMenu -->
+                        </ul>
+
                       </li>
                       <li class="ng-scope">
                         <a href="/plantMaintenance.html">Maintenance</a>
