@@ -8361,6 +8361,9 @@ button.close {
   th.visible-xs {
     display: table-cell !important;
   }
+  .table {
+    font-size: 12px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -8435,6 +8438,9 @@ button.close {
   th.visible-md {
     display: table-cell !important;
   }
+  table {
+    font-size: 13px;
+  }
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -8472,6 +8478,7 @@ button.close {
   th.visible-lg {
     display: table-cell !important;
   }
+ 
 }
 
 @media (min-width: 1200px) {
