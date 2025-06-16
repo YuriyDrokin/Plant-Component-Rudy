@@ -10359,79 +10359,130 @@
             <form name="" class="ng-pristine ng-invalid ng-invalid-required">
               <div class="pro_header ">
 
-                <div class="row ng-scope">
-                  <div class="col-md-3">
-                    <div class="com_pac">
-                      <label>Operator</label>
-                      <select class="ng-pristine ng-valid ng-empty ng-touched" style="">
-                        <option value="" class="" selected="selected">Select Operator Name</option>
-                        <option label="Stanislav Keshman" value="">Stas Keshman</option>
-                        <option label="Yuriy Drokin" value="">Yuriy Drokin</option>
-                        <option label="Valeriy Klymenko" value="">Valeriy Klymenko</option>
-                        <option label="Vyacheslav Horidko" value="">Vyacheslav Horidko</option>
-                        <option label="Team Lead" value="">Team Lead</option>
-
-                      </select>
-
+                <div class="row"><!-- Dashboard Time Widgets-->
+                  <div class="col-md-2">
+                    <div class="frval">
+                      <label>Total Hours</label>
+                      <input placeholder=" 0 h 0 m">
                     </div>
                   </div>
-                  <div class="col-md-3">
-                    <div class="com_pac">
-                      <label>Previous Commodity</label>
-                      <select class="ng-pristine ng-valid ng-empty ng-touched">
-                        <option value="" class="" selected="selected">Select Previous Commodity</option>
-                        <option label="Kabuli Chick Peas" value="">KCP</option>
-                        <option label="Marrofat Peas" value=""> MFP</option>
-                        <option label="Cranberry Beans" value="">CBB Beans</option>
-                        <option label="Small Marrofat Peas " value="">SMFP Calbee</option>
-                        <option label="Whole Yellow Peas" value="">Yellow Peas</option>
-
-                      </select>
-
-                    </div>
-                  </div>
-                  <div class="col-md-3">
-                    <div class="com_pac">
-                      <label>Next Commodity</label>
-                      <select class="ng-pristine ng-valid ng-empty ng-touched">
-                        <option value="" class="" selected="selected">Select Next Commodity</option>
-                        <option label="Kabuli Chick Peas" value="">KCP</option>
-                        <option label="Marrofat Peas" value=""> MFP</option>
-                        <option label="Cranberry Beans" value="">CBB Beans</option>
-                        <option label="Small Marrofat Peas " value="">SMFP Calbee</option>
-                        <option label="Whole Yellow Peas" value="">Yellow Peas</option>
-
-                      </select>
-
-                    </div>
-                  </div>
-                  <div class="col-md-3">
+                  <div class="col-md-2">
                     <div class="frval" ng-hide="">
-                      <label>Date</label>
-                      <datepicker class="date_pic" date-format="yyyy-MM-dd" selector="form-control">
-                        <div class="input-group">
-                          <input name="dateFrom" class="form-control ng-pristine ng-untouched ng-valid ng-empty"
-                            ng-model="myForm.fromDate" placeholder="Choose a date" autocomplete="off" ng-change=""
-                            aria-invalid="false">
-
-                          <span class="input-group-addon" style="cursor: pointer">
-                            <svg class="svg-inline--fa fa-calendar fa-w-14 fa-lg" aria-hidden="true" focusable="false"
-                              data-prefix="fa" data-icon="calendar" role="img" xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 448 512" data-fa-i2svg="">
-                              <path fill="currentColor"
-                                d="M12 192h424c6.6 0 12 5.4 12 12v260c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V204c0-6.6 5.4-12 12-12zm436-44v-36c0-26.5-21.5-48-48-48h-48V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H160V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H48C21.5 64 0 85.5 0 112v36c0 6.6 5.4 12 12 12h424c6.6 0 12-5.4 12-12z">
-                              </path>
-                            </svg><!-- <i class="fa fa-lg fa-calendar"></i> -->
-                          </span>
-                        </div><!-- div date end-->
-
-                      </datepicker>
+                      <label>Leg Cleaning</label>
+                      <input type="float" placeholder=" 0 h 0 m">
                     </div>
+
+                  </div>
+                  <div class="col-md-2">
+                    <div class="frval" ng-hide="">
+                      <label>Equipment Blow Down</label>
+                      <input type="float" placeholder=" 0 h 0 m">
+                    </div>
+
+                  </div>
+                  <div class="col-md-2">
+                    <div class="frval" ng-hide="">
+                      <label>Screen Change</label>
+                      <input type="float" placeholder=" 0 h 0 m">
+                    </div>
+
                   </div>
 
+                  <div class="col-md-2">
+                    <div class="frval" ng-hide="">
+                      <label>Color Sorter Clean Up</label>
+                      <input type="float" placeholder=" 0 h 0 m">
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="frval" ng-hide="">
+                      <label>Tubes and Drag Cleaning</label>
+                      <input type="float" placeholder=" 0 h 0 m">
+                    </div>
+
+                  </div>
                 </div><!-- end ngIf: ticketNumber == 'add' -->
               </div>
 
+              <div class="row">
+                <div class="col-lg-6 col-md-12 col-12"> <!--Daily Shift Log-->
+
+                  <div class="comodity_table comodity_table_list">
+                    <table class="table table-striped commodity_table" style="font-size: 14px;">
+
+                      <thead>
+                        <tr>
+                          <th style="width: 14%;">Operator</th>
+                          <th>Date</th>
+                          <th>Switchover Start</th>
+                          <th>Switchover End</th>
+                          <th>Previous Commodity</th>
+                          <th>Next Commodity</th>
+
+                          <th style="width: 18%;">Action</th>
+
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Stas Keshman</td>
+                          <td style="width: 10%;">
+                            2025-6-20
+                          </td>
+                          <td>7:00</td>
+                          <td>15:00</td>
+                          <td style="width: 28%;"><select class="form-control">
+                              <option value="" class="" selected="selected">Previous Commodity</option>
+                              <option label="Kabuli Chick Peas" value="">KCP</option>
+                              <option label="Marrofat Peas" value=""> MFP</option>
+                              <option label="Cranberry Beans" value="">CBB Beans</option>
+                              <option label="Small Marrofat Peas " value="">SMFP Calbee</option>
+                              <option label="Whole Yellow Peas" value="">Yellow Peas</option>
+
+                            </select></td>
+                          <td style="width: 24%;"><select class="form-control">
+                              <option value="" class="" selected="selected">Next Commodity</option>
+                              <option label="Kabuli Chick Peas" value="">KCP</option>
+                              <option label="Marrofat Peas" value=""> MFP</option>
+                              <option label="Cranberry Beans" value="">CBB Beans</option>
+                              <option label="Small Marrofat Peas " value="">SMFP Calbee</option>
+                              <option label="Whole Yellow Peas" value="">Yellow Peas</option>
+
+                            </select></td>
+
+
+                          <td class="text-right">
+                            <a class="edit_details">
+                              <svg class="svg-inline--fa fa-save fa-w-14" aria-hidden="true" focusable="false"
+                                data-prefix="fas" data-icon="save" role="img" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 448 512" data-fa-i2svg="">
+                                <path fill="currentColor"
+                                  d="M433.941 129.941l-83.882-83.882A48 48 0 0 0 316.118 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V163.882a48 48 0 0 0-14.059-33.941zM224 416c-35.346 0-64-28.654-64-64 0-35.346 28.654-64 64-64s64 28.654 64 64c0 35.346-28.654 64-64 64zm96-304.52V212c0 6.627-5.373 12-12 12H76c-6.627 0-12-5.373-12-12V108c0-6.627 5.373-12 12-12h228.52c3.183 0 6.235 1.264 8.485 3.515l3.48 3.48A11.996 11.996 0 0 1 320 111.48z">
+                                </path>
+                              </svg><!-- <i style="margin: 4px 0 0 4px;font-size: 25px;" class="fas fa-save"></i> -->
+                            </a>
+
+                            <a class="edit_details">
+                              <svg class="svg-inline--fa fa-pen-square fa-w-14" aria-hidden="true" focusable="false"
+                                data-prefix="fas" data-icon="pen-square" role="img" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 448 512" data-fa-i2svg="">
+                                <path fill="currentColor"
+                                  d="M400 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zM238.1 177.9L102.4 313.6l-6.3 57.1c-.8 7.6 5.6 14.1 13.3 13.3l57.1-6.3L302.2 242c2.3-2.3 2.3-6.1 0-8.5L246.7 178c-2.5-2.4-6.3-2.4-8.6-.1zM345 165.1L314.9 135c-9.4-9.4-24.6-9.4-33.9 0l-23.1 23.1c-2.3 2.3-2.3 6.1 0 8.5l55.5 55.5c2.3 2.3 6.1 2.3 8.5 0L345 199c9.3-9.3 9.3-24.5 0-33.9z">
+                                </path>
+                              </svg><!-- <i class="fas fa-pen-square"></i> -->
+                            </a>
+
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+
+                  </div>
+                </div>
+
+
+              </div>
 
               <div class="box-container">
                 <div class="scale_outer">
@@ -10439,6 +10490,7 @@
                     style="border: 1.5px solid #007e4e;padding: 25px; border-radius: 10px; margin: 10px 0;">
 
                     <h3 style="color: #007e4e; margin: 0 0 15px 0;">Leg Cleaning Procedure</h3>
+
                     <div class="row"> <!-- Row Delta Screens-->
                       <div class="col-md-6 col-sm-6 col-xs-12">
                         <div class="comodity_table comodity_table_list">
@@ -10554,104 +10606,152 @@
                         </div>
                       </div>
                     </div> <!-- 3rd Row Delta Screens-->
+
                     <div class="row">
-                      <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="com_pac">
-                          <label>Primary Operator</label>
-                          <select ng-show="" name="" ng-options="" track="" by="" commoditytype="" ng-model=""
-                            class="ng-pristine ng-valid ng-empty ng-touched" aria-hidden="false" aria-invalid="false"
-                            style="">
-                            <option value="" class="" selected="selected">Select Primary Operator</option>
-                            <option label="Stanislav Keshman" value="">Stas Keshman</option>
-                            <option label="Yuriy Drokin" value="">Yuriy Drokin</option>
-                            <option label="Valeriy Klymenko" value="">Valeriy Klymenko</option>
-                            <option label="Vyacheslav Horidko" value="">Vyacheslav Horidko</option>
-                            <option label="Team Lead" value="">Team Lead</option>
-                          </select>
+                      <div class="col-md-6 col-sm-12 col-xs-12">
+
+                        <div class="comodity_table comodity_table_list">
+                          <table class="table table-striped commodity_table" style="font-size: 14px;">
+                            <thead>
+
+                              <tr>
+                                <th colspan="4" style="text-align: center;"> Time table for Leg Cleaning Procedure</th>
+                              </tr>
+
+                            </thead>
+                            <thead>
+                              <tr>
+                                <th>Operator</th>
+                                <th>From Time</th>
+                                <th>To Time</th>
+
+                                <th style="width: 26%;">Action</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>Stanislav Keshman</td>
+                                <td>9:15 AM</td>
+                                <td>10:15</td>
+
+                                <td class="text-right">
+                                  <a class="edit_details">
+                                    <svg class="svg-inline--fa fa-save fa-w-14" aria-hidden="true" focusable="false"
+                                      data-prefix="fas" data-icon="save" role="img" xmlns="http://www.w3.org/2000/svg"
+                                      viewBox="0 0 448 512" data-fa-i2svg="">
+                                      <path fill="currentColor"
+                                        d="M433.941 129.941l-83.882-83.882A48 48 0 0 0 316.118 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V163.882a48 48 0 0 0-14.059-33.941zM224 416c-35.346 0-64-28.654-64-64 0-35.346 28.654-64 64-64s64 28.654 64 64c0 35.346-28.654 64-64 64zm96-304.52V212c0 6.627-5.373 12-12 12H76c-6.627 0-12-5.373-12-12V108c0-6.627 5.373-12 12-12h228.52c3.183 0 6.235 1.264 8.485 3.515l3.48 3.48A11.996 11.996 0 0 1 320 111.48z">
+                                      </path>
+                                    </svg><!-- <i style="margin: 4px 0 0 4px;font-size: 25px;" class="fas fa-save"></i> -->
+                                  </a>
+
+                                  <a ng-show="" ng-href="" class="edit_details" href="" aria-hidden="false">
+                                    <svg class="svg-inline--fa fa-pen-square fa-w-14" aria-hidden="true"
+                                      focusable="false" data-prefix="fas" data-icon="pen-square" role="img"
+                                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                                      <path fill="currentColor"
+                                        d="M400 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zM238.1 177.9L102.4 313.6l-6.3 57.1c-.8 7.6 5.6 14.1 13.3 13.3l57.1-6.3L302.2 242c2.3-2.3 2.3-6.1 0-8.5L246.7 178c-2.5-2.4-6.3-2.4-8.6-.1zM345 165.1L314.9 135c-9.4-9.4-24.6-9.4-33.9 0l-23.1 23.1c-2.3 2.3-2.3 6.1 0 8.5l55.5 55.5c2.3 2.3 6.1 2.3 8.5 0L345 199c9.3-9.3 9.3-24.5 0-33.9z">
+                                      </path>
+                                    </svg><!-- <i class="fas fa-pen-square"></i> -->
+                                  </a>
+
+                                  <a ng-show="" class="veiw_detail" ng-click="" aria-hidden="false">
+                                    <svg class="svg-inline--fa fa-trash fa-w-14" aria-hidden="true" focusable="false"
+                                      data-prefix="fa" data-icon="trash" role="img" xmlns="http://www.w3.org/2000/svg"
+                                      viewBox="0 0 448 512" data-fa-i2svg="">
+                                      <path fill="currentColor"
+                                        d="M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z">
+                                      </path>
+                                    </svg><!-- <i class="fa fa-trash" aria-hidden="true"></i> -->
+                                  </a>
+                                </td>
+                              </tr>
+
+                            </tbody>
+                            <tfoot>
+
+                              <tr>
+                                <th class="text-center" colspan="4" id="addNewCleanBin"><button
+                                    class="btn green-btn">Add
+                                    New Row</button>
+                                </th>
+                              </tr>
+                            </tfoot>
+
+                          </table>
+
                         </div>
-                        <div class="com_pac">
-                          <label>Secondary Operator</label>
-                          <select ng-show="" name="" ng-options="" track="" by="" commoditytype="" ng-model=""
-                            class="ng-pristine ng-valid ng-empty ng-touched" aria-hidden="false" aria-invalid="false"
-                            style="">
-                            <option value="" class="" selected="selected">Select Secondary Operator</option>
-                            <option label="Stanislav Keshman" value="">Stas Keshman</option>
-                            <option label="Yuriy Drokin" value="">Yuriy Drokin</option>
-                            <option label="Valeriy Klymenko" value="">Valeriy Klymenko</option>
-                            <option label="Vyacheslav Horidko" value="">Vyacheslav Horidko</option>
-                            <option label="Team Lead" value="">Team Lead</option>
-                          </select>
-                        </div>
-                        <div class="com_pac">
-                          <label>Team Lead</label>
-                          <select ng-show="" name="" ng-options="" track="" by="" commoditytype="" ng-model=""
-                            class="ng-pristine ng-valid ng-empty ng-touched" aria-hidden="false" aria-invalid="false"
-                            style="">
-                            <option value="" class="" selected="selected">Select Team Lead</option>
-                            <option label="Stanislav Keshman" value="">Stas Keshman</option>
-                            <option label="Yuriy Drokin" value="">Yuriy Drokin</option>
-                            <option label="Valeriy Klymenko" value="">Valeriy Klymenko</option>
-                            <option label="Vyacheslav Horidko" value="">Vyacheslav Horidko</option>
-                            <option label="Team Lead" value="">Team Lead</option>
-                          </select>
+
+                      </div>
+                      <div class="col-lg-6 col-md-12 col-12"><!--Activity Comments Log-->
+                        <div class="comodity_table comodity_table_list">
+                          <table class="table table-striped commodity_table" style="font-size: 14px;">
+                            <thead>
+                              <tr>
+                                <th colspan="4" style="text-align: center;">Leg Cleaning Activity Comments Log</th>
+                              </tr>
+                            </thead>
+                            <thead>
+                              <tr>
+                                <th style="width: 8%;">Time</th>
+                                <th>Comment</th>
+                                <th style="width: 16%;">Action</th>
+
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>9:30 AM</td>
+                                <td>Rough Incline Conveyour noise from bearing</td>
+
+                                <td class="text-right">
+
+
+                                  <a class="edit_details" data-ng-show=""
+                                    data-ng-click="editMode = false; saveField(result)" aria-hidden="false" style="">
+                                    <svg class="svg-inline--fa fa-save fa-w-14" aria-hidden="true" focusable="false"
+                                      data-prefix="fas" data-icon="save" role="img" xmlns="http://www.w3.org/2000/svg"
+                                      viewBox="0 0 448 512" data-fa-i2svg="">
+                                      <path fill="currentColor"
+                                        d="M433.941 129.941l-83.882-83.882A48 48 0 0 0 316.118 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V163.882a48 48 0 0 0-14.059-33.941zM224 416c-35.346 0-64-28.654-64-64 0-35.346 28.654-64 64-64s64 28.654 64 64c0 35.346-28.654 64-64 64zm96-304.52V212c0 6.627-5.373 12-12 12H76c-6.627 0-12-5.373-12-12V108c0-6.627 5.373-12 12-12h228.52c3.183 0 6.235 1.264 8.485 3.515l3.48 3.48A11.996 11.996 0 0 1 320 111.48z">
+                                      </path>
+                                    </svg><!-- <i style="margin: 4px 0 0 4px;font-size: 25px;" class="fas fa-save"></i> -->
+                                  </a>
+
+                                  <a ng-show="" ng-href="" class="edit_details" href="" aria-hidden="false">
+                                    <svg class="svg-inline--fa fa-pen-square fa-w-14" aria-hidden="true"
+                                      focusable="false" data-prefix="fas" data-icon="pen-square" role="img"
+                                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                                      <path fill="currentColor"
+                                        d="M400 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zM238.1 177.9L102.4 313.6l-6.3 57.1c-.8 7.6 5.6 14.1 13.3 13.3l57.1-6.3L302.2 242c2.3-2.3 2.3-6.1 0-8.5L246.7 178c-2.5-2.4-6.3-2.4-8.6-.1zM345 165.1L314.9 135c-9.4-9.4-24.6-9.4-33.9 0l-23.1 23.1c-2.3 2.3-2.3 6.1 0 8.5l55.5 55.5c2.3 2.3 6.1 2.3 8.5 0L345 199c9.3-9.3 9.3-24.5 0-33.9z">
+                                      </path>
+                                    </svg><!-- <i class="fas fa-pen-square"></i> -->
+                                  </a>
+
+                                  <a ng-show="" class="veiw_detail" ng-click="" aria-hidden="false">
+                                    <svg class="svg-inline--fa fa-trash fa-w-14" aria-hidden="true" focusable="false"
+                                      data-prefix="fa" data-icon="trash" role="img" xmlns="http://www.w3.org/2000/svg"
+                                      viewBox="0 0 448 512" data-fa-i2svg="">
+                                      <path fill="currentColor"
+                                        d="M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z">
+                                      </path>
+                                    </svg><!-- <i class="fa fa-trash" aria-hidden="true"></i> -->
+                                  </a>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <td class="text-center" colspan="4" id="addCommentRow"><button class="btn green-btn">Add
+                                    Comment Row</button>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+
                         </div>
                       </div>
-                      <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="com_pac">
-                          <label>Start</label>
-                          <input type="time" name="start-from-primary" id="start-from-primary">
-                          <label>Stop</label>
-                          <input type="time" name="stop-from-primary" id="stop-from-primary">
 
-                        </div>
-                        <div class="com_pac">
-                          <label>Start</label>
-                          <input type="time" name="start-from-secondary" id="start-from-secondary">
-                          <label>Stop</label>
-                          <input type="time" name="stop-from-secondary" id="stop-from-secondary">
 
-                        </div>
-                        <div class="com_pac">
-                          <label>Start</label>
-                          <input type="time" name="start-from-teamlead" id="start-from-teamlead">
-                          <label>Stop</label>
-                          <input type="time" name="stop-from-teamlead" id="stop-from-teamlead">
-
-                        </div>
-                      </div>
-                      <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="commtr_box">
-                          <h2>Comment</h2>
-                          <textarea rows="4" ng-model="" class="ng-pristine ng-untouched ng-valid ng-empty"
-                            aria-invalid="false"></textarea>
-                        </div>
-                      </div>
-                      <div class="col-md-3 col-sm-3 col-xs-12">
-                        <div class="frval" style="position: relative" ng-hide="" aria-hidden="false">
-                          <label>Select All</label>
-                          <div class="grop_rad">
-                            <label class="grop_rad_check">Yes
-                              <input type="checkbox" value="Yes" ng-model=""
-                                class="ng-pristine ng-untouched ng-valid ng-empty" aria-invalid="false">
-                              <span class="checkmark"></span>
-
-                            </label>
-
-                            <label class="grop_rad_check">No
-                              <input type="checkbox" value="No" ng-model=""
-                                class="ng-pristine ng-untouched ng-valid ng-empty" aria-invalid="false">
-                              <span class="checkmark"></span>
-                            </label>
-
-                            <label class="grop_rad_check">LockOut
-                              <input type="checkbox" value="No" ng-model=""
-                                class="ng-pristine ng-untouched ng-valid ng-empty" aria-invalid="false">
-                              <span class="checkmark"></span>
-                            </label>
-                          </div>
-
-                        </div>
-                      </div>
                     </div>
 
                   </div>
@@ -10676,7 +10776,7 @@
                                 <th>Lock Out Done?</th>
                               </tr>
                             </thead>
-                            <tb>
+                            <tbody>
                               <tr style="text-align: center;">
                                 <th>Blow Down All Walls Equipment Starting From 3rd,2nd and Ground Floor</th>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;">
@@ -10712,7 +10812,7 @@
                                 <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
                               </tr>
-                              </tbody>
+                            </tbody>
                           </table>
                         </div>
 
@@ -10766,101 +10866,146 @@
                     </div> <!-- 3rd Row Delta Screens-->
 
                     <div class="row">
-                      <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="com_pac">
-                          <label>Primary Operator</label>
-                          <select ng-show="" name="" ng-options="" track="" by="" commoditytype="" ng-model=""
-                            class="ng-pristine ng-valid ng-empty ng-touched" aria-hidden="false" aria-invalid="false"
-                            style="">
-                            <option value="" class="" selected="selected">Select Primary Operator</option>
-                            <option label="Stanislav Keshman" value="">Stas Keshman</option>
-                            <option label="Yuriy Drokin" value="">Yuriy Drokin</option>
-                            <option label="Valeriy Klymenko" value="">Valeriy Klymenko</option>
-                            <option label="Vyacheslav Horidko" value="">Vyacheslav Horidko</option>
-                            <option label="Team Lead" value="">Team Lead</option>
-                          </select>
-                        </div>
-                        <div class="com_pac">
-                          <label>Secondary Operator</label>
-                          <select ng-show="" name="" ng-options="" track="" by="" commoditytype="" ng-model=""
-                            class="ng-pristine ng-valid ng-empty ng-touched" aria-hidden="false" aria-invalid="false"
-                            style="">
-                            <option value="" class="" selected="selected">Select Secondary Operator</option>
-                            <option label="Stanislav Keshman" value="">Stas Keshman</option>
-                            <option label="Yuriy Drokin" value="">Yuriy Drokin</option>
-                            <option label="Valeriy Klymenko" value="">Valeriy Klymenko</option>
-                            <option label="Vyacheslav Horidko" value="">Vyacheslav Horidko</option>
-                            <option label="Team Lead" value="">Team Lead</option>
+                      <div class="col-md-6 col-sm-12 col-xs-12">
 
-                          </select>
+                        <div class="comodity_table comodity_table_list">
+                          <table class="table table-striped commodity_table" style="font-size: 14px;">
+                            <thead>
+
+                              <tr>
+                                <th colspan="4" style="text-align: center;"> Time table for Equipment Blow Down
+                                  Procedure</th>
+                              </tr>
+
+                            </thead>
+                            <thead>
+                              <tr>
+                                <th>Operator</th>
+                                <th>From Time</th>
+                                <th>To Time</th>
+
+                                <th style="width: 26%;">Action</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>Stanislav Keshman</td>
+                                <td>9:15 AM</td>
+                                <td>10:15</td>
+
+                                <td class="text-right">
+                                  <a class="edit_details">
+                                    <svg class="svg-inline--fa fa-save fa-w-14" aria-hidden="true" focusable="false"
+                                      data-prefix="fas" data-icon="save" role="img" xmlns="http://www.w3.org/2000/svg"
+                                      viewBox="0 0 448 512" data-fa-i2svg="">
+                                      <path fill="currentColor"
+                                        d="M433.941 129.941l-83.882-83.882A48 48 0 0 0 316.118 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V163.882a48 48 0 0 0-14.059-33.941zM224 416c-35.346 0-64-28.654-64-64 0-35.346 28.654-64 64-64s64 28.654 64 64c0 35.346-28.654 64-64 64zm96-304.52V212c0 6.627-5.373 12-12 12H76c-6.627 0-12-5.373-12-12V108c0-6.627 5.373-12 12-12h228.52c3.183 0 6.235 1.264 8.485 3.515l3.48 3.48A11.996 11.996 0 0 1 320 111.48z">
+                                      </path>
+                                    </svg><!-- <i style="margin: 4px 0 0 4px;font-size: 25px;" class="fas fa-save"></i> -->
+                                  </a>
+
+                                  <a ng-show="" ng-href="" class="edit_details" href="" aria-hidden="false">
+                                    <svg class="svg-inline--fa fa-pen-square fa-w-14" aria-hidden="true"
+                                      focusable="false" data-prefix="fas" data-icon="pen-square" role="img"
+                                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                                      <path fill="currentColor"
+                                        d="M400 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zM238.1 177.9L102.4 313.6l-6.3 57.1c-.8 7.6 5.6 14.1 13.3 13.3l57.1-6.3L302.2 242c2.3-2.3 2.3-6.1 0-8.5L246.7 178c-2.5-2.4-6.3-2.4-8.6-.1zM345 165.1L314.9 135c-9.4-9.4-24.6-9.4-33.9 0l-23.1 23.1c-2.3 2.3-2.3 6.1 0 8.5l55.5 55.5c2.3 2.3 6.1 2.3 8.5 0L345 199c9.3-9.3 9.3-24.5 0-33.9z">
+                                      </path>
+                                    </svg><!-- <i class="fas fa-pen-square"></i> -->
+                                  </a>
+
+                                  <a ng-show="" class="veiw_detail" ng-click="" aria-hidden="false">
+                                    <svg class="svg-inline--fa fa-trash fa-w-14" aria-hidden="true" focusable="false"
+                                      data-prefix="fa" data-icon="trash" role="img" xmlns="http://www.w3.org/2000/svg"
+                                      viewBox="0 0 448 512" data-fa-i2svg="">
+                                      <path fill="currentColor"
+                                        d="M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z">
+                                      </path>
+                                    </svg><!-- <i class="fa fa-trash" aria-hidden="true"></i> -->
+                                  </a>
+                                </td>
+                              </tr>
+
+                            </tbody>
+                            <tfoot>
+                              <tr>
+                                <th class="text-center" colspan="4" id="addNewCleanBin"><button
+                                    class="btn green-btn">Add
+                                    New Row</button>
+                                </th>
+                              </tr>
+                            </tfoot>
+
+                          </table>
+
                         </div>
-                        <div class="com_pac">
-                          <label>Team Lead</label>
-                          <select ng-show="" name="" ng-options="" track="" by="" commoditytype="" ng-model=""
-                            class="ng-pristine ng-valid ng-empty ng-touched" aria-hidden="false" aria-invalid="false"
-                            style="">
-                            <option value="" class="" selected="selected">Select Team Lead</option>
-                            <option label="Stanislav Keshman" value="">Stas Keshman</option>
-                            <option label="Yuriy Drokin" value="">Yuriy Drokin</option>
-                            <option label="Valeriy Klymenko" value="">Valeriy Klymenko</option>
-                            <option label="Vyacheslav Horidko" value="">Vyacheslav Horidko</option>
-                            <option label="Team Lead" value="">Team Lead</option>
-                          </select>
-                        </div>
+
                       </div>
-                      <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="com_pac">
-                          <label>Start</label>
-                          <input type="time" name="start-from-primary" id="start-from-primary">
-                          <label>Stop</label>
-                          <input type="time" name="stop-from-primary" id="stop-from-primary">
+                      <div class="col-lg-6 col-md-12 col-12"><!--Activity Comments Log-->
+                        <div class="comodity_table comodity_table_list">
+                          <table class="table table-striped commodity_table" style="font-size: 14px;">
+                            <thead>
+                              <tr>
+                                <th colspan="4" style="text-align: center;">Equipment Blow down Activity Comments Log
+                                </th>
+                              </tr>
+                            </thead>
+                            <thead>
+                              <tr>
+                                <th style="width: 8%;">Time</th>
+                                <th>Comment</th>
+                                <th style="width: 16%;">Action</th>
 
-                        </div>
-                        <div class="com_pac">
-                          <label>Start</label>
-                          <input type="time" name="start-from-secondary" id="start-from-secondary">
-                          <label>Stop</label>
-                          <input type="time" name="stop-from-secondary" id="stop-from-secondary">
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>9:30 AM</td>
+                                <td>Rough Incline Conveyour noise from bearing</td>
 
-                        </div>
-                        <div class="com_pac">
-                          <label>Start</label>
-                          <input type="time" name="start-from-teamlead" id="start-from-teamlead">
-                          <label>Stop</label>
-                          <input type="time" name="stop-from-teamlead" id="stop-from-teamlead">
+                                <td class="text-right">
 
-                        </div>
-                      </div>
-                      <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="commtr_box">
-                          <h2>Comment</h2>
-                          <textarea rows="4" ng-model="" class="ng-pristine ng-untouched ng-valid ng-empty"
-                            aria-invalid="false"></textarea>
-                        </div>
-                      </div>
-                      <div class="col-md-3 col-sm-3 col-xs-12">
-                        <div class="frval" style="position: relative" ng-hide="" aria-hidden="false">
-                          <label>Select All</label>
-                          <div class="grop_rad">
-                            <label class="grop_rad_check">Yes
-                              <input type="checkbox" value="Yes" ng-model=""
-                                class="ng-pristine ng-untouched ng-valid ng-empty" aria-invalid="false">
-                              <span class="checkmark"></span>
 
-                            </label>
+                                  <a class="edit_details" data-ng-show=""
+                                    data-ng-click="editMode = false; saveField(result)" aria-hidden="false" style="">
+                                    <svg class="svg-inline--fa fa-save fa-w-14" aria-hidden="true" focusable="false"
+                                      data-prefix="fas" data-icon="save" role="img" xmlns="http://www.w3.org/2000/svg"
+                                      viewBox="0 0 448 512" data-fa-i2svg="">
+                                      <path fill="currentColor"
+                                        d="M433.941 129.941l-83.882-83.882A48 48 0 0 0 316.118 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V163.882a48 48 0 0 0-14.059-33.941zM224 416c-35.346 0-64-28.654-64-64 0-35.346 28.654-64 64-64s64 28.654 64 64c0 35.346-28.654 64-64 64zm96-304.52V212c0 6.627-5.373 12-12 12H76c-6.627 0-12-5.373-12-12V108c0-6.627 5.373-12 12-12h228.52c3.183 0 6.235 1.264 8.485 3.515l3.48 3.48A11.996 11.996 0 0 1 320 111.48z">
+                                      </path>
+                                    </svg><!-- <i style="margin: 4px 0 0 4px;font-size: 25px;" class="fas fa-save"></i> -->
+                                  </a>
 
-                            <label class="grop_rad_check">No
-                              <input type="checkbox" value="No" ng-model=""
-                                class="ng-pristine ng-untouched ng-valid ng-empty" aria-invalid="false">
-                              <span class="checkmark"></span>
-                            </label>
+                                  <a ng-show="" ng-href="" class="edit_details" href="" aria-hidden="false">
+                                    <svg class="svg-inline--fa fa-pen-square fa-w-14" aria-hidden="true"
+                                      focusable="false" data-prefix="fas" data-icon="pen-square" role="img"
+                                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                                      <path fill="currentColor"
+                                        d="M400 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zM238.1 177.9L102.4 313.6l-6.3 57.1c-.8 7.6 5.6 14.1 13.3 13.3l57.1-6.3L302.2 242c2.3-2.3 2.3-6.1 0-8.5L246.7 178c-2.5-2.4-6.3-2.4-8.6-.1zM345 165.1L314.9 135c-9.4-9.4-24.6-9.4-33.9 0l-23.1 23.1c-2.3 2.3-2.3 6.1 0 8.5l55.5 55.5c2.3 2.3 6.1 2.3 8.5 0L345 199c9.3-9.3 9.3-24.5 0-33.9z">
+                                      </path>
+                                    </svg><!-- <i class="fas fa-pen-square"></i> -->
+                                  </a>
 
-                            <label class="grop_rad_check">LockOut
-                              <input type="checkbox" value="No" ng-model=""
-                                class="ng-pristine ng-untouched ng-valid ng-empty" aria-invalid="false">
-                              <span class="checkmark"></span>
-                            </label>
-                          </div>
+                                  <a ng-show="" class="veiw_detail" ng-click="" aria-hidden="false">
+                                    <svg class="svg-inline--fa fa-trash fa-w-14" aria-hidden="true" focusable="false"
+                                      data-prefix="fa" data-icon="trash" role="img" xmlns="http://www.w3.org/2000/svg"
+                                      viewBox="0 0 448 512" data-fa-i2svg="">
+                                      <path fill="currentColor"
+                                        d="M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z">
+                                      </path>
+                                    </svg><!-- <i class="fa fa-trash" aria-hidden="true"></i> -->
+                                  </a>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <td class="text-center" colspan="4" id="addCommentRow"><button class="btn green-btn">Add
+                                    Comment Row</button>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
 
                         </div>
                       </div>
@@ -10889,7 +11034,7 @@
                                 <th>Lock Out Done?</th>
                               </tr>
                             </thead>
-                            <tb>
+                            <tbody>
                               <tr style="text-align: center;">
                                 <th>Visually Inspect All Screens to Ensure no Holes or Damages are Evident</th>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;">
@@ -10912,7 +11057,7 @@
                                 <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
                               </tr>
 
-                              </tbody>
+                            </tbody>
                           </table>
                         </div>
 
@@ -10931,7 +11076,7 @@
                                 <th>Lock Out Done?</th>
                               </tr>
                             </thead>
-                            <tb>
+                            <tbody>
                               <tr style="text-align: center;">
                                 <th>Visually Inspect All Screens to Ensure no Holes or Damages are Evident</th>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;">
@@ -10954,7 +11099,7 @@
                                 <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
                               </tr>
 
-                              </tbody>
+                            </tbody>
                           </table>
                         </div>
                       </div>
@@ -10962,101 +11107,146 @@
                     </div> <!-- 3rd Row Delta Screens-->
 
                     <div class="row">
-                      <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="com_pac">
-                          <label>Primary Operator</label>
-                          <select ng-show="" name="" ng-options="" track="" by="" commoditytype="" ng-model=""
-                            class="ng-pristine ng-valid ng-empty ng-touched" aria-hidden="false" aria-invalid="false"
-                            style="">
-                            <option value="" class="" selected="selected">Select Primary Operator</option>
-                            <option label="Stanislav Keshman" value="">Stas Keshman</option>
-                            <option label="Yuriy Drokin" value="">Yuriy Drokin</option>
-                            <option label="Valeriy Klymenko" value="">Valeriy Klymenko</option>
-                            <option label="Vyacheslav Horidko" value="">Vyacheslav Horidko</option>
-                            <option label="Team Lead" value="">Team Lead</option>
-                          </select>
-                        </div>
-                        <div class="com_pac">
-                          <label>Secondary Operator</label>
-                          <select ng-show="" name="" ng-options="" track="" by="" commoditytype="" ng-model=""
-                            class="ng-pristine ng-valid ng-empty ng-touched" aria-hidden="false" aria-invalid="false"
-                            style="">
-                            <option value="" class="" selected="selected">Select Secondary Operator</option>
-                            <option label="Stanislav Keshman" value="">Stas Keshman</option>
-                            <option label="Yuriy Drokin" value="">Yuriy Drokin</option>
-                            <option label="Valeriy Klymenko" value="">Valeriy Klymenko</option>
-                            <option label="Vyacheslav Horidko" value="">Vyacheslav Horidko</option>
-                            <option label="Team Lead" value="">Team Lead</option>
+                      <div class="col-md-6 col-sm-12 col-xs-12">
 
-                          </select>
+                        <div class="comodity_table comodity_table_list">
+                          <table class="table table-striped commodity_table" style="font-size: 14px;">
+                            <thead>
+
+                              <tr>
+                                <th colspan="4" style="text-align: center;"> Time table for Screen Change Procedure
+                                  Procedure</th>
+                              </tr>
+
+                            </thead>
+                            <thead>
+                              <tr>
+                                <th>Operator</th>
+                                <th>From Time</th>
+                                <th>To Time</th>
+
+                                <th style="width: 26%;">Action</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>Stanislav Keshman</td>
+                                <td>9:15 AM</td>
+                                <td>10:15</td>
+
+                                <td class="text-right">
+                                  <a class="edit_details">
+                                    <svg class="svg-inline--fa fa-save fa-w-14" aria-hidden="true" focusable="false"
+                                      data-prefix="fas" data-icon="save" role="img" xmlns="http://www.w3.org/2000/svg"
+                                      viewBox="0 0 448 512" data-fa-i2svg="">
+                                      <path fill="currentColor"
+                                        d="M433.941 129.941l-83.882-83.882A48 48 0 0 0 316.118 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V163.882a48 48 0 0 0-14.059-33.941zM224 416c-35.346 0-64-28.654-64-64 0-35.346 28.654-64 64-64s64 28.654 64 64c0 35.346-28.654 64-64 64zm96-304.52V212c0 6.627-5.373 12-12 12H76c-6.627 0-12-5.373-12-12V108c0-6.627 5.373-12 12-12h228.52c3.183 0 6.235 1.264 8.485 3.515l3.48 3.48A11.996 11.996 0 0 1 320 111.48z">
+                                      </path>
+                                    </svg><!-- <i style="margin: 4px 0 0 4px;font-size: 25px;" class="fas fa-save"></i> -->
+                                  </a>
+
+                                  <a ng-show="" ng-href="" class="edit_details" href="" aria-hidden="false">
+                                    <svg class="svg-inline--fa fa-pen-square fa-w-14" aria-hidden="true"
+                                      focusable="false" data-prefix="fas" data-icon="pen-square" role="img"
+                                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                                      <path fill="currentColor"
+                                        d="M400 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zM238.1 177.9L102.4 313.6l-6.3 57.1c-.8 7.6 5.6 14.1 13.3 13.3l57.1-6.3L302.2 242c2.3-2.3 2.3-6.1 0-8.5L246.7 178c-2.5-2.4-6.3-2.4-8.6-.1zM345 165.1L314.9 135c-9.4-9.4-24.6-9.4-33.9 0l-23.1 23.1c-2.3 2.3-2.3 6.1 0 8.5l55.5 55.5c2.3 2.3 6.1 2.3 8.5 0L345 199c9.3-9.3 9.3-24.5 0-33.9z">
+                                      </path>
+                                    </svg><!-- <i class="fas fa-pen-square"></i> -->
+                                  </a>
+
+                                  <a ng-show="" class="veiw_detail" ng-click="" aria-hidden="false">
+                                    <svg class="svg-inline--fa fa-trash fa-w-14" aria-hidden="true" focusable="false"
+                                      data-prefix="fa" data-icon="trash" role="img" xmlns="http://www.w3.org/2000/svg"
+                                      viewBox="0 0 448 512" data-fa-i2svg="">
+                                      <path fill="currentColor"
+                                        d="M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z">
+                                      </path>
+                                    </svg><!-- <i class="fa fa-trash" aria-hidden="true"></i> -->
+                                  </a>
+                                </td>
+                              </tr>
+
+                            </tbody>
+                            <tfoot>
+                              <tr>
+                                <th class="text-center" colspan="4" id="addNewCleanBin"><button
+                                    class="btn green-btn">Add
+                                    New Row</button>
+                                </th>
+                              </tr>
+                            </tfoot>
+
+                          </table>
+
                         </div>
-                        <div class="com_pac">
-                          <label>Team Lead</label>
-                          <select ng-show="" name="" ng-options="" track="" by="" commoditytype="" ng-model=""
-                            class="ng-pristine ng-valid ng-empty ng-touched" aria-hidden="false" aria-invalid="false"
-                            style="">
-                            <option value="" class="" selected="selected">Select Team Lead</option>
-                            <option label="Stanislav Keshman" value="">Stas Keshman</option>
-                            <option label="Yuriy Drokin" value="">Yuriy Drokin</option>
-                            <option label="Valeriy Klymenko" value="">Valeriy Klymenko</option>
-                            <option label="Vyacheslav Horidko" value="">Vyacheslav Horidko</option>
-                            <option label="Team Lead" value="">Team Lead</option>
-                          </select>
-                        </div>
+
                       </div>
-                      <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="com_pac">
-                          <label>Start</label>
-                          <input type="time" name="start-from-primary" id="start-from-primary">
-                          <label>Stop</label>
-                          <input type="time" name="stop-from-primary" id="stop-from-primary">
+                      <div class="col-lg-6 col-md-12 col-12"><!--Activity Comments Log-->
+                        <div class="comodity_table comodity_table_list">
+                          <table class="table table-striped commodity_table" style="font-size: 14px;">
+                            <thead>
+                              <tr>
+                                <th colspan="4" style="text-align: center;">Screen Change Activity Comments Log
+                                </th>
+                              </tr>
+                            </thead>
+                            <thead>
+                              <tr>
+                                <th style="width: 8%;">Time</th>
+                                <th>Comment</th>
+                                <th style="width: 16%;">Action</th>
 
-                        </div>
-                        <div class="com_pac">
-                          <label>Start</label>
-                          <input type="time" name="start-from-secondary" id="start-from-secondary">
-                          <label>Stop</label>
-                          <input type="time" name="stop-from-secondary" id="stop-from-secondary">
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>9:30 AM</td>
+                                <td>Rough Incline Conveyour noise from bearing</td>
 
-                        </div>
-                        <div class="com_pac">
-                          <label>Start</label>
-                          <input type="time" name="start-from-teamlead" id="start-from-teamlead">
-                          <label>Stop</label>
-                          <input type="time" name="stop-from-teamlead" id="stop-from-teamlead">
+                                <td class="text-right">
 
-                        </div>
-                      </div>
-                      <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="commtr_box">
-                          <h2>Comment</h2>
-                          <textarea rows="4" ng-model="" class="ng-pristine ng-untouched ng-valid ng-empty"
-                            aria-invalid="false"></textarea>
-                        </div>
-                      </div>
-                      <div class="col-md-3 col-sm-3 col-xs-12">
-                        <div class="frval" style="position: relative" ng-hide="" aria-hidden="false">
-                          <label>Select All</label>
-                          <div class="grop_rad">
-                            <label class="grop_rad_check">Yes
-                              <input type="checkbox" value="Yes" ng-model=""
-                                class="ng-pristine ng-untouched ng-valid ng-empty" aria-invalid="false">
-                              <span class="checkmark"></span>
 
-                            </label>
+                                  <a class="edit_details" data-ng-show=""
+                                    data-ng-click="editMode = false; saveField(result)" aria-hidden="false" style="">
+                                    <svg class="svg-inline--fa fa-save fa-w-14" aria-hidden="true" focusable="false"
+                                      data-prefix="fas" data-icon="save" role="img" xmlns="http://www.w3.org/2000/svg"
+                                      viewBox="0 0 448 512" data-fa-i2svg="">
+                                      <path fill="currentColor"
+                                        d="M433.941 129.941l-83.882-83.882A48 48 0 0 0 316.118 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V163.882a48 48 0 0 0-14.059-33.941zM224 416c-35.346 0-64-28.654-64-64 0-35.346 28.654-64 64-64s64 28.654 64 64c0 35.346-28.654 64-64 64zm96-304.52V212c0 6.627-5.373 12-12 12H76c-6.627 0-12-5.373-12-12V108c0-6.627 5.373-12 12-12h228.52c3.183 0 6.235 1.264 8.485 3.515l3.48 3.48A11.996 11.996 0 0 1 320 111.48z">
+                                      </path>
+                                    </svg><!-- <i style="margin: 4px 0 0 4px;font-size: 25px;" class="fas fa-save"></i> -->
+                                  </a>
 
-                            <label class="grop_rad_check">No
-                              <input type="checkbox" value="No" ng-model=""
-                                class="ng-pristine ng-untouched ng-valid ng-empty" aria-invalid="false">
-                              <span class="checkmark"></span>
-                            </label>
+                                  <a ng-show="" ng-href="" class="edit_details" href="" aria-hidden="false">
+                                    <svg class="svg-inline--fa fa-pen-square fa-w-14" aria-hidden="true"
+                                      focusable="false" data-prefix="fas" data-icon="pen-square" role="img"
+                                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                                      <path fill="currentColor"
+                                        d="M400 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zM238.1 177.9L102.4 313.6l-6.3 57.1c-.8 7.6 5.6 14.1 13.3 13.3l57.1-6.3L302.2 242c2.3-2.3 2.3-6.1 0-8.5L246.7 178c-2.5-2.4-6.3-2.4-8.6-.1zM345 165.1L314.9 135c-9.4-9.4-24.6-9.4-33.9 0l-23.1 23.1c-2.3 2.3-2.3 6.1 0 8.5l55.5 55.5c2.3 2.3 6.1 2.3 8.5 0L345 199c9.3-9.3 9.3-24.5 0-33.9z">
+                                      </path>
+                                    </svg><!-- <i class="fas fa-pen-square"></i> -->
+                                  </a>
 
-                            <label class="grop_rad_check">LockOut
-                              <input type="checkbox" value="No" ng-model=""
-                                class="ng-pristine ng-untouched ng-valid ng-empty" aria-invalid="false">
-                              <span class="checkmark"></span>
-                            </label>
-                          </div>
+                                  <a ng-show="" class="veiw_detail" ng-click="" aria-hidden="false">
+                                    <svg class="svg-inline--fa fa-trash fa-w-14" aria-hidden="true" focusable="false"
+                                      data-prefix="fa" data-icon="trash" role="img" xmlns="http://www.w3.org/2000/svg"
+                                      viewBox="0 0 448 512" data-fa-i2svg="">
+                                      <path fill="currentColor"
+                                        d="M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z">
+                                      </path>
+                                    </svg><!-- <i class="fa fa-trash" aria-hidden="true"></i> -->
+                                  </a>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <td class="text-center" colspan="4" id="addCommentRow"><button class="btn green-btn">Add
+                                    Comment Row</button>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
 
                         </div>
                       </div>
@@ -11084,7 +11274,7 @@
                                 <th>Lock Out Done?</th>
                               </tr>
                             </thead>
-                            <tb>
+                            <tbody>
                               <tr style="text-align: center;">
                                 <th>Color Sorter Clean Leg</th>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;">
@@ -11107,7 +11297,7 @@
                                 <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
                               </tr>
 
-                              </tbody>
+                            </tbody>
                           </table>
                         </div>
 
@@ -11124,7 +11314,7 @@
                                 <th>Lock Out Done?</th>
                               </tr>
                             </thead>
-                            <tb>
+                            <tbody>
                               <tr style="text-align: center;">
                                 <th>Clean The Color Sorter and the Room, Sweep the Floor and Blow Away the Dust</th>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;">
@@ -11140,113 +11330,159 @@
                                 <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
                               </tr>
 
-                              </tbody>
+                            </tbody>
                           </table>
                         </div>
                       </div>
 
                     </div> <!-- 3rd Row Delta Screens-->
-
                     <div class="row">
-                      <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="com_pac">
-                          <label>Primary Operator</label>
-                          <select ng-show="" name="" ng-options="" track="" by="" commoditytype="" ng-model=""
-                            class="ng-pristine ng-valid ng-empty ng-touched" aria-hidden="false" aria-invalid="false"
-                            style="">
-                            <option value="" class="" selected="selected">Select Primary Operator</option>
-                            <option label="Stanislav Keshman" value="">Stas Keshman</option>
-                            <option label="Yuriy Drokin" value="">Yuriy Drokin</option>
-                            <option label="Valeriy Klymenko" value="">Valeriy Klymenko</option>
-                            <option label="Vyacheslav Horidko" value="">Vyacheslav Horidko</option>
-                            <option label="Team Lead" value="">Team Lead</option>
-                          </select>
-                        </div>
-                        <div class="com_pac">
-                          <label>Secondary Operator</label>
-                          <select ng-show="" name="" ng-options="" track="" by="" commoditytype="" ng-model=""
-                            class="ng-pristine ng-valid ng-empty ng-touched" aria-hidden="false" aria-invalid="false"
-                            style="">
-                            <option value="" class="" selected="selected">Select Secondary Operator</option>
-                            <option label="Stanislav Keshman" value="">Stas Keshman</option>
-                            <option label="Yuriy Drokin" value="">Yuriy Drokin</option>
-                            <option label="Valeriy Klymenko" value="">Valeriy Klymenko</option>
-                            <option label="Vyacheslav Horidko" value="">Vyacheslav Horidko</option>
-                            <option label="Team Lead" value="">Team Lead</option>
+                      <div class="col-md-6 col-sm-12 col-xs-12">
 
-                          </select>
+                        <div class="comodity_table comodity_table_list">
+                          <table class="table table-striped commodity_table" style="font-size: 14px;">
+                            <thead>
+
+                              <tr>
+                                <th colspan="4" style="text-align: center;"> Time table for Color Sorter Clean Up
+                                  Procedure
+                                  Procedure</th>
+                              </tr>
+
+                            </thead>
+                            <thead>
+                              <tr>
+                                <th>Operator</th>
+                                <th>From Time</th>
+                                <th>To Time</th>
+
+                                <th style="width: 26%;">Action</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>Stanislav Keshman</td>
+                                <td>9:15 AM</td>
+                                <td>10:15</td>
+
+                                <td class="text-right">
+                                  <a class="edit_details">
+                                    <svg class="svg-inline--fa fa-save fa-w-14" aria-hidden="true" focusable="false"
+                                      data-prefix="fas" data-icon="save" role="img" xmlns="http://www.w3.org/2000/svg"
+                                      viewBox="0 0 448 512" data-fa-i2svg="">
+                                      <path fill="currentColor"
+                                        d="M433.941 129.941l-83.882-83.882A48 48 0 0 0 316.118 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V163.882a48 48 0 0 0-14.059-33.941zM224 416c-35.346 0-64-28.654-64-64 0-35.346 28.654-64 64-64s64 28.654 64 64c0 35.346-28.654 64-64 64zm96-304.52V212c0 6.627-5.373 12-12 12H76c-6.627 0-12-5.373-12-12V108c0-6.627 5.373-12 12-12h228.52c3.183 0 6.235 1.264 8.485 3.515l3.48 3.48A11.996 11.996 0 0 1 320 111.48z">
+                                      </path>
+                                    </svg><!-- <i style="margin: 4px 0 0 4px;font-size: 25px;" class="fas fa-save"></i> -->
+                                  </a>
+
+                                  <a ng-show="" ng-href="" class="edit_details" href="" aria-hidden="false">
+                                    <svg class="svg-inline--fa fa-pen-square fa-w-14" aria-hidden="true"
+                                      focusable="false" data-prefix="fas" data-icon="pen-square" role="img"
+                                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                                      <path fill="currentColor"
+                                        d="M400 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zM238.1 177.9L102.4 313.6l-6.3 57.1c-.8 7.6 5.6 14.1 13.3 13.3l57.1-6.3L302.2 242c2.3-2.3 2.3-6.1 0-8.5L246.7 178c-2.5-2.4-6.3-2.4-8.6-.1zM345 165.1L314.9 135c-9.4-9.4-24.6-9.4-33.9 0l-23.1 23.1c-2.3 2.3-2.3 6.1 0 8.5l55.5 55.5c2.3 2.3 6.1 2.3 8.5 0L345 199c9.3-9.3 9.3-24.5 0-33.9z">
+                                      </path>
+                                    </svg><!-- <i class="fas fa-pen-square"></i> -->
+                                  </a>
+
+                                  <a ng-show="" class="veiw_detail" ng-click="" aria-hidden="false">
+                                    <svg class="svg-inline--fa fa-trash fa-w-14" aria-hidden="true" focusable="false"
+                                      data-prefix="fa" data-icon="trash" role="img" xmlns="http://www.w3.org/2000/svg"
+                                      viewBox="0 0 448 512" data-fa-i2svg="">
+                                      <path fill="currentColor"
+                                        d="M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z">
+                                      </path>
+                                    </svg><!-- <i class="fa fa-trash" aria-hidden="true"></i> -->
+                                  </a>
+                                </td>
+                              </tr>
+
+                            </tbody>
+                            <tfoot>
+                              <tr>
+                                <th class="text-center" colspan="4" id="addNewCleanBin"><button
+                                    class="btn green-btn">Add
+                                    New Row</button>
+                                </th>
+                              </tr>
+                            </tfoot>
+
+                          </table>
+
                         </div>
-                        <div class="com_pac">
-                          <label>Team Lead</label>
-                          <select ng-show="" name="" ng-options="" track="" by="" commoditytype="" ng-model=""
-                            class="ng-pristine ng-valid ng-empty ng-touched" aria-hidden="false" aria-invalid="false"
-                            style="">
-                            <option value="" class="" selected="selected">Select Team Lead</option>
-                            <option label="Stanislav Keshman" value="">Stas Keshman</option>
-                            <option label="Yuriy Drokin" value="">Yuriy Drokin</option>
-                            <option label="Valeriy Klymenko" value="">Valeriy Klymenko</option>
-                            <option label="Vyacheslav Horidko" value="">Vyacheslav Horidko</option>
-                            <option label="Team Lead" value="">Team Lead</option>
-                          </select>
-                        </div>
+
                       </div>
-                      <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="com_pac">
-                          <label>Start</label>
-                          <input type="time" name="start-from-primary" id="start-from-primary">
-                          <label>Stop</label>
-                          <input type="time" name="stop-from-primary" id="stop-from-primary">
+                      <div class="col-lg-6 col-md-12 col-12"><!--Activity Comments Log-->
+                        <div class="comodity_table comodity_table_list">
+                          <table class="table table-striped commodity_table" style="font-size: 14px;">
+                            <thead>
+                              <tr>
+                                <th colspan="4" style="text-align: center;">Color Sorter Clean Up Activity Comments Log
+                                </th>
+                              </tr>
+                            </thead>
+                            <thead>
+                              <tr>
+                                <th style="width: 8%;">Time</th>
+                                <th>Comment</th>
+                                <th style="width: 16%;">Action</th>
 
-                        </div>
-                        <div class="com_pac">
-                          <label>Start</label>
-                          <input type="time" name="start-from-secondary" id="start-from-secondary">
-                          <label>Stop</label>
-                          <input type="time" name="stop-from-secondary" id="stop-from-secondary">
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>9:30 AM</td>
+                                <td>Rough Incline Conveyour noise from bearing</td>
 
-                        </div>
-                        <div class="com_pac">
-                          <label>Start</label>
-                          <input type="time" name="start-from-teamlead" id="start-from-teamlead">
-                          <label>Stop</label>
-                          <input type="time" name="stop-from-teamlead" id="stop-from-teamlead">
+                                <td class="text-right">
 
-                        </div>
-                      </div>
-                      <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="commtr_box">
-                          <h2>Comment</h2>
-                          <textarea rows="4" ng-model="" class="ng-pristine ng-untouched ng-valid ng-empty"
-                            aria-invalid="false"></textarea>
-                        </div>
-                      </div>
-                      <div class="col-md-3 col-sm-3 col-xs-12">
-                        <div class="frval" style="position: relative" ng-hide="" aria-hidden="false">
-                          <label>Select All</label>
-                          <div class="grop_rad">
-                            <label class="grop_rad_check">Yes
-                              <input type="checkbox" value="Yes" ng-model=""
-                                class="ng-pristine ng-untouched ng-valid ng-empty" aria-invalid="false">
-                              <span class="checkmark"></span>
 
-                            </label>
+                                  <a class="edit_details" data-ng-show=""
+                                    data-ng-click="editMode = false; saveField(result)" aria-hidden="false" style="">
+                                    <svg class="svg-inline--fa fa-save fa-w-14" aria-hidden="true" focusable="false"
+                                      data-prefix="fas" data-icon="save" role="img" xmlns="http://www.w3.org/2000/svg"
+                                      viewBox="0 0 448 512" data-fa-i2svg="">
+                                      <path fill="currentColor"
+                                        d="M433.941 129.941l-83.882-83.882A48 48 0 0 0 316.118 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V163.882a48 48 0 0 0-14.059-33.941zM224 416c-35.346 0-64-28.654-64-64 0-35.346 28.654-64 64-64s64 28.654 64 64c0 35.346-28.654 64-64 64zm96-304.52V212c0 6.627-5.373 12-12 12H76c-6.627 0-12-5.373-12-12V108c0-6.627 5.373-12 12-12h228.52c3.183 0 6.235 1.264 8.485 3.515l3.48 3.48A11.996 11.996 0 0 1 320 111.48z">
+                                      </path>
+                                    </svg><!-- <i style="margin: 4px 0 0 4px;font-size: 25px;" class="fas fa-save"></i> -->
+                                  </a>
 
-                            <label class="grop_rad_check">No
-                              <input type="checkbox" value="No" ng-model=""
-                                class="ng-pristine ng-untouched ng-valid ng-empty" aria-invalid="false">
-                              <span class="checkmark"></span>
-                            </label>
+                                  <a ng-show="" ng-href="" class="edit_details" href="" aria-hidden="false">
+                                    <svg class="svg-inline--fa fa-pen-square fa-w-14" aria-hidden="true"
+                                      focusable="false" data-prefix="fas" data-icon="pen-square" role="img"
+                                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                                      <path fill="currentColor"
+                                        d="M400 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zM238.1 177.9L102.4 313.6l-6.3 57.1c-.8 7.6 5.6 14.1 13.3 13.3l57.1-6.3L302.2 242c2.3-2.3 2.3-6.1 0-8.5L246.7 178c-2.5-2.4-6.3-2.4-8.6-.1zM345 165.1L314.9 135c-9.4-9.4-24.6-9.4-33.9 0l-23.1 23.1c-2.3 2.3-2.3 6.1 0 8.5l55.5 55.5c2.3 2.3 6.1 2.3 8.5 0L345 199c9.3-9.3 9.3-24.5 0-33.9z">
+                                      </path>
+                                    </svg><!-- <i class="fas fa-pen-square"></i> -->
+                                  </a>
 
-                            <label class="grop_rad_check">LockOut
-                              <input type="checkbox" value="No" ng-model=""
-                                class="ng-pristine ng-untouched ng-valid ng-empty" aria-invalid="false">
-                              <span class="checkmark"></span>
-                            </label>
-                          </div>
+                                  <a ng-show="" class="veiw_detail" ng-click="" aria-hidden="false">
+                                    <svg class="svg-inline--fa fa-trash fa-w-14" aria-hidden="true" focusable="false"
+                                      data-prefix="fa" data-icon="trash" role="img" xmlns="http://www.w3.org/2000/svg"
+                                      viewBox="0 0 448 512" data-fa-i2svg="">
+                                      <path fill="currentColor"
+                                        d="M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z">
+                                      </path>
+                                    </svg><!-- <i class="fa fa-trash" aria-hidden="true"></i> -->
+                                  </a>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <td class="text-center" colspan="4" id="addCommentRow"><button class="btn green-btn">Add
+                                    Comment Row</button>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
 
                         </div>
                       </div>
                     </div>
+
 
                   </div>
                 </div>
@@ -11271,7 +11507,7 @@
                                 <th>Lock Out Done?</th>
                               </tr>
                             </thead>
-                            <tb>
+                            <tbody>
                               <tr style="text-align: center;">
                                 <th>Indent By Pass Tube</th>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;">
@@ -11329,7 +11565,7 @@
                                 <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
                               </tr>
 
-                              </tbody>
+                            </tbody>
                           </table>
                         </div>
 
@@ -11346,7 +11582,7 @@
                                 <th>Lock Out Done?</th>
                               </tr>
                             </thead>
-                            <tb>
+                            <tbody>
                               <tr style="text-align: center;">
                                 <th>Clean The Color Sorter and the Room, Sweep the Floor and Blow Away the Dust</th>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;">
@@ -11362,7 +11598,7 @@
                                 <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
                               </tr>
 
-                              </tbody>
+                            </tbody>
                           </table>
                         </div>
                       </div>
@@ -11370,101 +11606,147 @@
                     </div> <!-- 3rd Row Delta Screens-->
 
                     <div class="row">
-                      <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="com_pac">
-                          <label>Primary Operator</label>
-                          <select ng-show="" name="" ng-options="" track="" by="" commoditytype="" ng-model=""
-                            class="ng-pristine ng-valid ng-empty ng-touched" aria-hidden="false" aria-invalid="false"
-                            style="">
-                            <option value="" class="" selected="selected">Select Primary Operator</option>
-                            <option label="Stanislav Keshman" value="">Stas Keshman</option>
-                            <option label="Yuriy Drokin" value="">Yuriy Drokin</option>
-                            <option label="Valeriy Klymenko" value="">Valeriy Klymenko</option>
-                            <option label="Vyacheslav Horidko" value="">Vyacheslav Horidko</option>
-                            <option label="Team Lead" value="">Team Lead</option>
-                          </select>
-                        </div>
-                        <div class="com_pac">
-                          <label>Secondary Operator</label>
-                          <select ng-show="" name="" ng-options="" track="" by="" commoditytype="" ng-model=""
-                            class="ng-pristine ng-valid ng-empty ng-touched" aria-hidden="false" aria-invalid="false"
-                            style="">
-                            <option value="" class="" selected="selected">Select Secondary Operator</option>
-                            <option label="Stanislav Keshman" value="">Stas Keshman</option>
-                            <option label="Yuriy Drokin" value="">Yuriy Drokin</option>
-                            <option label="Valeriy Klymenko" value="">Valeriy Klymenko</option>
-                            <option label="Vyacheslav Horidko" value="">Vyacheslav Horidko</option>
-                            <option label="Team Lead" value="">Team Lead</option>
+                      <div class="col-md-6 col-sm-12 col-xs-12">
 
-                          </select>
+                        <div class="comodity_table comodity_table_list">
+                          <table class="table table-striped commodity_table" style="font-size: 14px;">
+                            <thead>
+
+                              <tr>
+                                <th colspan="4" style="text-align: center;"> Time table for Color Sorter Clean Up
+                                  Procedure
+                                  Procedure</th>
+                              </tr>
+
+                            </thead>
+                            <thead>
+                              <tr>
+                                <th>Operator</th>
+                                <th>From Time</th>
+                                <th>To Time</th>
+
+                                <th style="width: 26%;">Action</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>Stanislav Keshman</td>
+                                <td>9:15 AM</td>
+                                <td>10:15</td>
+
+                                <td class="text-right">
+                                  <a class="edit_details">
+                                    <svg class="svg-inline--fa fa-save fa-w-14" aria-hidden="true" focusable="false"
+                                      data-prefix="fas" data-icon="save" role="img" xmlns="http://www.w3.org/2000/svg"
+                                      viewBox="0 0 448 512" data-fa-i2svg="">
+                                      <path fill="currentColor"
+                                        d="M433.941 129.941l-83.882-83.882A48 48 0 0 0 316.118 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V163.882a48 48 0 0 0-14.059-33.941zM224 416c-35.346 0-64-28.654-64-64 0-35.346 28.654-64 64-64s64 28.654 64 64c0 35.346-28.654 64-64 64zm96-304.52V212c0 6.627-5.373 12-12 12H76c-6.627 0-12-5.373-12-12V108c0-6.627 5.373-12 12-12h228.52c3.183 0 6.235 1.264 8.485 3.515l3.48 3.48A11.996 11.996 0 0 1 320 111.48z">
+                                      </path>
+                                    </svg><!-- <i style="margin: 4px 0 0 4px;font-size: 25px;" class="fas fa-save"></i> -->
+                                  </a>
+
+                                  <a ng-show="" ng-href="" class="edit_details" href="" aria-hidden="false">
+                                    <svg class="svg-inline--fa fa-pen-square fa-w-14" aria-hidden="true"
+                                      focusable="false" data-prefix="fas" data-icon="pen-square" role="img"
+                                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                                      <path fill="currentColor"
+                                        d="M400 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zM238.1 177.9L102.4 313.6l-6.3 57.1c-.8 7.6 5.6 14.1 13.3 13.3l57.1-6.3L302.2 242c2.3-2.3 2.3-6.1 0-8.5L246.7 178c-2.5-2.4-6.3-2.4-8.6-.1zM345 165.1L314.9 135c-9.4-9.4-24.6-9.4-33.9 0l-23.1 23.1c-2.3 2.3-2.3 6.1 0 8.5l55.5 55.5c2.3 2.3 6.1 2.3 8.5 0L345 199c9.3-9.3 9.3-24.5 0-33.9z">
+                                      </path>
+                                    </svg><!-- <i class="fas fa-pen-square"></i> -->
+                                  </a>
+
+                                  <a ng-show="" class="veiw_detail" ng-click="" aria-hidden="false">
+                                    <svg class="svg-inline--fa fa-trash fa-w-14" aria-hidden="true" focusable="false"
+                                      data-prefix="fa" data-icon="trash" role="img" xmlns="http://www.w3.org/2000/svg"
+                                      viewBox="0 0 448 512" data-fa-i2svg="">
+                                      <path fill="currentColor"
+                                        d="M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z">
+                                      </path>
+                                    </svg><!-- <i class="fa fa-trash" aria-hidden="true"></i> -->
+                                  </a>
+                                </td>
+                              </tr>
+
+                            </tbody>
+                            <tfoot>
+                              <tr>
+                                <th class="text-center" colspan="4" id="addNewCleanBin"><button
+                                    class="btn green-btn">Add
+                                    New Row</button>
+                                </th>
+                              </tr>
+                            </tfoot>
+
+                          </table>
+
                         </div>
-                        <div class="com_pac">
-                          <label>Team Lead</label>
-                          <select ng-show="" name="" ng-options="" track="" by="" commoditytype="" ng-model=""
-                            class="ng-pristine ng-valid ng-empty ng-touched" aria-hidden="false" aria-invalid="false"
-                            style="">
-                            <option value="" class="" selected="selected">Select Team Lead</option>
-                            <option label="Stanislav Keshman" value="">Stas Keshman</option>
-                            <option label="Yuriy Drokin" value="">Yuriy Drokin</option>
-                            <option label="Valeriy Klymenko" value="">Valeriy Klymenko</option>
-                            <option label="Vyacheslav Horidko" value="">Vyacheslav Horidko</option>
-                            <option label="Team Lead" value="">Team Lead</option>
-                          </select>
-                        </div>
+
                       </div>
-                      <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="com_pac">
-                          <label>Start</label>
-                          <input type="time" name="start-from-primary" id="start-from-primary">
-                          <label>Stop</label>
-                          <input type="time" name="stop-from-primary" id="stop-from-primary">
+                      <div class="col-lg-6 col-md-12 col-12"><!--Activity Comments Log-->
+                        <div class="comodity_table comodity_table_list">
+                          <table class="table table-striped commodity_table" style="font-size: 14px;">
+                            <thead>
+                              <tr>
+                                <th colspan="4" style="text-align: center;">Color Sorter Clean Up Activity Comments Log
+                                </th>
+                              </tr>
+                            </thead>
+                            <thead>
+                              <tr>
+                                <th style="width: 8%;">Time</th>
+                                <th>Comment</th>
+                                <th style="width: 16%;">Action</th>
 
-                        </div>
-                        <div class="com_pac">
-                          <label>Start</label>
-                          <input type="time" name="start-from-secondary" id="start-from-secondary">
-                          <label>Stop</label>
-                          <input type="time" name="stop-from-secondary" id="stop-from-secondary">
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>9:30 AM</td>
+                                <td>Rough Incline Conveyour noise from bearing</td>
 
-                        </div>
-                        <div class="com_pac">
-                          <label>Start</label>
-                          <input type="time" name="start-from-teamlead" id="start-from-teamlead">
-                          <label>Stop</label>
-                          <input type="time" name="stop-from-teamlead" id="stop-from-teamlead">
+                                <td class="text-right">
 
-                        </div>
-                      </div>
-                      <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="commtr_box">
-                          <h2>Comment</h2>
-                          <textarea rows="4" ng-model="" class="ng-pristine ng-untouched ng-valid ng-empty"
-                            aria-invalid="false"></textarea>
-                        </div>
-                      </div>
-                      <div class="col-md-3 col-sm-3 col-xs-12">
-                        <div class="frval" style="position: relative" ng-hide="" aria-hidden="false">
-                          <label>Select All</label>
-                          <div class="grop_rad">
-                            <label class="grop_rad_check">Yes
-                              <input type="checkbox" value="Yes" ng-model=""
-                                class="ng-pristine ng-untouched ng-valid ng-empty" aria-invalid="false">
-                              <span class="checkmark"></span>
 
-                            </label>
+                                  <a class="edit_details" data-ng-show=""
+                                    data-ng-click="editMode = false; saveField(result)" aria-hidden="false" style="">
+                                    <svg class="svg-inline--fa fa-save fa-w-14" aria-hidden="true" focusable="false"
+                                      data-prefix="fas" data-icon="save" role="img" xmlns="http://www.w3.org/2000/svg"
+                                      viewBox="0 0 448 512" data-fa-i2svg="">
+                                      <path fill="currentColor"
+                                        d="M433.941 129.941l-83.882-83.882A48 48 0 0 0 316.118 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V163.882a48 48 0 0 0-14.059-33.941zM224 416c-35.346 0-64-28.654-64-64 0-35.346 28.654-64 64-64s64 28.654 64 64c0 35.346-28.654 64-64 64zm96-304.52V212c0 6.627-5.373 12-12 12H76c-6.627 0-12-5.373-12-12V108c0-6.627 5.373-12 12-12h228.52c3.183 0 6.235 1.264 8.485 3.515l3.48 3.48A11.996 11.996 0 0 1 320 111.48z">
+                                      </path>
+                                    </svg><!-- <i style="margin: 4px 0 0 4px;font-size: 25px;" class="fas fa-save"></i> -->
+                                  </a>
 
-                            <label class="grop_rad_check">No
-                              <input type="checkbox" value="No" ng-model=""
-                                class="ng-pristine ng-untouched ng-valid ng-empty" aria-invalid="false">
-                              <span class="checkmark"></span>
-                            </label>
+                                  <a ng-show="" ng-href="" class="edit_details" href="" aria-hidden="false">
+                                    <svg class="svg-inline--fa fa-pen-square fa-w-14" aria-hidden="true"
+                                      focusable="false" data-prefix="fas" data-icon="pen-square" role="img"
+                                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                                      <path fill="currentColor"
+                                        d="M400 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zM238.1 177.9L102.4 313.6l-6.3 57.1c-.8 7.6 5.6 14.1 13.3 13.3l57.1-6.3L302.2 242c2.3-2.3 2.3-6.1 0-8.5L246.7 178c-2.5-2.4-6.3-2.4-8.6-.1zM345 165.1L314.9 135c-9.4-9.4-24.6-9.4-33.9 0l-23.1 23.1c-2.3 2.3-2.3 6.1 0 8.5l55.5 55.5c2.3 2.3 6.1 2.3 8.5 0L345 199c9.3-9.3 9.3-24.5 0-33.9z">
+                                      </path>
+                                    </svg><!-- <i class="fas fa-pen-square"></i> -->
+                                  </a>
 
-                            <label class="grop_rad_check">LockOut
-                              <input type="checkbox" value="No" ng-model=""
-                                class="ng-pristine ng-untouched ng-valid ng-empty" aria-invalid="false">
-                              <span class="checkmark"></span>
-                            </label>
-                          </div>
+                                  <a ng-show="" class="veiw_detail" ng-click="" aria-hidden="false">
+                                    <svg class="svg-inline--fa fa-trash fa-w-14" aria-hidden="true" focusable="false"
+                                      data-prefix="fa" data-icon="trash" role="img" xmlns="http://www.w3.org/2000/svg"
+                                      viewBox="0 0 448 512" data-fa-i2svg="">
+                                      <path fill="currentColor"
+                                        d="M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z">
+                                      </path>
+                                    </svg><!-- <i class="fa fa-trash" aria-hidden="true"></i> -->
+                                  </a>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <td class="text-center" colspan="4" id="addCommentRow"><button class="btn green-btn">Add
+                                    Comment Row</button>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
 
                         </div>
                       </div>
@@ -11479,108 +11761,213 @@
                   <div class="scale_inner"
                     style="border: 1.5px solid #007e4e;padding: 25px; border-radius: 10px; margin: 10px 0;">
 
-                    <h3 style="color: #007e4e; margin: 0 0 15px 0;">Equipment BlowDown Procedure</h3>
+                    <h3 style="color: #007e4e; margin: 0 0 15px 0;">Double Check Clean Bin Procedure</h3>
                     <div class="row">
+                      <div class="col-md-6 col-sm-6 col-xs-12">
 
-                      <div class="col-md-4 col-sm-4 col-xs-12">
-                        <div class="frval" ng-hide="" aria-hidden="false">
-                          <label>Description of Work</label>
-                          <input ng-model="" name="" type="text" placeholder="Write few words here" ng-change=""
-                            numbers-only="" position="" class="ng-pristine ng-valid ng-empty ng-touched"
-                            aria-invalid="false" style="">
+                        <div class="comodity_table comodity_table_list">
+                          <table class="table table-striped commodity_table" style="font-size: 14px;">
+                            <thead>
+                              <tr>
+                                <th style="text-align: center;">Clean Bin Checklist
+                                </th>
+                                <th>Yes</th>
+                                <th>No</th>
+                                <th>Lock Out Done?</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr style="text-align: center;">
+                                <th>Ensure Top Bin Doors and Bottom Bin Doors are closed</th>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;">
+                                </td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                              </tr>
+                              <tr style="text-align: center;">
+                                <th>Set Valves to correct bin. Checks as well that product goes to that bin</th>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;">
+                                </td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                              </tr>
+                              <tr style="text-align: center;">
+                                <th>Unlock equipment and start cleaning commodity</th>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;">
+                                </td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                              </tr>
+                              <tr style="text-align: center;">
+                                <th>Do a flush to reclean bin and watch gravity table for product quality</th>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;">
+                                </td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                              </tr>
+                              <tr style="text-align: center;">
+                                <th>Flush can be dumped back in receiving as long the contamination can be mechanically
+                                  removed and the integrety of the product in sont compromised</th>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;">
+                                </td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                              </tr>
+                              <tr style="text-align: center;">
+                                <th>Once quality is good, begin ckeaning to designed bin</th>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;">
+                                </td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                              </tr>
+
+
+                            </tbody>
+                          </table>
                         </div>
-                        <div>
-                          <div class="commtr_box">
-                            <h2>Comment</h2>
-                            <textarea ng-model="" class="ng-pristine ng-untouched ng-valid ng-empty"
-                              aria-invalid="false"></textarea>
-                          </div>
+
+                      </div> <!-- 1st Column Div Table End-->
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+
+                        <div class="comodity_table comodity_table_list">
+                          <table class="table table-striped commodity_table" style="font-size: 14px;">
+                            <thead>
+
+                              <tr>
+                                <th colspan="4" style="text-align: center;">Time table for Double Check Clean Bin
+                                </th>
+                              </tr>
+
+                            </thead>
+                            <thead>
+                              <tr>
+                                <th>Operator</th>
+                                <th>From Time</th>
+                                <th>To Time</th>
+
+                                <th style="width: 26%;">Action</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>Stanislav Keshman</td>
+                                <td>9:15 AM</td>
+                                <td>10:15</td>
+
+                                <td class="text-right">
+                                  <a class="edit_details">
+                                    <svg class="svg-inline--fa fa-save fa-w-14" aria-hidden="true" focusable="false"
+                                      data-prefix="fas" data-icon="save" role="img" xmlns="http://www.w3.org/2000/svg"
+                                      viewBox="0 0 448 512" data-fa-i2svg="">
+                                      <path fill="currentColor"
+                                        d="M433.941 129.941l-83.882-83.882A48 48 0 0 0 316.118 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V163.882a48 48 0 0 0-14.059-33.941zM224 416c-35.346 0-64-28.654-64-64 0-35.346 28.654-64 64-64s64 28.654 64 64c0 35.346-28.654 64-64 64zm96-304.52V212c0 6.627-5.373 12-12 12H76c-6.627 0-12-5.373-12-12V108c0-6.627 5.373-12 12-12h228.52c3.183 0 6.235 1.264 8.485 3.515l3.48 3.48A11.996 11.996 0 0 1 320 111.48z">
+                                      </path>
+                                    </svg><!-- <i style="margin: 4px 0 0 4px;font-size: 25px;" class="fas fa-save"></i> -->
+                                  </a>
+
+                                  <a ng-show="" ng-href="" class="edit_details" href="" aria-hidden="false">
+                                    <svg class="svg-inline--fa fa-pen-square fa-w-14" aria-hidden="true"
+                                      focusable="false" data-prefix="fas" data-icon="pen-square" role="img"
+                                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                                      <path fill="currentColor"
+                                        d="M400 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zM238.1 177.9L102.4 313.6l-6.3 57.1c-.8 7.6 5.6 14.1 13.3 13.3l57.1-6.3L302.2 242c2.3-2.3 2.3-6.1 0-8.5L246.7 178c-2.5-2.4-6.3-2.4-8.6-.1zM345 165.1L314.9 135c-9.4-9.4-24.6-9.4-33.9 0l-23.1 23.1c-2.3 2.3-2.3 6.1 0 8.5l55.5 55.5c2.3 2.3 6.1 2.3 8.5 0L345 199c9.3-9.3 9.3-24.5 0-33.9z">
+                                      </path>
+                                    </svg><!-- <i class="fas fa-pen-square"></i> -->
+                                  </a>
+
+                                  <a ng-show="" class="veiw_detail" ng-click="" aria-hidden="false">
+                                    <svg class="svg-inline--fa fa-trash fa-w-14" aria-hidden="true" focusable="false"
+                                      data-prefix="fa" data-icon="trash" role="img" xmlns="http://www.w3.org/2000/svg"
+                                      viewBox="0 0 448 512" data-fa-i2svg="">
+                                      <path fill="currentColor"
+                                        d="M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z">
+                                      </path>
+                                    </svg><!-- <i class="fa fa-trash" aria-hidden="true"></i> -->
+                                  </a>
+                                </td>
+                              </tr>
+
+                            </tbody>
+                            <tfoot>
+                              <tr>
+                                <th class="text-center" colspan="4" id="addNewCleanBin"><button
+                                    class="btn green-btn">Add
+                                    New Row</button>
+                                </th>
+                              </tr>
+                            </tfoot>
+
+                          </table>
+
                         </div>
 
+                        <div class="comodity_table comodity_table_list">
+                          <table class="table table-striped commodity_table" style="font-size: 14px;">
+                            <thead>
+                              <tr>
+                                <th colspan="4" style="text-align: center;">Double Check Clean Bin Activity Comments Log
+                                </th>
+                              </tr>
+                            </thead>
+                            <thead>
+                              <tr>
+                                <th style="width: 8%;">Time</th>
+                                <th>Comment</th>
+                                <th style="width: 16%;">Action</th>
 
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>9:30 AM</td>
+                                <td>Rough Incline Conveyour noise from bearing</td>
+
+                                <td class="text-right">
+
+
+                                  <a class="edit_details" data-ng-show=""
+                                    data-ng-click="editMode = false; saveField(result)" aria-hidden="false" style="">
+                                    <svg class="svg-inline--fa fa-save fa-w-14" aria-hidden="true" focusable="false"
+                                      data-prefix="fas" data-icon="save" role="img" xmlns="http://www.w3.org/2000/svg"
+                                      viewBox="0 0 448 512" data-fa-i2svg="">
+                                      <path fill="currentColor"
+                                        d="M433.941 129.941l-83.882-83.882A48 48 0 0 0 316.118 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V163.882a48 48 0 0 0-14.059-33.941zM224 416c-35.346 0-64-28.654-64-64 0-35.346 28.654-64 64-64s64 28.654 64 64c0 35.346-28.654 64-64 64zm96-304.52V212c0 6.627-5.373 12-12 12H76c-6.627 0-12-5.373-12-12V108c0-6.627 5.373-12 12-12h228.52c3.183 0 6.235 1.264 8.485 3.515l3.48 3.48A11.996 11.996 0 0 1 320 111.48z">
+                                      </path>
+                                    </svg><!-- <i style="margin: 4px 0 0 4px;font-size: 25px;" class="fas fa-save"></i> -->
+                                  </a>
+
+                                  <a ng-show="" ng-href="" class="edit_details" href="" aria-hidden="false">
+                                    <svg class="svg-inline--fa fa-pen-square fa-w-14" aria-hidden="true"
+                                      focusable="false" data-prefix="fas" data-icon="pen-square" role="img"
+                                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                                      <path fill="currentColor"
+                                        d="M400 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zM238.1 177.9L102.4 313.6l-6.3 57.1c-.8 7.6 5.6 14.1 13.3 13.3l57.1-6.3L302.2 242c2.3-2.3 2.3-6.1 0-8.5L246.7 178c-2.5-2.4-6.3-2.4-8.6-.1zM345 165.1L314.9 135c-9.4-9.4-24.6-9.4-33.9 0l-23.1 23.1c-2.3 2.3-2.3 6.1 0 8.5l55.5 55.5c2.3 2.3 6.1 2.3 8.5 0L345 199c9.3-9.3 9.3-24.5 0-33.9z">
+                                      </path>
+                                    </svg><!-- <i class="fas fa-pen-square"></i> -->
+                                  </a>
+
+                                  <a ng-show="" class="veiw_detail" ng-click="" aria-hidden="false">
+                                    <svg class="svg-inline--fa fa-trash fa-w-14" aria-hidden="true" focusable="false"
+                                      data-prefix="fa" data-icon="trash" role="img" xmlns="http://www.w3.org/2000/svg"
+                                      viewBox="0 0 448 512" data-fa-i2svg="">
+                                      <path fill="currentColor"
+                                        d="M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z">
+                                      </path>
+                                    </svg><!-- <i class="fa fa-trash" aria-hidden="true"></i> -->
+                                  </a>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <td class="text-center" colspan="4" id="addCommentRow"><button class="btn green-btn">Add
+                                    Comment Row</button>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+
+                        </div>
                       </div>
-                      <div class="col-md-4 col-sm-4 col-xs-12">
-                        <div class="frval">
-                          <label>Action Taken</label>
-                          <select name="" class="ng-pristine ng-empty ng-invalid ng-invalid-required ng-touched"
-                            required="required" aria-invalid="true" style="">
-                            <option value="" class="" selected="selected">Select Action</option>
-                            <option value="time">Temporary Fix Applied</option>
-                            <option value="time">Awaiting Approval/Resources</option>
-                            <option value="time">Scheduled Maintenance</option>
-                            <option value="time">Repair Completed</option>
-
-                          </select>
-                        </div>
-                        <div class="frval">
-                          <label>Status</label>
-
-                          <select name="" class="ng-pristine ng-empty ng-invalid ng-invalid-required ng-touched"
-                            required="required" aria-invalid="true" style="">
-                            <option value="" class="" selected="selected">Select Status</option>
-                            <option value="time">Initial Review/Diagnosis Stage</option>
-                            <option value="time">In Progress/Repair Work Ongoing</option>
-                            <option value="time">Work Completed</option>
-                            <option value="time">Pending/Delayed</option>
-                            <option value="time">Unable to Resolve/Additionsl Information Required</option>
-                            <option value="time">Scheduled for Future Repair</option>
-                          </select>
-                        </div>
-                      </div>
-
-
-                      <div class="col-md-4 col-sm-4 col-xs-12">
-                        <div class="frval" ng-hide="">
-                          <label>Maintenance Date</label>
-                          <datepicker class="date_pic" date-format="yyyy-MM-dd" selector="form-control">
-                            <div class="input-group">
-                              <input name="dateFrom" class="form-control ng-pristine ng-untouched ng-valid ng-empty"
-                                ng-model="myForm.fromDate" placeholder="Choose a date" autocomplete="off" ng-change=""
-                                aria-invalid="false">
-
-                              <span class="input-group-addon" style="cursor: pointer">
-                                <svg class="svg-inline--fa fa-calendar fa-w-14 fa-lg" aria-hidden="true"
-                                  focusable="false" data-prefix="fa" data-icon="calendar" role="img"
-                                  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
-                                  <path fill="currentColor"
-                                    d="M12 192h424c6.6 0 12 5.4 12 12v260c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V204c0-6.6 5.4-12 12-12zm436-44v-36c0-26.5-21.5-48-48-48h-48V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H160V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H48C21.5 64 0 85.5 0 112v36c0 6.6 5.4 12 12 12h424c6.6 0 12-5.4 12-12z">
-                                  </path>
-                                </svg><!-- <i class="fa fa-lg fa-calendar"></i> -->
-                              </span>
-                            </div><!-- div date end-->
-
-                          </datepicker>
-                        </div>
-                        <div class="frval" ng-hide="">
-                          <label>Next Maintenance</label>
-                          <datepicker class="date_pic" date-format="yyyy-MM-dd" selector="form-control">
-                            <div class="input-group">
-                              <input name="dateFrom" class="form-control ng-pristine ng-untouched ng-valid ng-empty"
-                                ng-model="myForm.fromDate" placeholder="Choose a date" autocomplete="off" ng-change=""
-                                aria-invalid="false">
-
-                              <span class="input-group-addon" style="cursor: pointer">
-                                <svg class="svg-inline--fa fa-calendar fa-w-14 fa-lg" aria-hidden="true"
-                                  focusable="false" data-prefix="fa" data-icon="calendar" role="img"
-                                  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
-                                  <path fill="currentColor"
-                                    d="M12 192h424c6.6 0 12 5.4 12 12v260c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V204c0-6.6 5.4-12 12-12zm436-44v-36c0-26.5-21.5-48-48-48h-48V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H160V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H48C21.5 64 0 85.5 0 112v36c0 6.6 5.4 12 12 12h424c6.6 0 12-5.4 12-12z">
-                                  </path>
-                                </svg><!-- <i class="fa fa-lg fa-calendar"></i> -->
-                              </span>
-                            </div><!-- div date end-->
-
-                          </datepicker>
-                        </div>
-                        <div class="frval" style="position: relative" ng-hide="" aria-hidden="false">
-                          <label>Technician Name</label>
-                          <input ng-model="" name="" type="text" placeholder="Technician Name" ng-change=""
-                            numbers-only="" position="" class="ng-pristine ng-valid ng-empty ng-touched"
-                            aria-invalid="false" style="">
-                        </div>
-                      </div>
-
-
 
                     </div>
 
@@ -11603,30 +11990,6 @@
             </form>
 
 
-            <div class="row">
-              <div class="col-md-12" style="
-              font-size: 25px;
-              color: #000;
-              font-weight: 600;
-              border: 4px solid #000;
-            ">
-                <h1 style="text-decoration: underline">Steps</h1>
-                <ol>
-                  <li>Write Equipment Name or Code</li>
-                  <li>Choose Department</li>
-                  <li>Enter Report Date</li>
-                  <li>Describe Issue/Problem</li>
-                  <li>Upload Picture if needed</li>
-                  <li>Write Your Name</li>
-                  <li>Describe Description of Work in a few words</li>
-                  <li>Choose Action Witch need to be taken</li>
-                  <li>Choose Status</li>
-                  <li>Enter Maintenance Date</li>
-                  <li>Enter Next Maintenance</li>
-                  <li>Add Technician Name</li>
-                </ol>
-              </div>
-            </div>
           </div>
         </div>
         <!-- </div> -->
