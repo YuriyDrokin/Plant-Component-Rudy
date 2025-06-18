@@ -10405,11 +10405,15 @@
               </div>
 
               <div class="row">
-                <div class="col-lg-6 col-md-12 col-12"> <!--Daily Shift Log-->
+                <div class="col-lg-12 col-md-12 col-12"> <!--Daily Shift Log-->
 
                   <div class="comodity_table comodity_table_list">
                     <table class="table table-striped commodity_table" style="font-size: 14px;">
-
+                      <thead>
+                        <tr>
+                          <th colspan="8" class="text-center">Switch Over Operations Tracker</th>
+                        </tr>
+                      </thead>
                       <thead>
                         <tr>
                           <th style="width: 14%;">Operator</th>
@@ -10418,8 +10422,8 @@
                           <th>Switchover End</th>
                           <th>Previous Commodity</th>
                           <th>Next Commodity</th>
-
-                          <th style="width: 18%;">Action</th>
+                          <th style="width: 10%;">Switch to Organic</th>
+                          <th style="width: 8%;">Action</th>
 
                         </tr>
                       </thead>
@@ -10431,14 +10435,140 @@
                           </td>
                           <td>7:00</td>
                           <td>15:00</td>
-                          <td style="width: 28%;"><select class="form-control">
-                              <option value="" class="" selected="selected">Previous Commodity</option>
-                              <option label="Kabuli Chick Peas" value="">KCP</option>
-                              <option label="Marrofat Peas" value=""> MFP</option>
-                              <option label="Cranberry Beans" value="">CBB Beans</option>
-                              <option label="Small Marrofat Peas " value="">SMFP Calbee</option>
-                              <option label="Whole Yellow Peas" value="">Yellow Peas</option>
-
+                          <td style="width: 28%;"><select
+                              style="font-size: 14px; height: 34px; color: rgb(0, 0, 0); width: 100%;" name="commodity"
+                              ng-options="commodity._id as commodity.commodityName for commodity in commoditys"
+                              ng-model="myForm.commodity" ng-change="search()"
+                              class="ng-pristine ng-valid ng-empty ng-touched" aria-invalid="false">
+                              <option value="" class="" selected="selected">Select Commodity</option>
+                              <option label="Austrian Winter Peas" value="string:5ba54ecbfebd7239631cb242">Austrian
+                                Winter Peas</option>
+                              <option label="Austrian Winter Peas 4" value="string:5cb5ea824c50d3484a78f686">Austrian
+                                Winter Peas 4</option>
+                              <option label="B90 Chickpea" value="string:6077154f587979a3004b54aa">B90 Chickpea</option>
+                              <option label="Barley" value="string:5d72c7140457d163cafc83df">Barley</option>
+                              <option label="Bean Splits" value="string:5e8e08fa57f3c27ff3134c5a">Bean Splits</option>
+                              <option label="Beluga Lentil" value="string:5d95011749024303670af43e">Beluga Lentil
+                              </option>
+                              <option label="Black Beans" value="string:5bc63a890268e557be9a3530">Black Beans</option>
+                              <option label="CDC RAY" value="string:5ba550a2febd7239631cb266">CDC RAY</option>
+                              <option label="Canaryseed" value="string:5ba54792e623a2362e4b36a2">Canaryseed</option>
+                              <option label="Canola" value="string:5d597a315830ff57711813f2">Canola</option>
+                              <option label="Cranberry Bean" value="string:5bc63bc60268e557be9a3551">Cranberry Bean
+                              </option>
+                              <option label="Cranberry Bean Splits" value="string:5ebada7e3a1ce64a89e2f1e8">Cranberry
+                                Bean Splits</option>
+                              <option label="Dark Red Kidney" value="string:5c6c0f73d44222314ac5e550">Dark Red Kidney
+                              </option>
+                              <option label="Desi Chick Pea Splits (Chana Dahl)"
+                                value="string:6560e2190756d1ddc13e3b9d">Desi Chick Pea Splits (Chana Dahl)</option>
+                              <option label="Dunn Pea" value="string:642358a8df648d000b4b15dc">Dunn Pea</option>
+                              <option label="Faba Bean (Low Tannin)" value="string:5ba54875e623a2362e4b36a6">Faba Bean
+                                (Low Tannin)</option>
+                              <option label="Faba Bean Tannin" value="string:5fc6848dea929f015c2880c0">Faba Bean Tannin
+                              </option>
+                              <option label="Fall Rye" value="string:61e9abfa34592a000b504b9c">Fall Rye</option>
+                              <option label="Feed Lentil" value="string:67f572f8edb7a662378cebc2">Feed Lentil</option>
+                              <option label="Feed Peas" value="string:5bc82c240268e557be9a3adc">Feed Peas</option>
+                              <option label="Flaxseed Brown" value="string:5ba548bde623a2362e4b36a8">Flaxseed Brown
+                              </option>
+                              <option label="Flaxseed Golden" value="string:664f7df36af8e5ad362b865f">Flaxseed Golden
+                              </option>
+                              <option label="Football (Dehulled Red Lentil)" value="string:6753a21fc0136659f51057fa">
+                                Football (Dehulled Red Lentil)</option>
+                              <option label="French Green Lentils" value="string:5c47be7371b30655e6c8000a">French Green
+                                Lentils</option>
+                              <option label="Great Northern Bean" value="string:6798f8cab45e3888d3927674">Great Northern
+                                Bean</option>
+                              <option label="Green Split Peas" value="string:5c10958a3c63f6272266ee0d">Green Split Peas
+                              </option>
+                              <option label="Hemp Seeds" value="string:5ba550dcfebd7239631cb268">Hemp Seeds</option>
+                              <option label="Kabuli Chick Peas" value="string:5ba549c3e623a2362e4b36ae">Kabuli Chick
+                                Peas</option>
+                              <option label="Kabuli Chickpea Splits" value="string:5ebadb373a1ce64a89e2f1ea">Kabuli
+                                Chickpea Splits</option>
+                              <option label="Large Green Lentils (Laird type)" value="string:5ba54c12e623a2362e4b36d0">
+                                Large Green Lentils (Laird type)</option>
+                              <option label="MFP Feed (Splits and Smalls)" value="string:5e44d50940e43115611d3ba7">MFP
+                                Feed (Splits and Smalls)</option>
+                              <option label="Maple Peas" value="string:5ba5496de623a2362e4b36ac">Maple Peas</option>
+                              <option label="Maple Peas JP type" value="string:5bc81c340268e557be9a3ad6">Maple Peas JP
+                                type</option>
+                              <option label="Maple Peas JPD" value="string:5bc81f070268e557be9a3ad8">Maple Peas JPD
+                              </option>
+                              <option label="Marrowfat Peas" value="string:5bc1096e318e903923f9a1f7">Marrowfat Peas
+                              </option>
+                              <option label="Medium Green Lentils (Richlea Type)"
+                                value="string:5ba54b4fe623a2362e4b36b2">Medium Green Lentils (Richlea Type)</option>
+                              <option label="Navy Bean" value="string:5f19aa38b8a23017c554633e">Navy Bean</option>
+                              <option label="Non-GMO White-hilum Soybeans IP" value="string:673762883461c3bc5df0a1ad">
+                                Non-GMO White-hilum Soybeans IP</option>
+                              <option label="Oats" value="string:60286847a773a21edeff3e31">Oats</option>
+                              <option label="Organic Austrian Winter Pea 4" value="string:682f3422def4e484e75e36b0">
+                                Organic Austrian Winter Pea 4</option>
+                              <option label="Organic Beluga" value="string:5f57e176c8a3e631e5350680">Organic Beluga
+                              </option>
+                              <option label="Organic Black Beans" value="string:5e25d1042f48971585a6f190">Organic Black
+                                Beans</option>
+                              <option label="Organic Brown Flax" value="string:60708ae3587979a3004afeb9">Organic Brown
+                                Flax</option>
+                              <option label="Organic Desi Chick Peas" value="string:5e25cdcf2f48971585a6f13d">Organic
+                                Desi Chick Peas</option>
+                              <option label="Organic Faba Beans" value="string:5e25bcc92f48971585a6f0dc">Organic Faba
+                                Beans</option>
+                              <option label="Organic French Green Lentils" value="string:5c5b0488962c025e067837ed">
+                                Organic French Green Lentils</option>
+                              <option label="Organic Great Northern Bean" value="string:67a3a946af24a6ab1bd8b736">
+                                Organic Great Northern Bean</option>
+                              <option label="Organic Kabuli Chickpeas" value="string:5bc79b420268e557be9a3a86">Organic
+                                Kabuli Chickpeas</option>
+                              <option label="Organic Large Green Lentils" value="string:5ba55157334a51398f88bc85">
+                                Organic Large Green Lentils</option>
+                              <option label="Organic Marrowfat Peas" value="string:5ba54fbdfebd7239631cb248">Organic
+                                Marrowfat Peas</option>
+                              <option label="Organic Pinto Beans" value="string:5bd152b6fb09b01b6aba9d36">Organic Pinto
+                                Beans</option>
+                              <option label="Organic Red Lentils" value="string:5f15abfbb8a23017c5543002">Organic Red
+                                Lentils</option>
+                              <option label="Organic Small Green Lentils" value="string:5c86a48768bd7838821cf90a">
+                                Organic Small Green Lentils</option>
+                              <option label="Organic Small Marrowfat Pea" value="string:65fb287fd044bdbc1103fea6">
+                                Organic Small Marrowfat Pea</option>
+                              <option label="Organic Wheat" value="string:6070905d587979a3004afedb">Organic Wheat
+                              </option>
+                              <option label="Organic Whole Green Peas" value="string:5ddd97dc0ed39e02215590a4">Organic
+                                Whole Green Peas</option>
+                              <option label="Organic Whole Green Peas Espace Type"
+                                value="string:5f75f51e29352f2768a5589f">Organic Whole Green Peas Espace Type</option>
+                              <option label="Organic Yellow Flax" value="string:60708af9587979a3004afebb">Organic Yellow
+                                Flax</option>
+                              <option label="Organic Yellow Peas" value="string:5bfe4a4ea2467f3dc8f79322">Organic Yellow
+                                Peas</option>
+                              <option label="Otebo Beans" value="string:5ba54f2dfebd7239631cb244">Otebo Beans</option>
+                              <option label="Pea Hulls" value="string:62bddd15479a8b000ba31cf1">Pea Hulls</option>
+                              <option label="Pea/Lentil Screenings" value="string:5c10da64cbdd6837ed51f32a">Pea/Lentil
+                                Screenings</option>
+                              <option label="Pinto Bean" value="string:5ba54baae623a2362e4b36ce">Pinto Bean</option>
+                              <option label="Red Split Lentils" value="string:5bc7b6510268e557be9a3ad2">Red Split
+                                Lentils</option>
+                              <option label="Small Green Lentils (Eston Type)" value="string:5ba5502efebd7239631cb24a">
+                                Small Green Lentils (Eston Type)</option>
+                              <option label="Small Marrowfat Pea" value="string:5bf487652ffe4a6a595fdec9">Small
+                                Marrowfat Pea</option>
+                              <option label="Wheat" value="string:60286754a773a21edeff3d8c">Wheat</option>
+                              <option label="Whole Green Peas" value="string:5ba5491be623a2362e4b36aa">Whole Green Peas
+                              </option>
+                              <option label="Whole Green Peas (Espace Type)" value="string:5ba54c83e623a2362e4b36d2">
+                                Whole Green Peas (Espace Type)</option>
+                              <option label="Whole Red Lentils (Crimson type)" value="string:5ba54a61e623a2362e4b36b0">
+                                Whole Red Lentils (Crimson type)</option>
+                              <option label="Whole Yellow Peas" value="string:5ba547fee623a2362e4b36a4">Whole Yellow
+                                Peas</option>
+                              <option label="Whole Yellow Peas (TRK)" value="string:66422cda7568ba15131de1b1">Whole
+                                Yellow Peas (TRK)</option>
+                              <option label="Yellow Bean" value="string:5ea314ad04f2fc2d287e4a9b">Yellow Bean</option>
+                              <option label="Yellow Split Peas" value="string:5c1095013c63f6272266ee0a">Yellow Split
+                                Peas</option>
                             </select></td>
                           <td style="width: 24%;"><select class="form-control">
                               <option value="" class="" selected="selected">Next Commodity</option>
@@ -10449,6 +10579,7 @@
                               <option label="Whole Yellow Peas" value="">Yellow Peas</option>
 
                             </select></td>
+                          <td class="text-center"><input type="checkbox" style="width: 20px; height: 20px;"></td>
 
 
                           <td class="text-right">
@@ -10481,10 +10612,8 @@
                   </div>
                 </div>
 
-
               </div>
-
-              <div class="box-container">
+              <div class="box-container"> <!-- Leg Cleaning Procedure-->
                 <div class="scale_outer">
                   <div class="scale_inner"
                     style="border: 1.5px solid #007e4e;padding: 25px; border-radius: 10px; margin: 10px 0;">
@@ -10522,7 +10651,7 @@
                             </thead>
                             <tbody>
                               <tr style="text-align: center;">
-                                <th>Rough Incline Conveyor </th>
+                                <th>Rough Incline Conveyor M008</th>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;">
                                 </td>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
@@ -10532,20 +10661,26 @@
                               </tr>
 
                               <tr style="text-align: center;">
-                                <th>108 Feed Leg</th>
+                                <th>Delta Feed leg M015</th>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;">
                                 </td>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
                               </tr>
                               <tr style="text-align: center;">
-                                <th>108 LMC 1</th>
+                                <th>Delta Shake M042</th>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;">
                                 </td>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
                               </tr>
-
+                              <tr style="text-align: center;">
+                                <th>LMC Leg #1 M040</th>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;">
+                                </td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                              </tr>
 
                             </tbody>
                           </table>
@@ -10566,42 +10701,37 @@
                             </thead>
                             <tbody>
                               <tr style="text-align: center;">
-                                <th>Indent Clean Leg</th>
+                                <th>Ident Leg M014</th>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;">
                                 </td>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
                               </tr>
+                              <tr style="text-align: center;">
+                                <th>LMC Leg #2 M026</th>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;">
+                                </td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                              </tr>
+                              <tr style="text-align: center;">
+                                <th>Middling Leg M023</th>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;">
+                                </td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                              </tr>
+                              <tr style="text-align: center;">
+                                <th>Clean Seed Leg M023</th>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;">
+                                </td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                              </tr>
+
                             </tbody>
 
-                            <tbody>
-                              <tr style="text-align: center;">
-                                <th>Gravity Table Feed Leg</th>
-                                <td><input type="checkbox" style="width: 20px; height: 20px;">
-                                </td>
-                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
-                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
 
-
-                              </tr>
-
-                              <tr style="text-align: center;">
-                                <th>Clean Leg</th>
-                                <td><input type="checkbox" style="width: 20px; height: 20px;">
-                                </td>
-                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
-                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
-                              </tr>
-                              <tr style="text-align: center;">
-                                <th>Graviy Reclean Leg to 108 (Middling's)</th>
-                                <td><input type="checkbox" style="width: 20px; height: 20px;">
-                                </td>
-                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
-                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
-                              </tr>
-
-
-                            </tbody>
                           </table>
                         </div>
                       </div>
@@ -10751,13 +10881,12 @@
                         </div>
                       </div>
 
-
                     </div>
 
                   </div>
                 </div>
               </div>
-              <div class="box-container">
+              <div class="box-container"><!--Equipment Blow Down Procedure-->
                 <div class="scale_outer">
                   <div class="scale_inner"
                     style="border: 1.5px solid #007e4e;padding: 25px; border-radius: 10px; margin: 10px 0;">
@@ -10770,7 +10899,8 @@
                           <table class="table table-striped commodity_table" style="font-size: 14px;">
                             <thead>
                               <tr>
-                                <th style="text-align: center;">Blow Down All Plant Equipment and Ledges CheckList</th>
+                                <th style="text-align: center;">Blow Down All Plant Equipment, Legs, Tubes, Floor
+                                  CheckList</th>
                                 <th>Yes</th>
                                 <th>No</th>
                                 <th>Lock Out Done?</th>
@@ -10785,7 +10915,7 @@
                                 <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
                               </tr>
                               <tr style="text-align: center;">
-                                <th>Top Of 108 Cleaner</th>
+                                <th>Top Of Delta 108 Cleaner</th>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;">
                                 </td>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
@@ -10799,7 +10929,7 @@
                                 <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
                               </tr>
                               <tr style="text-align: center;">
-                                <th>Top of Surge Bin To Destoner</th>
+                                <th>Top of Surge Bin </th>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;">
                                 </td>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
@@ -10812,6 +10942,14 @@
                                 <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
                               </tr>
+                              <tr style="text-align: center;">
+                                <th>Destoner Clean up</th>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;">
+                                </td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                              </tr>
+
                             </tbody>
                           </table>
                         </div>
@@ -10823,7 +10961,7 @@
                           <table class="table table-striped commodity_table" style="font-size: 14px;">
                             <thead>
                               <tr>
-                                <th>Blow Down All Plant Equipment and Ledges CheckList</th>
+                                <th>Blow Down All Plant Equipment, Legs, Tubes, Floor CheckList</th>
                                 <th>Yes</th>
                                 <th>No</th>
                                 <th>Lock Out Done?</th>
@@ -10831,14 +10969,14 @@
                             </thead>
                             <tbody>
                               <tr style="text-align: center;">
-                                <th>Hood On Gravity Table</th>
+                                <th>Hood On Gravity Table M047</th>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;">
                                 </td>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
                               </tr>
                               <tr style="text-align: center;">
-                                <th>Top Of Gravity Table</th>
+                                <th>Top Of Gravity Table M047</th>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;">
                                 </td>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
@@ -10852,7 +10990,21 @@
                                 <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
                               </tr>
                               <tr style="text-align: center;">
-                                <th>Top Of Dirt Machine Hopper and Conveyor</th>
+                                <th>Top Of Dirt Machine Hopper</th>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;">
+                                </td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                              </tr>
+                              <tr style="text-align: center;">
+                                <th>Top Of Dirt Machine Conveyor</th>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;">
+                                </td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                              </tr>
+                              <tr style="text-align: center;">
+                                <th>Clean up Plant Floor</th>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;">
                                 </td>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
@@ -11014,7 +11166,7 @@
                   </div>
                 </div>
               </div>
-              <div class="box-container">
+              <div class="box-container"> <!--Screen Change Procedure-->
                 <div class="scale_outer">
                   <div class="scale_inner"
                     style="border: 1.5px solid #007e4e;padding: 25px; border-radius: 10px; margin: 10px 0;">
@@ -11255,7 +11407,7 @@
                   </div>
                 </div>
               </div>
-              <div class="box-container">
+              <div class="box-container"><!--Color Sorter Clean Up Procedure-->
                 <div class="scale_outer">
                   <div class="scale_inner"
                     style="border: 1.5px solid #007e4e;padding: 25px; border-radius: 10px; margin: 10px 0;">
@@ -11487,12 +11639,12 @@
                   </div>
                 </div>
               </div>
-              <div class="box-container">
+              <div class="box-container"><!-- Tubes and Drag Cleaning Procedure-->
                 <div class="scale_outer">
                   <div class="scale_inner"
                     style="border: 1.5px solid #007e4e;padding: 25px; border-radius: 10px; margin: 10px 0;">
 
-                    <h3 style="color: #007e4e; margin: 0 0 15px 0;">Tubes and Drag Cleaning Procedure</h3>
+                    <h3 style="color: #007e4e; margin: 0 0 15px 0;">Euipment, Tubes and Drag Cleaning Procedure</h3>
                     <div class="row"> <!-- Row Delta Screens-->
                       <div class="col-md-6 col-sm-6 col-xs-12">
 
@@ -11500,7 +11652,7 @@
                           <table class="table table-striped commodity_table" style="font-size: 14px;">
                             <thead>
                               <tr>
-                                <th style="text-align: center;">Run Following Tubes to Ensure they are Clean CheckList
+                                <th style="text-align: center;">Run Following Equipment, Tubes to Ensure they are clean
                                 </th>
                                 <th>Yes</th>
                                 <th>No</th>
@@ -11509,62 +11661,160 @@
                             </thead>
                             <tbody>
                               <tr style="text-align: center;">
-                                <th>Indent By Pass Tube</th>
+                                <th>Delta 108 Shake M042</th>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;">
                                 </td>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
                               </tr>
                               <tr style="text-align: center;">
-                                <th>Dirt Machine Feed Tube</th>
+                                <th>Screenings T-Veyour M020</th>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;">
                                 </td>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
                               </tr>
                               <tr style="text-align: center;">
-                                <th>Dirt Machine Discharge Tube</th>
+                                <th>Screenings Leg M019</th>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;">
                                 </td>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
                               </tr>
                               <tr style="text-align: center;">
-                                <th>Delta 108 Screening Tube and Leg</th>
+                                <th>LM Leg 1 M040</th>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;">
                                 </td>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
                               </tr>
                               <tr style="text-align: center;">
-                                <th>Gravity Recleaner Tube and Leg</th>
+                                <th>Indent By Pass Tube M025</th>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;">
                                 </td>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
                               </tr>
                               <tr style="text-align: center;">
-                                <th>Color Sorter Feed Tube</th>
+                                <th>Indent #1 M048</th>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;">
                                 </td>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
                               </tr>
                               <tr style="text-align: center;">
-                                <th>Color Sorter Main Cross Conveyor</th>
-                                <td><input type="checkbox" style="width: 20px; height: 20px;">
-                                </td>
-                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
-                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
-                              </tr>
-                              <tr style="text-align: center;">
-                                <th>Tube to Tote Bin</th>
+                                <th>Indent #2 M007</th>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;">
                                 </td>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
                               </tr>
 
+                              <tr style="text-align: center;">
+                                <th>Indent Leg M014</th>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;">
+                                </td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                              </tr>
+                              <tr style="text-align: center;">
+                                <th>Destoner M045</th>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;">
+                                </td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                              </tr>
+                              <tr style="text-align: center;">
+                                <th>LMC Leg 2 M026</th>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;">
+                                </td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                              </tr>
+                              <tr style="text-align: center;">
+                                <th>Gravity Table M047</th>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;">
+                                </td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                              </tr>
+                              <tr style="text-align: center;">
+                                <th>Middling Leg M023</th>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;">
+                                </td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                              </tr>
+                              <tr style="text-align: center;">
+                                <th>Reclean T-Veyour M022</th>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;">
+                                </td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                              </tr>
+                              <tr style="text-align: center;">
+                                <th>Reclean Leg M021</th>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;">
+                                </td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                              </tr>
+                              <tr style="text-align: center;">
+                                <th>Dirt Machine Feed Tube M052</th>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;">
+                                </td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                              </tr>
+                              <tr style="text-align: center;">
+                                <th>Dirt Machine Discharge Tube M051</th>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;">
+                                </td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                              </tr>
+                              <tr style="text-align: center;">
+                                <th>Color Sorter Feed Tube M001</th>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;">
+                                </td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                              </tr>
+                              <tr style="text-align: center;">
+                                <th>Color Sorter Clean Out</th>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;">
+                                </td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                              </tr>
+                              <tr style="text-align: center;">
+                                <th>Color Sorter Cross Conveyor M079 Forward</th>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;">
+                                </td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                              </tr>
+                              <tr style="text-align: center;">
+                                <th>Color Sorter Cross Conveyor M079 Reverse To MG110</th>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;">
+                                </td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                              </tr>
+                              <tr style="text-align: center;">
+                                <th>Top T-Veyour to MG110 M037</th>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;">
+                                </td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                              </tr>
+                              <tr style="text-align: center;">
+                                <th>Clean Seed to C1 Conveyor M058 To MG117</th>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;">
+                                </td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                              </tr>
                             </tbody>
                           </table>
                         </div>
@@ -11576,7 +11826,7 @@
                           <table class="table table-striped commodity_table" style="font-size: 14px;">
                             <thead>
                               <tr>
-                                <th style="text-align: center;">Color Sorter and Color Sorter Room CheckList</th>
+                                <th style="text-align: center;">Run Following Tubes to Ensure they are clean</th>
                                 <th>Yes</th>
                                 <th>No</th>
                                 <th>Lock Out Done?</th>
@@ -11584,14 +11834,98 @@
                             </thead>
                             <tbody>
                               <tr style="text-align: center;">
-                                <th>Clean The Color Sorter and the Room, Sweep the Floor and Blow Away the Dust</th>
+                                <th>From MG110 to Bagging bin</th>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;">
                                 </td>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
                               </tr>
                               <tr style="text-align: center;">
-                                <th>Adjust The Color Sorter Reject Valves to Their Correct Positions</th>
+                                <th>From MG110 to Tall Bin T-Veyor M055</th>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;">
+                                </td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                              </tr>
+                              <tr style="text-align: center;">
+                                <th>From MG110 to Bagging Bin #2 T-Veyor M409</th>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;">
+                                </td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                              </tr>
+                              <tr style="text-align: center;">
+                                <th>From MG117 to C2 T-Veyor M059</th>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;">
+                                </td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                              </tr>
+                              <tr style="text-align: center;">
+                                <th>T-Veyor To C3 M035</th>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;">
+                                </td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                              </tr>
+                              <tr style="text-align: center;">
+                                <th>T-Veyor To C4 M033</th>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;">
+                                </td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                              </tr>
+                              <tr style="text-align: center;">
+                                <th>Top Drag To C5 M036</th>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;">
+                                </td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                              </tr>
+                              <tr style="text-align: center;">
+                                <th>Top Drag To C6A M036</th>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;">
+                                </td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                              </tr>
+                              <tr style="text-align: center;">
+                                <th>T-Veyor To C6B M414</th>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;">
+                                </td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                              </tr>
+                              <tr style="text-align: center;">
+                                <th>T From MG108 to T-Veyor To C7 M064</th>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;">
+                                </td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                              </tr>
+                              <tr style="text-align: center;">
+                                <th>T-Veyor To C8 M065</th>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;">
+                                </td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                              </tr>
+                              <tr style="text-align: center;">
+                                <th>T-Veyor To C9,C10 M070</th>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;">
+                                </td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                              </tr>
+                              <tr style="text-align: center;">
+                                <th>T-Veyor Forward To C9 M411</th>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;">
+                                </td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                                <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
+                              </tr>
+                              <tr style="text-align: center;">
+                                <th>T-Veyor Reverse To C10 M411</th>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;">
                                 </td>
                                 <td><input type="checkbox" style="width: 20px; height: 20px;"></td>
@@ -11755,7 +12089,7 @@
                   </div>
                 </div>
               </div>
-              <div class="box-container">
+              <div class="box-container"><!-- Double Check Clean Bin Procedure-->
                 <div class="scale_outer">
 
                   <div class="scale_inner"
