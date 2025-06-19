@@ -10384,13 +10384,13 @@
                         </label>
                       </div>
                     </div>
-                    <div class="tbl" style="width: 20%!important;">
+                    <div class="tbl" style="width: 15%!important;">
                       <label>Operator Name</label>
                       <input type="text" name="" ng-enter="search()" ng-model="myForm.name"
                         class="ng-pristine ng-untouched ng-valid ng-empty" aria-invalid="false">
                     </div>
-                    <div class="tbl" style="width: 20%!important;">
-                      <label>Commodity</label>
+                    <div class="tbl" style="width: 15%!important;">
+                      <label>Previous Commodity</label>
                       <select style="font-size: 14px;height: 34px;color: #000;width: 100%;" name="commodity"
                         ng-options="commodity._id as commodity.commodityName for commodity in commoditys"
                         ng-model="myForm.commodity" ng-change="search()"
@@ -10507,9 +10507,126 @@
                         </option>
                       </select>
                     </div>
-
+                    <div class="tbl" style="width: 15%!important;">
+                      <label>Next Commodity</label>
+                      <select style="font-size: 14px;height: 34px;color: #000;width: 100%;" name="commodity"
+                        ng-options="commodity._id as commodity.commodityName for commodity in commoditys"
+                        ng-model="myForm.commodity" ng-change="search()"
+                        class="ng-pristine ng-untouched ng-valid ng-empty" aria-invalid="false">
+                        <option value="" class="" selected="selected">Select Commodity</option>
+                        <option label="Austrian Winter Peas" value="string:5ba54ecbfebd7239631cb242">Austrian Winter
+                          Peas</option>
+                        <option label="Austrian Winter Peas 4" value="string:5cb5ea824c50d3484a78f686">Austrian Winter
+                          Peas 4</option>
+                        <option label="B90 Chickpea" value="string:6077154f587979a3004b54aa">B90 Chickpea</option>
+                        <option label="Barley" value="string:5d72c7140457d163cafc83df">Barley</option>
+                        <option label="Bean Splits" value="string:5e8e08fa57f3c27ff3134c5a">Bean Splits</option>
+                        <option label="Beluga Lentil" value="string:5d95011749024303670af43e">Beluga Lentil</option>
+                        <option label="Black Beans" value="string:5bc63a890268e557be9a3530">Black Beans</option>
+                        <option label="CDC RAY" value="string:5ba550a2febd7239631cb266">CDC RAY</option>
+                        <option label="Canaryseed" value="string:5ba54792e623a2362e4b36a2">Canaryseed</option>
+                        <option label="Canola" value="string:5d597a315830ff57711813f2">Canola</option>
+                        <option label="Cranberry Bean" value="string:5bc63bc60268e557be9a3551">Cranberry Bean</option>
+                        <option label="Cranberry Bean Splits" value="string:5ebada7e3a1ce64a89e2f1e8">Cranberry Bean
+                          Splits</option>
+                        <option label="Dark Red Kidney" value="string:5c6c0f73d44222314ac5e550">Dark Red Kidney</option>
+                        <option label="Desi Chick Pea Splits (Chana Dahl)" value="string:6560e2190756d1ddc13e3b9d">Desi
+                          Chick Pea Splits (Chana Dahl)</option>
+                        <option label="Dunn Pea" value="string:642358a8df648d000b4b15dc">Dunn Pea</option>
+                        <option label="Faba Bean (Low Tannin)" value="string:5ba54875e623a2362e4b36a6">Faba Bean (Low
+                          Tannin)</option>
+                        <option label="Faba Bean Tannin" value="string:5fc6848dea929f015c2880c0">Faba Bean Tannin
+                        </option>
+                        <option label="Fall Rye" value="string:61e9abfa34592a000b504b9c">Fall Rye</option>
+                        <option label="Feed Peas" value="string:5bc82c240268e557be9a3adc">Feed Peas</option>
+                        <option label="Flaxseed Brown" value="string:5ba548bde623a2362e4b36a8">Flaxseed Brown</option>
+                        <option label="Flaxseed Golden" value="string:664f7df36af8e5ad362b865f">Flaxseed Golden</option>
+                        <option label="French Green Lentils" value="string:5c47be7371b30655e6c8000a">French Green
+                          Lentils</option>
+                        <option label="Green Split Peas" value="string:5c10958a3c63f6272266ee0d">Green Split Peas
+                        </option>
+                        <option label="Hemp Seeds" value="string:5ba550dcfebd7239631cb268">Hemp Seeds</option>
+                        <option label="Kabuli Chick Peas" value="string:5ba549c3e623a2362e4b36ae">Kabuli Chick Peas
+                        </option>
+                        <option label="Kabuli Chickpea Splits" value="string:5ebadb373a1ce64a89e2f1ea">Kabuli Chickpea
+                          Splits</option>
+                        <option label="Large Green Lentils (Laird type)" value="string:5ba54c12e623a2362e4b36d0">Large
+                          Green Lentils (Laird type)</option>
+                        <option label="MFP Feed (Splits and Smalls)" value="string:5e44d50940e43115611d3ba7">MFP Feed
+                          (Splits and Smalls)</option>
+                        <option label="Maple Peas" value="string:5ba5496de623a2362e4b36ac">Maple Peas</option>
+                        <option label="Maple Peas JP type" value="string:5bc81c340268e557be9a3ad6">Maple Peas JP type
+                        </option>
+                        <option label="Maple Peas JPD" value="string:5bc81f070268e557be9a3ad8">Maple Peas JPD</option>
+                        <option label="Marrowfat Peas" value="string:5bc1096e318e903923f9a1f7">Marrowfat Peas</option>
+                        <option label="Medium Green Lentils (Richlea Type)" value="string:5ba54b4fe623a2362e4b36b2">
+                          Medium Green Lentils (Richlea Type)</option>
+                        <option label="Navy Bean" value="string:5f19aa38b8a23017c554633e">Navy Bean</option>
+                        <option label="Oats" value="string:60286847a773a21edeff3e31">Oats</option>
+                        <option label="Organic Beluga" value="string:5f57e176c8a3e631e5350680">Organic Beluga</option>
+                        <option label="Organic Black Beans" value="string:5e25d1042f48971585a6f190">Organic Black Beans
+                        </option>
+                        <option label="Organic Brown Flax" value="string:60708ae3587979a3004afeb9">Organic Brown Flax
+                        </option>
+                        <option label="Organic Desi Chick Peas" value="string:5e25cdcf2f48971585a6f13d">Organic Desi
+                          Chick Peas</option>
+                        <option label="Organic Faba Beans" value="string:5e25bcc92f48971585a6f0dc">Organic Faba Beans
+                        </option>
+                        <option label="Organic French Green Lentils" value="string:5c5b0488962c025e067837ed">Organic
+                          French Green Lentils</option>
+                        <option label="Organic Kabuli Chickpeas" value="string:5bc79b420268e557be9a3a86">Organic Kabuli
+                          Chickpeas</option>
+                        <option label="Organic Large Green Lentils" value="string:5ba55157334a51398f88bc85">Organic
+                          Large Green Lentils</option>
+                        <option label="Organic Marrowfat Peas" value="string:5ba54fbdfebd7239631cb248">Organic Marrowfat
+                          Peas</option>
+                        <option label="Organic Pinto Beans" value="string:5bd152b6fb09b01b6aba9d36">Organic Pinto Beans
+                        </option>
+                        <option label="Organic Red Lentils" value="string:5f15abfbb8a23017c5543002">Organic Red Lentils
+                        </option>
+                        <option label="Organic Small Green Lentils" value="string:5c86a48768bd7838821cf90a">Organic
+                          Small Green Lentils</option>
+                        <option label="Organic Small Marrowfat Pea" value="string:65fb287fd044bdbc1103fea6">Organic
+                          Small Marrowfat Pea</option>
+                        <option label="Organic Wheat" value="string:6070905d587979a3004afedb">Organic Wheat</option>
+                        <option label="Organic Whole Green Peas" value="string:5ddd97dc0ed39e02215590a4">Organic Whole
+                          Green Peas</option>
+                        <option label="Organic Whole Green Peas Espace Type" value="string:5f75f51e29352f2768a5589f">
+                          Organic Whole Green Peas Espace Type</option>
+                        <option label="Organic Yellow Flax" value="string:60708af9587979a3004afebb">Organic Yellow Flax
+                        </option>
+                        <option label="Organic Yellow Peas" value="string:5bfe4a4ea2467f3dc8f79322">Organic Yellow Peas
+                        </option>
+                        <option label="Otebo Beans" value="string:5ba54f2dfebd7239631cb244">Otebo Beans</option>
+                        <option label="Pea Hulls" value="string:62bddd15479a8b000ba31cf1">Pea Hulls</option>
+                        <option label="Pea/Lentil Screenings" value="string:5c10da64cbdd6837ed51f32a">Pea/Lentil
+                          Screenings</option>
+                        <option label="Pinto Bean" value="string:5ba54baae623a2362e4b36ce">Pinto Bean</option>
+                        <option label="Red Split Lentils" value="string:5bc7b6510268e557be9a3ad2">Red Split Lentils
+                        </option>
+                        <option label="Small Green Lentils (Eston Type)" value="string:5ba5502efebd7239631cb24a">Small
+                          Green Lentils (Eston Type)</option>
+                        <option label="Small Marrowfat Pea" value="string:5bf487652ffe4a6a595fdec9">Small Marrowfat Pea
+                        </option>
+                        <option label="Wheat" value="string:60286754a773a21edeff3d8c">Wheat</option>
+                        <option label="Whole Green Peas" value="string:5ba5491be623a2362e4b36aa">Whole Green Peas
+                        </option>
+                        <option label="Whole Green Peas (Espace Type)" value="string:5ba54c83e623a2362e4b36d2">Whole
+                          Green Peas (Espace Type)</option>
+                        <option label="Whole Red Lentils (Crimson type)" value="string:5ba54a61e623a2362e4b36b0">Whole
+                          Red Lentils (Crimson type)</option>
+                        <option label="Whole Yellow Peas" value="string:5ba547fee623a2362e4b36a4">Whole Yellow Peas
+                        </option>
+                        <option label="Whole Yellow Peas (TRK)" value="string:66422cda7568ba15131de1b1">Whole Yellow
+                          Peas (TRK)</option>
+                        <option label="Yellow Bean" value="string:5ea314ad04f2fc2d287e4a9b">Yellow Bean</option>
+                        <option label="Yellow Flax" value="string:6077141e587979a3004b5499">Yellow Flax</option>
+                        <option label="Yellow Split Peas" value="string:5c1095013c63f6272266ee0a">Yellow Split Peas
+                        </option>
+                      </select>
+                    </div>
                     <!-- FROM Date -->
-                    <div class="tbl" style="width: 20%!important;">
+                    <div class="tbl" style="width: 15%!important;">
                       <label>From Date</label>
                       <datepicker style="width: 100%" class="date_pic ng-isolate-scope" date-format="yyyy-MM-dd"
                         selector="form-control">
@@ -10764,7 +10881,7 @@
                       </datepicker>
                     </div><!-- FROM Date  END-->
                     <!-- To Date -->
-                    <div class="tbl" style="width: 20%!important;">
+                    <div class="tbl" style="width: 15%!important;">
                       <label>To Date</label>
                       <datepicker style="width: 100%" class="date_pic ng-isolate-scope" date-format="yyyy-MM-dd"
                         selector="form-control">
@@ -11019,7 +11136,7 @@
                       </datepicker>
                     </div><!-- To Date  END-->
                     <!-- See More -->
-                    <div class="tbl" style="width: 10%!important;">
+                    <div class="tbl" style="width: 15%!important;">
                       <label>See More</label>
                       <select style="font-size: 14px;height: 34px;color: #000;width: 100%;" name="seeMore"
                         ng-model="myForm.limit" ng-change="search()"

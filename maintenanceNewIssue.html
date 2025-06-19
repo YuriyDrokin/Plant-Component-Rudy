@@ -10360,36 +10360,23 @@
               <div class="pro_header ">
 
                 <div class="row">
-                  <div class="col-md-4">
+                  <div class="col-md-6">
                     <div class="frval">
-                      <label>Equipment</label>
-                      <input class="ng-pristine ng-valid ng-empty ng-touched">
+                      <label>Equipment / Asset</label>
+                      <input class="ng-pristine ng-valid ng-empty ng-touched"
+                        placeholder="Enter equipment name or ID number">
 
 
                     </div>
                   </div>
-                  <div class="col-md-4">
-                    <div class="frval">
-                      <label>Department</label>
-                      <select name="commodityType" class="ng-pristine ng-valid ng-empty ng-touched">
-                        <option value="" class="" selected="selected">Select Department</option>
-                        <option label="Operators" value="">Operators</option>
-                        <option label="Shippers" value="">Shippers</option>
-                        <option label="Transferring" value="">Transferring</option>
-                        <option label="Maintenance" value="">Maintenance</option>
-                        <option label="Main Office" value="">Main Office</option>
 
-                      </select>
-
-                    </div>
-                  </div>
-                  <div class="col-md-4">
+                  <div class="col-md-6">
                     <div class="frval" ng-hide="">
                       <label>Date</label>
                       <datepicker class="date_pic" date-format="yyyy-MM-dd" selector="form-control">
                         <div class="input-group">
                           <input name="dateFrom" class="form-control ng-pristine ng-untouched ng-valid ng-empty"
-                            placeholder="Choose a date" autocomplete="off" ng-change="" aria-invalid="false">
+                            placeholder="Select date of issue" autocomplete="off" ng-change="" aria-invalid="false">
 
                           <span class="input-group-addon" style="cursor: pointer">
                             <svg class="svg-inline--fa fa-calendar fa-w-14 fa-lg" aria-hidden="true" focusable="false"
@@ -10420,14 +10407,15 @@
                       <div class="col-md-6 col-sm-6 col-xs-12">
                         <div class="frval" style="position: relative">
                           <label>Issue / Problem</label>
-                          <input type="text" placeholder="Equipment name or number"
+                          <input type="text" placeholder="Describe the issue or malfunction"
                             class="ng-pristine ng-valid ng-empty ng-touched">
                         </div>
 
 
                         <div class="commtr_box">
                           <h2>Comment</h2>
-                          <textarea ng-model="" class="ng-pristine ng-untouched ng-valid ng-empty" rows="5"></textarea>
+                          <textarea placeholder="Provide Additional details or context"
+                            class="ng-pristine ng-untouched ng-valid ng-empty" rows="5"></textarea>
                         </div>
 
 
@@ -10438,7 +10426,7 @@
 
                         <div class="frval" style="position: relative" ng-hide="" aria-hidden="false">
                           <label>Requested</label>
-                          <input type="text" placeholder="Write your Name"
+                          <input type="text" placeholder="Enter requester's full name"
                             class="ng-pristine ng-valid ng-empty ng-touched">
                         </div>
 
@@ -10462,38 +10450,27 @@
                       <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="frval">
                           <label>Description of Work</label>
-                          <input type="text" placeholder="Equipment / Asset"
+                          <input type="text" placeholder="Describe maintenance or repair performed"
                             class="ng-pristine ng-valid ng-empty ng-touched">
                         </div>
                         <div>
                           <div class="commtr_box">
                             <h2>Comment</h2>
                             <textarea ng-model="" class="ng-pristine ng-untouched ng-valid ng-empty"
-                              aria-invalid="false"></textarea>
+                              placeholder="Add notes, findings, or special instructions"></textarea>
                           </div>
                         </div>
 
 
                       </div>
                       <div class="col-md-4 col-sm-4 col-xs-12">
-                        <div class="frval">
-                          <label>Action Taken</label>
-                          <select name="" class="ng-pristine ng-empty ng-invalid ng-invalid-required ng-touched"
-                            required="required">
-                            <option value="" selected="selected">Select Action</option>
-                            <option value="time">Temporary Fix Applied</option>
-                            <option value="time">Repair Completed</option>
-                            <option value="time">Parts Ordered</option>
-                            <option value="time">Scheduled Maintencance</option>
 
-                          </select>
-                        </div>
                         <div class="frval">
                           <label>Status</label>
 
                           <select name="" class="ng-pristine ng-empty ng-invalid ng-invalid-required ng-touched"
                             required="required">
-                            <option value="" selected="selected">Select Status</option>
+                            <option value="" selected="selected">Select maintenance status</option>
 
                             <option value="time">In Progress</option>
                             <option value="time">Pending</option>
@@ -10511,7 +10488,7 @@
                           <datepicker class="date_pic" date-format="yyyy-MM-dd" selector="form-control">
                             <div class="input-group">
                               <input class="form-control ng-pristine ng-untouched ng-valid ng-empty"
-                                placeholder="Choose a date" autocomplete="off">
+                                placeholder="Select date when maintenance was done" autocomplete="off">
 
                               <span class="input-group-addon" style="cursor: pointer">
                                 <svg class="svg-inline--fa fa-calendar fa-w-14 fa-lg" aria-hidden="true"
@@ -10531,8 +10508,8 @@
                           <datepicker class="date_pic" date-format="yyyy-MM-dd" selector="form-control">
                             <div class="input-group">
                               <input name="dateFrom" class="form-control ng-pristine ng-untouched ng-valid ng-empty"
-                                ng-model="myForm.fromDate" placeholder="Choose a date" autocomplete="off" ng-change=""
-                                aria-invalid="false">
+                                ng-model="myForm.fromDate" placeholder="Select scheduled follow-up date (if any)"
+                                autocomplete="off" ng-change="" aria-invalid="false">
 
                               <span class="input-group-addon" style="cursor: pointer">
                                 <svg class="svg-inline--fa fa-calendar fa-w-14 fa-lg" aria-hidden="true"
@@ -10549,7 +10526,7 @@
                         </div>
                         <div class="frval" style="position: relative" ng-hide="" aria-hidden="false">
                           <label>Technician Name</label>
-                          <input type="text" placeholder="Technician Name"
+                          <input type="text" placeholder="Enter technician’s full name"
                             class="ng-pristine ng-valid ng-empty ng-touched">
                         </div>
                       </div>
@@ -10580,20 +10557,23 @@
               font-weight: 600;
               border: 4px solid #000;
             ">
-                <h1 style="text-decoration: underline">Steps</h1>
+                <h1 style="text-decoration: underline">Steps for Maintenance Log</h1>
                 <ol>
-                  <li>Write Equipment Name or Code</li>
-                  <li>Choose Department</li>
-                  <li>Enter Report Date</li>
-                  <li>Describe Issue/Problem</li>
-
-                  <li>Write Your Name</li>
-                  <li>Describe Description of Work in a few words</li>
-                  <li>Choose Action Witch need to be taken</li>
-                  <li>Choose Status</li>
+                  <li>Enter Equipment Name or Code</li>
+                  <li>Select Report Date</li>
+                  <li>Describe Issue or Problem</li>
+                  <li>Enter Your Name</li>
+                  <li>Add Additional Comments</li>
+                </ol>
+                <h1 style="text-decoration: underline">Steps Technician Report</h1>
+                <ol>
+                  <li>Enter Describtion of Work</li>
+                  <li>Select Maintenance Status</li>
                   <li>Enter Maintenance Date</li>
-                  <li>Enter Next Maintenance</li>
-                  <li>Add Technician Name</li>
+                  <li>Enter Next Scheduled Maintenance (if applicable)</li>
+                  <li>Enter Technician Name</li>
+                  <li>Review and Submit the Form</li>
+
                 </ol>
               </div>
             </div>
@@ -10602,103 +10582,12 @@
         <!-- </div> -->
       </div>
 
-      <div class="popup_overlay ng-scope"></div>
-      <div class="add_coomm new_add grower_popup ng-scope">
-        <div class="enter_comm_typ">
-          <div class="head_comm head_2">
-            <h2>Split Ticket</h2>
-            <div type="button" class="close" ng-click="closepop()" role="button" tabindex="0">×</div>
-          </div>
-          <div class="panel_body">
-            <div class="panel_body_inner inner_box_List_add pop">
-              <div class="col-md-12">
-                <div class="add_commodity add_growers_form">
-                  <button type="button" style="float: right" ng-show="myForm.isSplitTicket" ng-click="deleteSplits()"
-                    aria-hidden="true" class="ng-hide">
-                    Delete Splits
-                  </button>
-                  <div class="comodity_table" style="margin-right: 50px !important; width: 98%">
-                    <table class="table table-striped commodity_table">
-                      <thead>
-                        <tr>
-                          <th>Commodity</th>
-                          <th>Grower</th>
-                          <th>Contract No</th>
-                          <th>Net Weight</th>
-                          <!-- <th>Gross</th>
-                                          <th>Tare</th> -->
-                        </tr>
-                      </thead>
-                      <!--   -->
-                      <tbody class="example-animate-container">
-                        <!-- ngRepeat: v in list track by $index -->
-                      </tbody>
-                    </table>
-                  </div>
-                  <h3 style="
-                  color: #007e4e;
-                  font-weight: 400;
-                  display: inline-block;
-                  margin: 0;
-                " class="ng-binding">
-                    Total Weight:
-                  </h3>
-                  <button ng-click="splittTicket()" ng-disabled="splittRequest" class="ng-binding">
-                    Save
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+
     </div>
 
-    <div class="popup_overlay ng-scope"></div>
 
-    <div class="add_coomm new_add grower_popup ng-scope">
-      <div class="enter_comm_typ">
-        <div class="head_comm head_2">
-          <h2>Split Ticket</h2>
-          <div type="button" class="close" ng-click="closepop()" role="button" tabindex="0">×</div>
-        </div>
-        <div class="panel_body">
-          <div class="panel_body_inner inner_box_List_add pop">
-            <div class="col-md-12">
-              <div class="add_commodity add_growers_form">
-                <div class="comodity_table" style="margin-right: 50px !important; width: 98%">
-                  <table class="table table-striped commodity_table">
-                    <thead>
-                      <tr>
-                        <th>Commodity</th>
-                        <th>Buyer</th>
-                        <th>Contract No</th>
-                        <th>Net Weight</th>
-                      </tr>
-                    </thead>
-                    <!--   -->
-                    <tbody class="example-animate-container">
-                      <!-- ngRepeat: v in list track by $index -->
-                    </tbody>
-                  </table>
-                </div>
-                <h3 style="
-                    color: #007e4e;
-                    font-weight: 400;
-                    display: inline-block;
-                    margin: 0;
-                  " class="ng-binding">
-                  Total Weight:
-                </h3>
-                <button ng-click="splittTicket()" ng-disabled="splittRequest" class="ng-binding">
-                  Save
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+
+
 
   </div>
 
