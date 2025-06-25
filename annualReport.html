@@ -9970,7 +9970,7 @@ overflow: hidden;">
 
                     <h3
                       style="font-size:16px !important;display: flex;align-items:center;justify-content: space-between;">
-                      Commodity Flow by Year
+                      Annual Commodity Cleaning Report
                       <select style="margin-left: auto;font-size: 9pt;height: 22px;margin-right: 10px;" ng-model=""
                         ng-change="" ng-options="" class="" aria-invalid="false">
                         <option label="2025" value="commodity2025" selected="selected">2025</option>
@@ -10025,7 +10025,7 @@ overflow: hidden;">
 
                     <h3
                       style="font-size:16px !important;display: flex;align-items:center;justify-content: space-between;">
-                      Annual Downtime by Year
+                      Annual Downtime Summary
                       <select style="margin-left: auto;font-size: 9pt;height: 22px;margin-right: 10px;" ng-model=""
                         ng-change="" ng-options="" class="" aria-invalid="false">
                         <option label="2025" value="commodity2025" selected="selected">2025</option>
@@ -10109,15 +10109,15 @@ width: 40vw;">
                             <th>Operator</th>
                             <th>Austrian Winter Peas</th>
                             <th>Maple</th>
-                            <th>Marrofat Peas</th>
+                            <th>Marrowfat Peas</th>
                             <th>Whole Green Peas</th>
                             <th>Whole Yellow Peas</th>
                             <th>Kabuli Chick Peas</th>
-                            <th>Small Green Lentils</th>
-                            <th>Red Lentils</th>
-                            <th>Large Green Lentils</th>
+                            <th>Small Green Lentils (Eston Type)</th>
+                            <th>Whole Red Lentils (Crimson type)</th>
+                            <th>Large Green Lentils (Laird type)</th>
                             <th>Beans</th>
-                            <th>Switch Overs</th>
+                            <th>SwitchOvers</th>
                             <th>T Flow Meter</th>
                             <th>T Production</th>
 
@@ -10343,7 +10343,7 @@ width: 40vw;">
 
               },
               {
-                label: 'Prodution lbs',
+                label: 'Shift Production lbs',
                 data: [112910000, // 2025
                   104200000, // 2026
                   51000000, // 2027
@@ -10388,7 +10388,7 @@ width: 40vw;">
             data: {
               labels: ["2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035"],
               datasets: [{
-                label: 'Total lbs / Shift hours',
+                label: 'Total Production lbs / Shift hours',
                 data: [161500, 160200, 161700, 161960, 159200, 158200, 161200, 161890, 160490, 162890, 161139, 163456],
                 backgroundColor: [
                   'rgb(142, 68, 173,0.5)',
@@ -10399,7 +10399,7 @@ width: 40vw;">
                 borderWidth: 1
               },
               {
-                label: 'Total lbs / Running time',
+                label: 'Total Production lbs / Running time',
                 data: [227500, 230700, 229500, 226300, 227450, 228300, 228700, 230200, 226600, 231000, 239000, 225400],
                 backgroundColor: [
                   'rgba(52, 152, 219, 0.5)',
@@ -10423,12 +10423,13 @@ width: 40vw;">
 
           });
 
+          <!-- pieChart Commodities Cleand Annually-->
           const ctx4 = document.getElementById('pieCommodity');
 
           new Chart(ctx4, {
             type: 'pie',
             data: {
-              labels: ["Austrian Winter Peas", "Maple", "Marrofat Peas", "Whole Green Peas", "Whole Yellow Peas", "Kabuli Chick Peas", "Small Green Lentils", "Red Lentils", "Large Gren Lentils", "Beans"],
+              labels: ["Austrian Winter Peas", "Maple", "Marrowfat Peas", "Whole Green Peas", "Whole Yellow Peas", "Kabuli Chick Peas", "Small Green Lentils (Eston Type)", "Whole Red Lentils (Crimson Type)", "Large Green Lentils (Laird Type)", "Beans"],
               datasets: [{
                 label: 'Total Production lbs',
                 data: [16150.200, 12230.400, 16170.400, 12196.900, 15920.700, 14820.200, 16120.100, 19234.567, 17890.280, 7890.456],
@@ -10504,14 +10505,16 @@ width: 40vw;">
           });
           const ctx5 = document.getElementById('pieDowntime');
 
+
           new Chart(ctx5, {
             type: 'polarArea',
             data: {
-              labels: ["Product Not Grading", "Clean Bin Full", "No Rough PRoduct to Clean", "Screening/Feed Bin Full", "Transffering", "Preventable Maintanance", "Color Sorter Set up", "Waiting on Transffering", "Plant Equipment issue", "Yard / Transffering equipment issue", "Equipment break down", "Plant Switch over", "Other"],
+              labels: ["Product Not Grading", "Clean Bin Full", "No Rough Product to Clean", "Screening/Feed Bin Full", "Transferring (shutdown to do)", "Receiving (shutdown to do)", "Preventable Maintanance", "Color Sorter Set up", "Waiting on transferring", "Equipment break down", "Plant Equipment issue", "Yard / Transfer equipment issue", "Plant Switchover", "Other"],
               datasets: [{
                 label: 'Hours',
-                data: [460, 160, 360, 450, 470, 650, 550, 770, 880, 990,],
+                data: [460, 160, 360, 450, 470, 650, 550, 770, 880, 990, 320, 456, 567, 123],
                 backgroundColor: [
+                  'rgba(64, 224, 208, 0.5)', // NEW top - distinct turquoise
                   'rgba(231, 76, 60, 0.5)',
                   'rgba(46, 204, 113, 0.5)',
                   'rgba(52, 152, 219, 0.5)',
@@ -10524,10 +10527,12 @@ width: 40vw;">
                   'rgba(0, 206, 201, 0.5)',
                   'rgba(108, 92, 231, 0.5)',
                   'rgba(163, 203, 56, 0.5)',
-                  'rgba(127, 140, 141, 0.5)'
-
+                  'rgba(127, 140, 141, 0.5)',
+                  'rgba(64, 224, 208, 0.5)' // NEW bottom
                 ],
+
                 borderColor: [
+                  'rgba(64, 224, 208, 1)', // NEW top
                   'rgba(231, 76, 60, 1)',
                   'rgba(46, 204, 113, 1)',
                   'rgba(52, 152, 219, 1)',
@@ -10540,9 +10545,9 @@ width: 40vw;">
                   'rgba(0, 206, 201, 1)',
                   'rgba(108, 92, 231, 1)',
                   'rgba(163, 203, 56, 1)',
-                  'rgba(127, 140, 141, 1)'
-                ],
-                borderWidth: 1
+                  'rgba(127, 140, 141, 1)',
+                  'rgba(64, 224, 208, 1)' // NEW bottom
+                ]
               },
               ]
             },
